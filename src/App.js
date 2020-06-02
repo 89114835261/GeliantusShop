@@ -2,12 +2,12 @@ import React from 'react';
 import logo from './logo.svg';
 import ap from './App.module.css';
 import { BrowserRouter, Route } from 'react-router-dom';
-import HeaderMenu from './Component/HeaderMenu/HeaderMenu';
 import Header from './Component/Header/Header';
 import LeftSide from './Component/LeftSide/LeftSide';
 import Footer from './Component/Footer/Footer';
 import Main from './Component/main/Main';
 import KingAutorisation from './Component/KingAutorisation/KingAutorisation';
+import HeaderMenuContainer from './Component/HeaderMenu/HeaderMenuContainer';
 
 
 
@@ -16,7 +16,7 @@ let App = (props) => {
     <BrowserRouter>
  <div className={ap.kingWrapper}>
 
-            <HeaderMenu /> 
+            <HeaderMenuContainer />
 
             <div className={ap.wrapper}>
 
