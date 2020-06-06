@@ -2,18 +2,7 @@ const SET_ITEM_PRODUCT = 'SET_ITEM_PRODUCT';
 
 
 let initialState = {
-    product: [
-        {id: 10, 
-        name: 'Лилия Босновнаяddddddddd', 
-        price: '238asdasd0', 
-        photos: {small: 'url1', large: 'url2'}, 
-        orders: 6, preDescriptions: 'Бла-1', 
-        fullDescription: 'Туasdasdasdaт будет большое спер пупер описанпие. Оно будет чёткой прям обосраться можно какое чёткое', 
-        homePaymant: 'True',
-        raiting: 4.7,
-        voices: 54,
-        countProducts: null     }
-    ]
+    product: []
 }
 
 let productReduser = (state = initialState, action) => {

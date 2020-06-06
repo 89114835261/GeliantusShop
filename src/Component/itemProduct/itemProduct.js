@@ -21,7 +21,7 @@ let ItemProduct = (props) => {
                </div>
 
                <div className={i.infoWrapper}>
-                  <h2>{props.name}</h2>
+                  <h2>{props.name}{props.id} </h2>
                   <img src={raiting} style={{width: '200px', marginTop: '10px', padding: '0'}}></img>
                   <p>Рейтинг товара: {props.raiting} из 5</p>
                   <p>Голосов: {props.voices}</p>  
@@ -34,14 +34,15 @@ let ItemProduct = (props) => {
                
                <div className={i.descriptionMenu}>
                   
-                  <NavLink to='/Product/10/Description'><p className={i.active}>Описание</p></NavLink> 
-                  <NavLink to='/Product/10/Specification'><p>Характеристики</p></NavLink>
-                  <NavLink to='/Product/10/Reviews'><p>Отзывы</p></NavLink>
-                  <NavLink to='/Product/10/Questions'><p>Вопрос-Ответ</p></NavLink>
+                  <NavLink to={`/Product/${props.id}/Description`}><p className={i.active}>Описание</p></NavLink> 
+                  <NavLink to={`/Product/${props.id}/Specification`}><p>Характеристики</p></NavLink>
+                  <NavLink to={`/Product/${props.id}/Reviews`}><p>Отзывы</p></NavLink>
+                  <NavLink to={`/Product/${props.id}/Questions`}><p>Вопрос-Ответ</p></NavLink>
                </div>
 
-               <div className={i.description}>
-                  {props.fullDescription}
+               <div className={i.descriptionBox}>
+                  {props.descriptionBoxSwitch} - 
+                  {props.description}
                </div>
          </div>
 

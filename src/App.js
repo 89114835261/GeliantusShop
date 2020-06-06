@@ -26,7 +26,7 @@ class App extends React.Component {
                         <Header /> 
                         <LeftSide />
                     <div className={ap.content}>
-                        <Route path='/Product/:productId' render={ () => <ItemProductContainer />} />
+                        <Route path='/Product/:productId/:Parameters' render={ () => <ItemProductContainer />} />
                         <Route path='/Main' render={ () => <Main />}  />
                         <Route path='/Flowers' render={ () => <FlowersContainer />} />
                         <Route path='/AutorizationFromKing' render={ () => <KingAutorisation />}  />
