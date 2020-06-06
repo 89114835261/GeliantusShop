@@ -10,39 +10,8 @@
 
 .productsLits {
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-evenly;
+    flex-flow: row wrap;
+    justify-content: center;
     align-items: stretch;
 }
 
-.itemProduct {
-    display: block;
-    width: 200px;
-    height: 250px;
-    background-color: #a1402e;  
-    border-radius: 20px;
-    transition: background-color 0.2s linear;
-}
-
-.itemProduct:hover {
-    opacity: 1;
-    background-color: #c14d37;
-}
-
-
-
-.roductCover {
-    width: auto;
-    height: 200px;
-    border-radius: 20px 20px 0 0;
-}
-
-.itemProduct SPAN {
-    display: block;
-    height: 20px;
-    width: auto;
-    text-align: center;
-    padding-top: 15px;
-    font-weight: bold;
-    font-size: 12pt;
-}

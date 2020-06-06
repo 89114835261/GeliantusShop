@@ -8,34 +8,39 @@ import Footer from './Component/Footer/Footer';
 import Main from './Component/main/Main';
 import KingAutorisation from './Component/KingAutorisation/KingAutorisation';
 import HeaderMenuContainer from './Component/HeaderMenu/HeaderMenuContainer';
+import FlowersContainer from './Component/Flowers/FlowersContainer';
+import ItemProductContainer from './Component/itemProduct/itemProductContainer';
 
 
 
-let App = (props) => {
-  return (
-    <BrowserRouter>
- <div className={ap.kingWrapper}>
 
-            <HeaderMenuContainer />
+class App extends React.Component {
 
-            <div className={ap.wrapper}>
+   render() {
 
-                <Header />
-                
-               <LeftSide />
-                <div className={ap.content}>
+    return (
+        <BrowserRouter>
+                <div className={ap.kingWrapper}>
+                        <HeaderMenuContainer />
+                    <div className={ap.wrapper}>
+                        <Header /> 
+                        <LeftSide />
+                    <div className={ap.content}>
+                        <Route path='/Product/:productId' render={ () => <ItemProductContainer />} />
+                        <Route path='/Main' render={ () => <Main />}  />
+                        <Route path='/Flowers' render={ () => <FlowersContainer />} />
+                        <Route path='/AutorizationFromKing' render={ () => <KingAutorisation />}  />
+                    </div>
                     
-                <Route path="/Main" render={ () => <Main />}  />
-                <Route path="/AutorizationFromKing" render={ () => <KingAutorisation />}  />
-
+                        <Footer />
+                    </div>
                 </div>
-                <Footer />
+          
+        </BrowserRouter>
+      );
 
-            </div>
-        </div>
-      
-    </BrowserRouter>
-  );
+   }
+
 }
 
 export default App;
