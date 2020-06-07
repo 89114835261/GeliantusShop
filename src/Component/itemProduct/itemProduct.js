@@ -21,7 +21,7 @@ let ItemProduct = (props) => {
                </div>
 
                <div className={i.infoWrapper}>
-                  <h2>{props.name}{props.id} </h2>
+                  <h2>{props.name} ID: {props.id} </h2>
                   <img src={raiting} style={{width: '200px', marginTop: '10px', padding: '0'}}></img>
                   <p>Рейтинг товара: {props.raiting} из 5</p>
                   <p>Голосов: {props.voices}</p>  

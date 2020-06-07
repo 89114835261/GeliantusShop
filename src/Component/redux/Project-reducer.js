@@ -41,7 +41,7 @@ export const quickSort = (array, prop) => { //Функция сортировк�
   
       for (let i = 0; i < array.length; i++) { // индексы элементов в массиве идут с нуля
         if (i === pivotIndex) continue; // опорный элмент нужно пропускать
-        if (array[i][prop] <= pivot[prop]) {
+        if (array[i][prop] >= pivot[prop]) {
           less.push(array[i]);
         } else {
           greater.push(array[i]);

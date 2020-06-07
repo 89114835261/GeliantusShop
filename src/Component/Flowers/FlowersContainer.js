@@ -3,7 +3,7 @@ import F from './Flowers.module.css';
 import { connect } from 'react-redux';
 import Product from './../Product/Product';
 import {quickSort, changeProducts} from './../redux/Project-reducer';
-import {setFlowersActionCreator, setCountFlowersActionCreator} from './../redux/Flowers-reducer';
+import {setFlowersActionCreator, setCountFlowersActionCreator, changeCurrentValueActionCreator} from './../redux/Flowers-reducer';
 import { withRouter } from 'react-router-dom';
 
 
@@ -72,8 +72,15 @@ class Flowers extends React.Component {
 
     render() {
         
-        let sorFroducts = quickSort(this.props.flowers, 'id'); // функция сортирующая массив
-        let endProductList = sorFroducts.map( s =>
+        let changeOption = React.createRef();
+        let func = () => {
+            this.props.changeCurrentValue(changeOption.current.options.selectedIndex + 1)
+        }
+        let sortProducts = quickSort(this.props.flowers, 'id'); // функция сортирующая массив
+        if(this.props.currentValue == 1) {
+            sortProducts.reverse();
+        }
+        let endProductList = sortProducts.map( s =>
             <Product 
                 name={s.name}
                 price={s.price}
@@ -81,16 +88,19 @@ class Flowers extends React.Component {
                 id={s.id}
             />
           );
-            
+
         return(
             <div className={F.wrapper}>
                 <h1>Цветы</h1>
                 <div className={F.filters}>
                     <div>Сортировать: 
-                        <select>
-                            <option>По возрастанию цены</option>
-                            <option>По убыванию цены</option>
+                       
+                        <select ref={changeOption} value={this.props.currentValue} name='sdsd' onChange={ () => func()} >
+                            
+                            <option value='1'>Возрастанию цены</option>
+                            <option value='2'>Убыванию цены</option>
                         </select>
+                        
                     </div>
                 </div>
                 <div className={F.productsLits}>
@@ -107,7 +117,8 @@ let mapStateToProps = (state) => {
     return {
         flowers: state.Flowers.flowers,
         countFlowers: state.Flowers.countFlowers,
-        mutateState: state.Project.mutateState
+        mutateState: state.Project.mutateState,
+        currentValue: state.Flowers.currentValue
     }
 }
 
@@ -118,6 +129,9 @@ let mapDispatchToProps = (dispatch) => {
       },
       setCountFlowers: (count) => {
           dispatch(setCountFlowersActionCreator(count))
+      },
+      changeCurrentValue: (value) => {
+          dispatch(changeCurrentValueActionCreator(value))
       }
     }
 }

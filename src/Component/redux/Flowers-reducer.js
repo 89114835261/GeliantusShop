@@ -1,16 +1,17 @@
 const SET_FLOWERS = 'SET_FLOWERS';
 const SET_COUNT_FLOWERS = 'SET_COUNT_FLOWERS';
+const CHANGE_CURRENT_VALUE = 'CHANGE_CURRENT_VALUE';
 
 let initialState = {
     flowers: [],
-    countFlowers: null
+    countFlowers: null,
+    currentValue: 1
 }
 
 const TopFlowers = (state = initialState, action) => {
 
     switch(action.type) {
         case SET_FLOWERS: 
-        
             return {
                 ...state,
                 flowers: action.flowers
@@ -20,10 +21,23 @@ const TopFlowers = (state = initialState, action) => {
               ...state,
               countFlowers: action.count
             }
+        case CHANGE_CURRENT_VALUE:
+           
+            return {
+                ...state,
+                currentValue: action.value
+            }
         default: return state;
     }
 }
 
+export let changeCurrentValueActionCreator = (value) => {
+  
+    return {
+        type: CHANGE_CURRENT_VALUE,
+        value: value
+    }
+}
 
 export let setFlowersActionCreator = (flowers) => {
     return {
