@@ -2,7 +2,7 @@ import React from 'react';
 import TP from './TopFlowers.module.css';
 import { connect } from 'react-redux';
 import Product from '../../Product/Product';
-import {quickSort} from '../../redux/TopProducts-reducer';
+import {quickSort} from '../../redux/Project-reducer';
 import {setTopFlowersActionCreator, setCountTopFlowersActionCreator} from '../../redux/TopFlowers-reducer';
 
 

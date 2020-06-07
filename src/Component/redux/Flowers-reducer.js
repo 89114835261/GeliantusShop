@@ -10,6 +10,7 @@ const TopFlowers = (state = initialState, action) => {
 
     switch(action.type) {
         case SET_FLOWERS: 
+        
             return {
                 ...state,
                 flowers: action.flowers

@@ -2,7 +2,7 @@ import React from 'react';
 import TP from './TopProducts.module.css';
 import { connect } from 'react-redux';
 import Product from '../../Product/Product';
-import {quickSort} from '../../redux/TopProducts-reducer';
+import {quickSort} from '../../redux/Project-reducer';
 import {setProductsActionCreator, setCountProductsActionCreator} from '../../redux/TopProducts-reducer';
 
 

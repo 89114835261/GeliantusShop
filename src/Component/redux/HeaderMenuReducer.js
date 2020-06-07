@@ -10,6 +10,7 @@ let initialState =  {
 const HeaderMenuReducer = (state = initialState, action) => {
     switch(action.type) {
         case SET_MENU:
+            
             return {
                 ...state,
                 menu: action.menu

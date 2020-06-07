@@ -40,7 +40,7 @@ class itemProductContainer extends React.Component {
                 name={itemProductObj.name}
                 // photoSmall={this.props.product.photos.small}
                 // photoLarge={this.props.product.photos.large}
-               descriptionBoxSwitch={this.props.match.params.Parameters}
+                descriptionBoxSwitch={this.props.match.params.Parameters}
                 description={itemProductObj.fullDescription}
                 parameters={itemProductObj.parameters}
                 price={itemProductObj.price}
@@ -48,6 +48,7 @@ class itemProductContainer extends React.Component {
                 raiting={itemProductObj.raiting}
                 voices={itemProductObj.voices}
                 id={itemProductObj.id}
+                Specification={'s'}
             />
            
             </div>
