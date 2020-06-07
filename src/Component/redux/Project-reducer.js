@@ -16,16 +16,20 @@ const ProjectReducer = (state = initialState, action) => {
     }
 }
 
-export let changeProducts = (array, param, ourArr = []) => { 
-            
+export let changeProducts = (array, param, ourArr = []) => {  //Функция выборки из массива
+// Только тех объектов у которых свойство catId равно передаваемомму параметру param
   for(let i = 0; i < array.length; i++ ) {
-      if(array[i].catId == param) {
+      for(let z = 0; array[i].catId[z] == param || array[i].catId.length > z+1; z++) {
+        if(array[i].catId[z] == param) {
           ourArr.push(array[i]);
-      } 
+        } 
+        
+      }
+   
   } return ourArr;
 }
 
-export const quickSort = (array, prop) => {
+export const quickSort = (array, prop) => { //Функция сортировки массива по параметру prop
     if (array.length <= 1) { // так понятнее
       return array;
     } else {

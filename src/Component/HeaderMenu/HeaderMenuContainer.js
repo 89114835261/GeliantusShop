@@ -17,7 +17,8 @@ class HeaderMenu extends React.Component {
         
         let catList = [ //Получаем категории
             {catId: 1, name: 'Цветы', get url() {return `/Cvety/${this.catId}`} },
-            {catId: 2, name: 'Товары для дома', get url() { return `/TovaryDlyaDoma/${this.catId}`}}
+            {catId: 2, name: 'Товары для дома', get url() { return `/TovaryDlyaDoma/${this.catId}`}},
+            {catId: 3, name: 'Декор', get url() { return `/Decor/${this.catId}`}}
         ]
 
         let menuList = [
