@@ -8,7 +8,7 @@ import Footer from './Component/Footer/Footer';
 import Main from './Component/main/Main';
 import KingAutorisation from './Component/KingAutorisation/KingAutorisation';
 import HeaderMenuContainer from './Component/HeaderMenu/HeaderMenuContainer';
-import FlowersContainer from './Component/Flowers/FlowersContainer';
+import CategoryPageContainer from './Component/CategoryPage/CategoryPageContainer';
 import ItemProductContainer from './Component/itemProduct/itemProductContainer';
 
 
@@ -28,7 +28,7 @@ class App extends React.Component {
                     <div className={ap.content}>
                         <Route path='/Product/:productId/:Parameters' render={ () => <ItemProductContainer />} />
                         <Route path='/Main' render={ () => <Main />}  />
-                        <Route path='/Category/:catName/:catId' render={ () => <FlowersContainer />} />
+                        <Route path='/Category/:catName/:catId' render={ () => <CategoryPageContainer />} />
                         <Route path='/AutorizationFromKing' render={ () => <KingAutorisation />}  />
                     </div>
                     

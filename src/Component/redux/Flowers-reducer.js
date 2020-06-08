@@ -3,10 +3,12 @@ const SET_COUNT_FLOWERS = 'SET_COUNT_FLOWERS';
 const CHANGE_CURRENT_VALUE = 'CHANGE_CURRENT_VALUE';
 const SET_PAGE_NAME = 'SET_PAGE_NAME';
 const SET_COVER_PAGE = 'SET_COVER_PAGE';
+const SET_SPECIFICATION_LIST = 'SET_SPECIFICATION_LIST'
 
 let initialState = {
     flowers: [],
     countFlowers: null,
+    specificationList: [{name: 'sdasd'}],
     currentValue: 1,
     pageName: '',
     coverPage: ''
@@ -25,6 +27,11 @@ const TopFlowers = (state = initialState, action) => {
                 ...state,
                 coverPage: action.url
             }
+        case SET_SPECIFICATION_LIST:
+            return {
+                ...state,
+                specificationList: action.specificationList
+            }
         case SET_COUNT_FLOWERS:
             return {
               ...state,
@@ -42,6 +49,13 @@ const TopFlowers = (state = initialState, action) => {
                 currentValue: action.value
             }
         default: return state;
+    }
+}
+
+export let setSpecificationlistActionCreator = (specificationList) => {
+    return {
+        type: SET_SPECIFICATION_LIST,
+        specificationList: specificationList
     }
 }
 

@@ -20,7 +20,7 @@
 .nameBox {
     background-color: antiquewhite;
     width: 300px;
-    height: 300px;
+    min-height: 300px;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -47,5 +47,27 @@
 
 .filtersBox {
     flex-grow: 1;
-    background-color: lightcyan ;
+    display: flex;
+    flex-flow: column wrap;
+    background-color: lightcyan;
+    padding: 0 20px 20px 20px;
+}
+
+.blockFiltersElement {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.blockFiltersElement SPAN {
+    width: 100px;
+}
+
+.blockFiltersElement INPUT {
+    height: 20px;
+    padding: 10px;
+    margin: 3px 0 0 0;
+    border: solid 1px rgb(212, 212, 212);
+    border-radius: 5px;
+    width: 200px;
 }
