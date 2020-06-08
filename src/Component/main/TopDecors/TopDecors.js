@@ -30,8 +30,7 @@ class TopDecors extends React.Component {
 
     render() {
         let sortProducts = quickSort(this.props.topDecors, 'id'); // функция сортирующая массив по заданному параметру
-        let endArrProducts = sortProducts.slice(sortProducts.length - this.props.countDecors, sortProducts.length)
-        endArrProducts.reverse();
+        let endArrProducts = sortProducts.slice(sortProducts.length - this.props.countDecors, sortProducts.length);
         let endProductList = endArrProducts.map( s =>
             <Product 
                 name={s.name}

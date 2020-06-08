@@ -8,7 +8,7 @@ const SET_SPECIFICATION_LIST = 'SET_SPECIFICATION_LIST'
 let initialState = {
     flowers: [],
     countFlowers: null,
-    specificationList: [{name: 'sdasd'}],
+    specificationList: [],
     currentValue: 1,
     pageName: '',
     coverPage: ''

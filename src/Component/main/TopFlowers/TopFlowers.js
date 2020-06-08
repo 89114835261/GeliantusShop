@@ -30,8 +30,7 @@ class TopFlowers extends React.Component {
 
     render() {
         let sortProducts = quickSort(this.props.topFlowers, 'id'); // функция сортирующая массив
-        let endArrProducts = sortProducts.slice(sortProducts.length - this.props.countFlowers, sortProducts.length)
-        endArrProducts.reverse();
+        let endArrProducts = sortProducts.slice(sortProducts.length - this.props.countFlowers, sortProducts.length);
         let endProductList = endArrProducts.map( s =>
             <Product 
                 name={s.name}
