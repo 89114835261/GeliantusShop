@@ -3,7 +3,7 @@ import F from './Flowers.module.css';
 import { connect } from 'react-redux';
 import Product from './../Product/Product';
 import {quickSort, changeProducts} from './../redux/Project-reducer';
-import {setFlowersActionCreator, setCountFlowersActionCreator, changeCurrentValueActionCreator} from './../redux/Flowers-reducer';
+import {setFlowersActionCreator, setCountFlowersActionCreator, changeCurrentValueActionCreator, setPageNameActionCreator, setCoverPageActionCreator} from './../redux/Flowers-reducer';
 import { withRouter } from 'react-router-dom';
 
 
@@ -11,8 +11,20 @@ class Flowers extends React.Component {
     constructor(props) { //Constructor можно не писать, если мы кроме super ничего не передаём
         super(props); // Это происходит по умолчанию
     }
+
     componentDidMount() {
         let mutate = this.props.mutateState;
+        //Получаем категории типа с сервера
+        let catList = [ //Получаем категории
+            {catId: 1, name: 'Цветы', cover: 'url-image1', get url() {return `/Category/Cvety/${this.catId}`} }, 
+            {catId: 2, name: 'Товары для дома', cover: 'url-image2', get url() { return `/Category/TovaryDlyaDoma/${this.catId}`}},
+            {catId: 3, name: 'Декор', cover: 'url-image3', get url() { return `/Category/Decor/${this.catId}`}}
+        ] 
+       
+        let setCat = catList.filter(currentElement => currentElement.catId == this.props.match.params.catId);
+        this.props.setPageName(setCat[0].name);
+        this.props.setCoverPage(setCat[0].cover)
+
         let arr = [ //Сэтаем товары
             {id: 1, name: 'Цветок такой то', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 12, preDescriptions: 'Бла-1', description: 'Бла-2', homePaymant: 'True', catId: [1, 2]},
             {id: 2, name: 'Я цветок', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 7, preDescriptions: 'Бла-1', description: 'Бла-2', homePaymant: 'True', catId: [1, 2]},
@@ -43,7 +55,17 @@ class Flowers extends React.Component {
     }
  
     componentDidUpdate() {
+        
         if(this.mutate != this.props.mutateState) {
+            let catList = [ //Получаем категории
+                {catId: 1, name: 'Цветы', cover: 'url-image1', get url() {return `/Category/Cvety/${this.catId}`} }, 
+                {catId: 2, name: 'Товары для дома', cover: 'url-image2', get url() { return `/Category/TovaryDlyaDoma/${this.catId}`}},
+                {catId: 3, name: 'Декор', cover: 'url-image3', get url() { return `/Category/Decor/${this.catId}`}}
+            ] 
+           
+            let setCat = catList.filter(currentElement => currentElement.catId == this.props.match.params.catId);
+            this.props.setPageName(setCat[0].name);
+            this.props.setCoverPage(setCat[0].cover)
             let arr = [ //Сэтаем товары
                 {id: 1, name: 'Цветок такой то', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 12, preDescriptions: 'Бла-1', description: 'Бла-2', homePaymant: 'True', catId: [1, 3, 5, 7, 2]},
                 {id: 2, name: 'Я цветок', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 7, preDescriptions: 'Бла-1', description: 'Бла-2', homePaymant: 'True', catId: [1]},
@@ -91,17 +113,26 @@ class Flowers extends React.Component {
 
         return(
             <div className={F.wrapper}>
-                <h1>Цветы</h1>
-                <div className={F.filters}>
-                    <div>Сортировать: 
-                       
-                        <select ref={changeOption} value={this.props.currentValue} name='sdsd' onChange={ () => func()} >
+                <div className={F.topBoxWrapper}>
+                   
+                    <div className={F.nameBox}>
+                        <h1>{this.props.pageName}</h1>
+                        <img src={this.props.coverPage}></img>
+                        {this.props.coverPage}
+                        <div className={F.filters}>
+                           <p>Сортировать</p> 
+                                <select ref={changeOption} value={this.props.currentValue} name='sdsd' onChange={ () => func()} >
+                                    <option value='1'>Возрастанию цены</option>
+                                    <option value='2'>Убыванию цены</option>
+                                </select>
                             
-                            <option value='1'>Возрастанию цены</option>
-                            <option value='2'>Убыванию цены</option>
-                        </select>
-                        
+                        </div>
                     </div>
+
+                    <div className={F.filtersBox}>
+
+                    </div>
+
                 </div>
                 <div className={F.productsLits}>
                 
@@ -118,7 +149,9 @@ let mapStateToProps = (state) => {
         flowers: state.Flowers.flowers,
         countFlowers: state.Flowers.countFlowers,
         mutateState: state.Project.mutateState,
-        currentValue: state.Flowers.currentValue
+        currentValue: state.Flowers.currentValue,
+        pageName: state.Flowers.pageName,
+        coverPage: state.Flowers.coverPage
     }
 }
 
@@ -132,6 +165,12 @@ let mapDispatchToProps = (dispatch) => {
       },
       changeCurrentValue: (value) => {
           dispatch(changeCurrentValueActionCreator(value))
+      },
+      setPageName: (name) => {
+          dispatch(setPageNameActionCreator(name))
+      },
+      setCoverPage: (url) => {
+          dispatch(setCoverPageActionCreator(url))
       }
     }
 }

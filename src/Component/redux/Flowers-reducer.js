@@ -1,11 +1,15 @@
 const SET_FLOWERS = 'SET_FLOWERS';
 const SET_COUNT_FLOWERS = 'SET_COUNT_FLOWERS';
 const CHANGE_CURRENT_VALUE = 'CHANGE_CURRENT_VALUE';
+const SET_PAGE_NAME = 'SET_PAGE_NAME';
+const SET_COVER_PAGE = 'SET_COVER_PAGE';
 
 let initialState = {
     flowers: [],
     countFlowers: null,
-    currentValue: 1
+    currentValue: 1,
+    pageName: '',
+    coverPage: ''
 }
 
 const TopFlowers = (state = initialState, action) => {
@@ -16,10 +20,20 @@ const TopFlowers = (state = initialState, action) => {
                 ...state,
                 flowers: action.flowers
             }
+        case SET_COVER_PAGE:
+            return {
+                ...state,
+                coverPage: action.url
+            }
         case SET_COUNT_FLOWERS:
             return {
               ...state,
               countFlowers: action.count
+            }
+        case SET_PAGE_NAME: 
+            return {
+                ...state,
+                pageName: action.name
             }
         case CHANGE_CURRENT_VALUE:
            
@@ -28,6 +42,20 @@ const TopFlowers = (state = initialState, action) => {
                 currentValue: action.value
             }
         default: return state;
+    }
+}
+
+export let setCoverPageActionCreator = (url) => {
+    return {
+        type: SET_COVER_PAGE,
+        url: url
+    }
+}
+
+export let setPageNameActionCreator = (name) => {
+    return {
+        type: SET_PAGE_NAME,
+        name: name
     }
 }
 
