@@ -7,6 +7,8 @@ import TopFlowers from './TopFlowers-reducer';
 import TopDecors from './TopDecors-reduser';
 import Flowers from './Flowers-reducer';
 import ProjectReducer from './Project-reducer';
+import FiltersForm from './FiltersForm-reducer';
+import { reducer as formReducer } from 'redux-form';
 
 let bunchReducers = combineReducers(
     {
@@ -17,7 +19,9 @@ let bunchReducers = combineReducers(
         TopFlowers: TopFlowers,
         TopDecors: TopDecors,
         Flowers: Flowers,
-        Product: Product
+        Product: Product,
+        FiltersForm: FiltersForm,
+        form: formReducer
     }
 
 );
