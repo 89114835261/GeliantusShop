@@ -7,7 +7,7 @@ let initialState = {
 const ProjectReducer = (state = initialState, action) => {
     switch(action.type) {
         case MUTATE_STATE:
-          
+     
             return {
                 ...state,
                 mutateState: state.mutateState ? false : true

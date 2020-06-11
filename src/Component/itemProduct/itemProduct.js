@@ -4,7 +4,10 @@ import raiting from './../../img/raiting.png';
 import { NavLink } from 'react-router-dom';
 
 let ItemProduct = (props) => {
-
+ 
+   let visualSpecifications = props.Specification.map(v =>
+   <div>{v.name}</div>
+      );
    return (
       <div className={i.wrapper}>
 
@@ -36,13 +39,13 @@ let ItemProduct = (props) => {
                   
                   <NavLink to={`/Product/${props.id}/Description`}><p className={i.active}>Описание</p></NavLink> 
                   <NavLink to={`/Product/${props.id}/Specification`}><p>Характеристики</p></NavLink>
-                  <NavLink to={`/Product/${props.id}/Reviews`}><p>Отзывы</p></NavLink>
-                  <NavLink to={`/Product/${props.id}/Questions`}><p>Вопрос-Ответ</p></NavLink>
+                  <NavLink to={`/Product/${props.id}/Reviews`} ><p>Отзывы</p></NavLink>
+                  <NavLink to={`/Product/${props.id}/Questions`} ><p>Вопрос-Ответ</p></NavLink>
                </div>
 
                <div className={i.descriptionBox}>
-                  {props.descriptionBoxSwitch} - 
-                  {props.description}
+                  {props.descriptionBoxSwitch == 'Description' ? props.description : null} 
+                  {props.descriptionBoxSwitch == 'Specification' ? visualSpecifications : null}
                </div>
          </div>
 
