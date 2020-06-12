@@ -4,10 +4,11 @@ import raiting from './../../img/raiting.png';
 import { NavLink } from 'react-router-dom';
 
 let ItemProduct = (props) => {
- 
+
    let visualSpecifications = props.Specification.map(v =>
-   <div>{v.name}</div>
+   <div>{v.name} : {v.value}</div>
       );
+      
    return (
       <div className={i.wrapper}>
 

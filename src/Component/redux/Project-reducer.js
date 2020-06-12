@@ -1,7 +1,9 @@
 const MUTATE_STATE = 'MUTATE_STATE';
+const ADD_WAY_LINK = 'ADD_WAY_LINK';
 
 let initialState = {
-    mutateState: false
+    mutateState: false,
+    wayLinks: [{name: '', url: ''}]
 }
 
 const ProjectReducer = (state = initialState, action) => {
@@ -12,7 +14,12 @@ const ProjectReducer = (state = initialState, action) => {
                 ...state,
                 mutateState: state.mutateState ? false : true
             }
-        default: return state;
+            case ADD_WAY_LINK: 
+                let copyState = {...state};
+                copyState.mutateState = state.mutateState ? false : true;
+                copyState.wayLinks.push({url: action.url, name: action.name});
+                return copyState;
+            default: return state;
     }
 }
 
@@ -50,6 +57,14 @@ export const quickSort = (array, prop) => { //Функция сортировк�
       let result = [];
       
       return result.concat(quickSort(less, prop), pivot, quickSort(greater, prop));
+    }
+}
+
+export let wayLinkActionCreator = (url, name) => {
+    return {
+      type: ADD_WAY_LINK,
+      url: url,
+      name: name
     }
 }
 

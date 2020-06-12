@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {SetMenuActionCreator} from '../redux/HeaderMenuReducer';
-import {mutateStateActionCreator} from './../redux/Project-reducer';
+import {wayLinkActionCreator} from './../redux/Project-reducer';
 import H from './HeaderMenu.module.css';
 
 import Button from './button/Button';
@@ -31,9 +31,10 @@ class HeaderMenu extends React.Component {
         this.props.menuSet(menuList)
     }
     render() {
-    
+        
+        
        let arrMenu = this.props.menu.map(
-           m => <Button name={m.name} url={m.url} mutateState={this.props.mutateState}/>
+           m => <Button name={m.name} url={m.url} wayLinkFunc={this.props.addWayLink} mutateState={this.props.mutateState}/>
        )
     
         return (
@@ -68,8 +69,8 @@ let mapDispatchToProps = (dispatch) => {
         menuSet :(menu) => {
             dispatch(SetMenuActionCreator(menu))
         },
-        mutateState: () => {
-            dispatch(mutateStateActionCreator())
+        addWayLink: (name, url) => {
+            dispatch(wayLinkActionCreator(name, url))
         }
     }
 }
