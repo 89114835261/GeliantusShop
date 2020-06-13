@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Product from '../../Product/Product';
 import {quickSort} from '../../redux/Project-reducer';
 import {setTopFlowersActionCreator, setCountTopFlowersActionCreator} from '../../redux/TopFlowers-reducer';
+import { withRouter } from 'react-router-dom';
 
 
 class TopFlowers extends React.Component {
@@ -37,6 +38,7 @@ class TopFlowers extends React.Component {
                 price={s.price}
                 orders={s.orders}
                 id={s.id}
+                url={this.props.itemUrl}
             />
           );
             
@@ -71,4 +73,6 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (TopFlowers);
+let withRouteTopFlowers = withRouter(TopFlowers);
+
+export default connect(mapStateToProps, mapDispatchToProps) (withRouteTopFlowers);

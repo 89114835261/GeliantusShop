@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {SetMenuActionCreator} from '../redux/HeaderMenuReducer';
-import {wayLinkActionCreator} from './../redux/Project-reducer';
+import {wayLinkActionCreator, mutateStateActionCreator} from './../redux/Project-reducer';
 import H from './HeaderMenu.module.css';
-
 import Button from './button/Button';
 
 class HeaderMenu extends React.Component {
@@ -16,9 +15,9 @@ class HeaderMenu extends React.Component {
         ]
         
         let catList = [ //Получаем категории
-            {catId: 1, name: 'Цветы', get url() {return `/Category/Cvety/${this.catId}`} }, 
-            {catId: 2, name: 'Товары для дома', get url() { return `/Category/TovaryDlyaDoma/${this.catId}`}},
-            {catId: 3, name: 'Декор', get url() { return `/Category/Decor/${this.catId}`}}
+            {catId: 1, name: 'Цветы', get url() {return `/Main/Products/Category/Cvety/${this.catId}`} }, 
+            {catId: 2, name: 'Товары для дома', get url() { return `/Main/Products/Category/TovaryDlyaDoma/${this.catId}`}},
+            {catId: 3, name: 'Декор', get url() { return `/Main/Products/Category/Decor/${this.catId}`}}
         ]
 
         let menuList = [
@@ -34,7 +33,7 @@ class HeaderMenu extends React.Component {
         
         
        let arrMenu = this.props.menu.map(
-           m => <Button name={m.name} url={m.url} wayLinkFunc={this.props.addWayLink} mutateState={this.props.mutateState}/>
+           m => <Button name={m.name} url={m.url} mutateStateFunc={this.props.mutateStateFunc} />
        )
     
         return (
@@ -71,6 +70,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         addWayLink: (name, url) => {
             dispatch(wayLinkActionCreator(name, url))
+        },
+        mutateStateFunc: () => {
+            dispatch(mutateStateActionCreator())
         }
     }
 }

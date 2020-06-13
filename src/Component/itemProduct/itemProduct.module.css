@@ -49,8 +49,6 @@
     margin: 0;
 }
 
-.infoWrapper BUTTON {}
-
 .descriptionBox {
     display: flex;
     flex-flow: column wrap;
@@ -65,9 +63,10 @@
     flex-flow: row nowrap;
     height: 40px;
     background-color: #e4e4e4;
+    color: #000;
 }
 
-.descriptionMenu P {
+.tabButton {
     min-width: 100px;
     color: #000;
     height: 20px;
@@ -75,10 +74,12 @@
     margin: 0;
     padding: 10px;
     border-right: solid 1px black;
+    background-color:  red;
 }
 
-.descriptionMenu P.active {
+.active {
     background-color: #FFF;
+    color: #000;
 }
 
 .descriptionBox {

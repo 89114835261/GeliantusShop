@@ -15,10 +15,7 @@ const ProjectReducer = (state = initialState, action) => {
                 mutateState: state.mutateState ? false : true
             }
             case ADD_WAY_LINK: 
-                let copyState = {...state};
-                copyState.mutateState = state.mutateState ? false : true;
-                copyState.wayLinks.push({url: action.url, name: action.name});
-                return copyState;
+                return state;
             default: return state;
     }
 }

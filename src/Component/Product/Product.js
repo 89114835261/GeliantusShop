@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 let Product = (props) => {
     return(
-        <NavLink to={'/Product/' + props.id + '/Description'}>
+        <NavLink to={props.url + '/Product/' + props.id + '/Description'}>
             <div className={P.itemProduct}>
                 <div className={P.ProductCover}>
                     <img src={'this.props.products[0].url'} /></div>

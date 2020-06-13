@@ -2,13 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ItemProduct from './itemProduct';
-import {setProductActionCreator, setSpecificationsItemProductAC} from './../redux/Product-reducer';
+import {setProductActionCreator, setSpecificationsItemProductAC, setLongUrlActionCreator, setitemProductObjActionCreator} from './../redux/Product-reducer';
 
 class itemProductContainer extends React.Component {
     
     componentDidMount() {
-       
-       
       this.props.setProduct(
         [
             {id: 1, name: 'Цветок такой то', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 12, description: 'Бла-2', views: '23',homePaymant:  true, catId: [1, 3, 5, 7, 2], specId: [2, 4, 9], specifications: [{id: 2, name: 'цвет', value: 'Красный'}]},
@@ -31,54 +29,43 @@ class itemProductContainer extends React.Component {
             {id: 18, name: 'ААВВВВВВВВ', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 4, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1], specId: [2, 4, 9], specifications: [{id: 2, name: 'цвет', value: 'Красный'}]},
             {id: 19, name: 'Борн', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 4,description: 'Бла-2', views: '23', homePaymant:  true, catId: [1], specId: [2, 4, 9], specifications: [{id: 2, name: 'цвет', value: 'Красный'}]},
             {id: 20, name: 'Эритрема', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 6, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1], specId: [2, 4, 9], specifications: [{id: 2, name: 'цвет', value: 'Красный'}]}
-        ]
+        ], this.props.match.params.productId
         );
         // let requestSetSpecification = this.props.product[1].specId.join('_');//Строка вида 1_2_5
         // //Далее делаем "типа" запрос вида /Specifications?id=2_5_8
         //И получаем характеристики с id 2, 5, 8
 
-      
+
     }
     // При реальных запросах, мы не будем использовать DidUpdate, а запустим получение
     // айдишников спецификаций при получении ответа в DidMount (response => наша функция)
-
-    componentDidUpdate() {
-        if(this.props.product.length > 19 && this.props.specifications.length < 1) {
-
-            let itemSpecification = this.props.product[this.props.match.params.productId].specifications;
-            this.props.setSpecifications(itemSpecification);
+    
+    render() {      
+        // Ниже условие формирующее длину URL к которой мы будем прибавлять 
+        // Description или Specification  и т.д. т.е. наши вкладки "описание", "Характеристики"
+        //на странице товара
+        if(this.props.longUrl === null || this.props.match.params.Parameters == 'Description') { 
+            let num = this.props.location.pathname.length - 12 // -12, что убрать слово Description из основного URL
+            this.props.setLongUrl(num); // Устанавливаем это число в редьюсер
         }
-    }
-
-    render() {  
-        
-        if(this.props.product.length > 0) { 
-
-        let productId = this.props.match.params.productId;
-        let itemProductObj = this.props.product[productId - 1]
-
+       
         return(
             <div>
             
             <ItemProduct 
-                name={itemProductObj.name}
+                itemProduct={this.props.product[0]}
                 // photoSmall={this.props.product.photos.small}
                 // photoLarge={this.props.product.photos.large}
+                url={this.props.location.pathname}
+                urlLong={this.props.longUrl}
                 descriptionBoxSwitch={this.props.match.params.Parameters}
-                description={itemProductObj.description}
-                parameters={itemProductObj.parameters}
-                price={itemProductObj.price}
-                orders={itemProductObj.orders}
-                raiting={itemProductObj.raiting}
-                voices={itemProductObj.voices}
-                id={itemProductObj.id}
                 Specification={this.props.specifications}
                 mutateState={this.props.mutateState}
             />
            
             </div>
         );
-    } else return('');
+   
     
     }
 
@@ -88,17 +75,25 @@ let mapStateToProps = (state) => {
     return {
         product: state.Product.product,
         specifications: state.Product.specificationItemProduct,
-        mutateState: state.Project.mutateState
+        mutateState: state.Project.mutateState,
+        longUrl: state.Product.longUrl,
+        itemProductObj: state.Product.itemProductObj
     }
 }
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        setProduct: (product) => {
-            dispatch(setProductActionCreator(product))
+        setProduct: (product, id) => {
+            dispatch(setProductActionCreator(product, id))
         }, 
         setSpecifications: (specifications) => {
             dispatch(setSpecificationsItemProductAC(specifications))
+        },
+        setLongUrl: (long) => {
+            dispatch(setLongUrlActionCreator(long))
+        },
+        setItemObj: (obj) => {
+            dispatch(setitemProductObjActionCreator(obj))
         }
     }
 }

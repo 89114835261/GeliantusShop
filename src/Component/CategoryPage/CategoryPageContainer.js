@@ -16,9 +16,6 @@ class Flowers extends React.Component {
     componentDidMount() {
         let mutate = this.props.mutateState;
 
-
-
-
         //Получаем категории типа с сервера
         let catList = [ //Получаем категории
             {catId: 1, name: 'Цветы', cover: 'url-image1', get url() {return `/Category/Cvety/${this.catId}`}, specification: [1, 2, 4] }, 
@@ -68,7 +65,7 @@ class Flowers extends React.Component {
         
     }
  
-    componentDidUpdate() {
+    componentDidUpdate() {  
         
         if(this.mutate != this.props.mutateState) {
             let catList = [ //Получаем категории
@@ -108,7 +105,7 @@ class Flowers extends React.Component {
     }
 
     render() {
-        
+
         let changeOption = React.createRef();
         let func = () => {
             this.props.changeCurrentValue(changeOption.current.options.selectedIndex + 1)
@@ -122,10 +119,12 @@ class Flowers extends React.Component {
                 name={s.name}
                 price={s.price}
                 orders={s.orders}
-                id={s.id}
+                id={s.id} 
+                url={this.props.location.pathname}
+                
             />
           );
-            
+        console.log(this.props.match.path);
         return(
             <div className={F.wrapper}>
                 <div className={F.topBoxWrapper}>

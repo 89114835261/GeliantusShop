@@ -3,8 +3,9 @@ import B from './Button.module.css';
 import { NavLink } from 'react-router-dom';
 
 let Button = (props) => {
+
     return(
-        <NavLink to={props.url} onClick={() =>props.wayLinkFunc(props.url, props.name)}><span>{props.name}</span></NavLink>
+        <NavLink className={B.headerLink} activeClassName={B.activeLink} to={props.url} onClick={() => props.mutateStateFunc()}><span>{props.name}</span></NavLink>
     );
     
 }

@@ -9,6 +9,7 @@ import Flowers from './Flowers-reducer';
 import ProjectReducer from './Project-reducer';
 import FiltersForm from './FiltersForm-reducer';
 import { reducer as formReducer } from 'redux-form';
+import Main from "./Main-reducer";
 
 let bunchReducers = combineReducers(
     {
@@ -21,6 +22,7 @@ let bunchReducers = combineReducers(
         Flowers: Flowers,
         Product: Product,
         FiltersForm: FiltersForm,
+        Main: Main,
         form: formReducer
     }
 

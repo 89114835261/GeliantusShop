@@ -4,11 +4,10 @@ import raiting from './../../img/raiting.png';
 import { NavLink } from 'react-router-dom';
 
 let ItemProduct = (props) => {
-
    let visualSpecifications = props.Specification.map(v =>
    <div>{v.name} : {v.value}</div>
       );
-      
+     
    return (
       <div className={i.wrapper}>
 
@@ -23,12 +22,12 @@ let ItemProduct = (props) => {
                   <img src="/sd"></img>
                   <img src="/sd"></img>
                </div>
-
+               
                <div className={i.infoWrapper}>
-                  <h2>{props.name} ID: {props.id} </h2>
+                  <h2>{props.itemProduct.name} ID: {props.itemProduct.id} </h2>
                   <img src={raiting} style={{width: '200px', marginTop: '10px', padding: '0'}}></img>
-                  <p>Рейтинг товара: {props.raiting} из 5</p>
-                  <p>Голосов: {props.voices}</p>  
+                  <p>Рейтинг товара: {props.itemProduct.raiting} из 5</p>
+                  <p>Голосов: {props.itemProduct.voices}</p>  
                   <button>Заказать</button>
                </div>
 
@@ -38,14 +37,14 @@ let ItemProduct = (props) => {
                
                <div className={i.descriptionMenu}>
                   
-                  <NavLink to={`/Product/${props.id}/Description`}><p className={i.active}>Описание</p></NavLink> 
-                  <NavLink to={`/Product/${props.id}/Specification`}><p>Характеристики</p></NavLink>
-                  <NavLink to={`/Product/${props.id}/Reviews`} ><p>Отзывы</p></NavLink>
-                  <NavLink to={`/Product/${props.id}/Questions`} ><p>Вопрос-Ответ</p></NavLink>
+                  <NavLink to={`${props.url.slice(0, props.urlLong)}/Description`} className={i.tabButton} activeClassName={i.active}>Описание</NavLink> 
+                  <NavLink to={`${props.url.slice(0, props.urlLong)}/Specification`} className={i.tabButton} activeClassName={i.active}>Характеристики</NavLink>
+                  <NavLink to={`${props.url.slice(0, props.urlLong)}/Reviews`} className={i.tabButton} activeClassName={i.active}>Отзывы</NavLink>
+                  <NavLink to={`${props.url.slice(0, props.urlLong)}/Questions`} className={i.tabButton} activeClassName={i.active}>Вопрос-Ответ</NavLink>
                </div>
 
                <div className={i.descriptionBox}>
-                  {props.descriptionBoxSwitch == 'Description' ? props.description : null} 
+                  {props.descriptionBoxSwitch == 'Description' ? props.itemProduct.description : null} 
                   {props.descriptionBoxSwitch == 'Specification' ? visualSpecifications : null}
                </div>
          </div>
@@ -53,5 +52,6 @@ let ItemProduct = (props) => {
       </div>
    );
 }
+
 
 export default ItemProduct;
