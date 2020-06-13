@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from "redux";
-import HeaderMenuReducer from "./HeaderMenuReducer";
+import HeaderMenuReducer from './HeaderMenuReducer';
 import TopProducts from './TopProducts-reducer';
 import apps from './App-reducer';
 import Product from './Product-reducer';
@@ -9,7 +9,8 @@ import Flowers from './Flowers-reducer';
 import ProjectReducer from './Project-reducer';
 import FiltersForm from './FiltersForm-reducer';
 import { reducer as formReducer } from 'redux-form';
-import Main from "./Main-reducer";
+import Main from './Main-reducer';
+import NavBar from './NavBar-reducer';
 
 let bunchReducers = combineReducers(
     {
@@ -23,6 +24,7 @@ let bunchReducers = combineReducers(
         Product: Product,
         FiltersForm: FiltersForm,
         Main: Main,
+        NavBar: NavBar,
         form: formReducer
     }
 

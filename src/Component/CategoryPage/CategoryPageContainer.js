@@ -18,9 +18,9 @@ class Flowers extends React.Component {
 
         //Получаем категории типа с сервера
         let catList = [ //Получаем категории
-            {catId: 1, name: 'Цветы', cover: 'url-image1', get url() {return `/Category/Cvety/${this.catId}`}, specification: [1, 2, 4] }, 
-            {catId: 2, name: 'Товары для дома', cover: 'url-image2', get url() { return `/Category/TovaryDlyaDoma/${this.catId}`}, specification: [1, 2, 4]},
-            {catId: 3, name: 'Декор', cover: 'url-image3', get url() { return `/Category/Decor/${this.catId}`}, specification: [1, 2, 4]}
+            {catId: 1, name: 'Цветы', cover: 'url-image1', get url() {return `/Category/Category_Cvety/${this.catId}`}, specification: [1, 2, 4] }, 
+            {catId: 2, name: 'Товары для дома', cover: 'url-image2', get url() { return `/Category/Category_TovaryDlyaDoma/${this.catId}`}, specification: [1, 2, 4]},
+            {catId: 3, name: 'Декор', cover: 'url-image3', get url() { return `/Category/Category_Decor/${this.catId}`}, specification: [1, 2, 4]}
         ] 
        
         
@@ -123,8 +123,7 @@ class Flowers extends React.Component {
                 url={this.props.location.pathname}
                 
             />
-          );
-        console.log(this.props.match.path);
+          );    
         return(
             <div className={F.wrapper}>
                 <div className={F.topBoxWrapper}>

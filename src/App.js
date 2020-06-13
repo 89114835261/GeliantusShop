@@ -10,7 +10,7 @@ import KingAutorisation from './Component/KingAutorisation/KingAutorisation';
 import HeaderMenuContainer from './Component/HeaderMenu/HeaderMenuContainer';
 import CategoryPageContainer from './Component/CategoryPage/CategoryPageContainer';
 import ItemProductContainer from './Component/itemProduct/itemProductContainer';
-import WayLineContainer from './Component/NavBar/WayLineContainer';
+import WayLineContainer from './Component/NavBar/NavBarContainer';
 
 
 
@@ -20,9 +20,8 @@ class App extends React.Component {
    render() {
 
     return (
-       
-            
                 <div className={ap.kingWrapper}>
+
                         <HeaderMenuContainer />
                     <div className={ap.wrapper}>
                         <Header /> 
@@ -31,17 +30,18 @@ class App extends React.Component {
                             <WayLineContainer />
                         </div>
                     <div className={ap.content}>
-                        <Route exact path='     '><Redirect to='/Main'></Redirect></Route>
-                        <Route exact path='/'><Redirect to='/Main'></Redirect></Route>
-                        <Route exact path='/Main/Products/Category/:catName/:catId/Product/:productId' render={() => <ItemProductContainer />} />
-                        <Route path='/Main/Products/Category/:catName/:catId/Product/:productId/:Parameters' render={() => <ItemProductContainer />} />
-                        <Route exact path='/Main/Product/:productId' render={() => <ItemProductContainer/>} />
-                        <Route path='/Main/Product/:productId/:Parameters' render={() => <ItemProductContainer/>} />
+                        
+                        <Route exact path='/Products/Category/:catName/:catId/Product/:productId' render={() => <ItemProductContainer />} />
+                        <Route path='/Products/Category/:catName/:catId/Product/:productId/:Parameters' render={() => <ItemProductContainer />} />
+                        <Route exact path='/Product/:productId' render={() => <ItemProductContainer/>} />
+                        <Route path='/Product/:productId/:Parameters' render={() => <ItemProductContainer/>} />
                         <Route exact path='/Main/1' render={() => <KingAutorisation/>}  />
                         <Route exact path='/Main' render={() => <Main/>}  />  
-                        <Route exact path='/Main/Products/Category/:catName/:catId' render={() => <CategoryPageContainer/>} />
+                        <Route exact path='/Products/Category/:catName/:catId' render={() => <CategoryPageContainer/>} />
                         <Route path='/AutorizationFromKing' render={() => <KingAutorisation/>}  />
-                    </div>
+                        <Route exact path=' '><Redirect to='/Main'></Redirect></Route>
+                        <Route exact path='/'><Redirect to='/Main'></Redirect></Route>
+                   </div>
                     
                         <Footer />
                     </div>

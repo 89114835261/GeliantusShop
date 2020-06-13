@@ -5,7 +5,8 @@ import { setRouteActionCreator } from './Component/redux/App-reducer';
 
 let mapStateToProps = (state) => {
     return {
-        routeList: state.AppPage.routeList 
+        routeList: state.AppPage.routeList,
+        mainUrl: state.Project.mainUrl
     }
 }
 
