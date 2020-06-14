@@ -34,10 +34,10 @@ export let setMainUrlAC = (url) => {
 }
 
 
-export let translitText = (text, language) => {
+export let translitText = (text, language, sliceCount) => {
     if(!text) return;
     let translitText = '';
-    let newText = text.slice(9, text.length)
+    let newText = text.slice(sliceCount, text.length)
     let sampleText = [
       {en: '-', ru: ' ', id: '1'},
       {en: ' ', ru: ' ', id: '2'},

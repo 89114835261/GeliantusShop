@@ -17,7 +17,7 @@ class WayLineContainer extends React.Component {
     }
     render() {
         return(
-            <NavBar translitText={translitText} visualElementsUrlArr={this.props.urlElements}/>
+            <NavBar translitText={translitText} mainUrl={this.props.mainUrl} visualElementsUrlArr={this.props.urlElements}/>
         );
     }
 }
