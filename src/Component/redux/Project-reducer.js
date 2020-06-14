@@ -34,9 +34,9 @@ export let setMainUrlAC = (url) => {
 }
 
 
-export let translitText = (text) => {
+export let translitText = (text, language) => {
     if(!text) return;
-    let translitText = ' ';
+    let translitText = '';
     let newText = text.slice(9, text.length)
     let sampleText = [
       {en: '-', ru: ' ', id: '1'},
@@ -77,7 +77,7 @@ export let translitText = (text) => {
       {en: 'p', ru: 'п', id: '36'},
       {en: 'P', ru: 'П', id: '37'},
       {en: 'r', ru: 'р', id: '38'},
-      {en: 'R', ru: 'р', id: '39'},
+      {en: 'R', ru: 'Р', id: '39'},
       {en: 's', ru: 'с', id: '40'},
       {en: 'S', ru: 'С', id: '41'},
       {en: 't', ru: 'т', id: '42'},
@@ -107,16 +107,18 @@ export let translitText = (text) => {
       {en: 'u', ru: 'ю', id: '66'},
       {en: 'U', ru: 'Ю', id: '67'},
       {en: 'ya', ru: 'я', id: '68'},
-      {en: 'YA', ru: 'Я', id: '69'},
-      {en: 'Ya', ru: 'Я', id: '70'},
+      {en: 'Ya', ru: 'Я', id: '69'},
   ]
       let erorArr = [
         {erVal: 'ыа', val: 'я'},
       ]
+      
+      if(language == 'en') {
     for(let i = 0; i < newText.length; i++) {
         let result;
         let itemCharTwo = newText[i] + newText[i+1];
         let itemCharThree = newText[i] + newText[i+1] + newText[i+2];
+       
         if(itemCharThree == 'SCH' || itemCharThree == 'sch') {
             result = sampleText.find(item => item.en == itemCharThree);
             translitText += result.ru;
@@ -126,9 +128,20 @@ export let translitText = (text) => {
           result = sampleText.find(item => item.en == itemCharTwo);
           translitText += result.ru;
           i++;
-        } else { result = sampleText.find(item => item.en == newText[i]);
+        } else { 
+         
+          result = sampleText.find(item => item.en == newText[i]);
           translitText += result.ru; }
     } 
+  } else if(language == 'ru') {
+    
+      for(let i = 0; i < text.length; i++) {
+        let result;
+        debugger;
+        result = sampleText.find(item => item.ru == text[i]);
+        translitText += result.en; 
+      } 
+  }
       return translitText;
 }
 

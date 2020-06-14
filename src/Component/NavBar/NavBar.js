@@ -13,7 +13,7 @@ let WayLine = (props) => {
                 } else if(s == 'Category') {
                     return;
                 } else if(s.slice(0, 9) == 'Category-') {
-                     return <NavLink className={N.navBar} to='/Main/Products'>{props.translitText(s, true)}</NavLink>
+                     return <NavLink className={N.navBar} to='/Main/Products'>{props.translitText(s, 'en')}</NavLink>
                 }
                 else return });
                 return visualElementsUrlArrZ;

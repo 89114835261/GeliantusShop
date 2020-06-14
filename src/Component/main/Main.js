@@ -13,9 +13,9 @@ let Main = (props) => {
     }
     return(
         <div>
-        <TopProductsContainer itemUrl={props.location.pathname.slice(0, props.longUrlMain)}/>
-        <TopFlowers itemUrl={props.location.pathname.slice(0, props.longUrlMain)}/>
-        <TopDecors itemUrl={props.location.pathname.slice(0, props.longUrlMain)}/>
+        <TopProductsContainer itemUrl={props.location.pathname.slice(5, props.longUrlMain)}/>
+        <TopFlowers itemUrl={props.location.pathname.slice(5, props.longUrlMain)}/>
+        <TopDecors itemUrl={props.location.pathname.slice(5, props.longUrlMain)}/>
         </div>
     );
 }

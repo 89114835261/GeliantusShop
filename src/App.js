@@ -32,9 +32,9 @@ class App extends React.Component {
                     <div className={ap.content}>
                         
                         <Route exact path='/Products/Category/:catName/:catId/Product/:productId' render={() => <ItemProductContainer />} />
-                        <Route path='/Products/Category/:catName/:catId/Product/:productId/:Parameters' render={() => <ItemProductContainer />} />
+                        <Route path='/Products/Category/:catName/:catId/Product/:productName/:productId/:Parameters' render={() => <ItemProductContainer />} />
                         <Route exact path='/Product/:productId' render={() => <ItemProductContainer/>} />
-                        <Route path='/Product/:productId/:Parameters' render={() => <ItemProductContainer/>} />
+                        <Route path='/Product/:productName/:productId/:Parameters' render={() => <ItemProductContainer/>} />
                         <Route exact path='/Main/1' render={() => <KingAutorisation/>}  />
                         <Route exact path='/Main' render={() => <Main/>}  />  
                         <Route exact path='/Products/Category/:catName/:catId' render={() => <CategoryPageContainer/>} />
