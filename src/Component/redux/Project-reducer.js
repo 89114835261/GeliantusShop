@@ -33,6 +33,24 @@ export let setMainUrlAC = (url) => {
   }
 }
 
+//Ниже функция сравнения для выборки 
+//Например у главной категории(obj) есть подкатегории(arr2)
+//Подкатегории имеют id, а главная категория
+//имеет своство childs, которое является массивом и содержит набор цифр
+//Данная функция позволит получить все объекты из массива arr2 у которых
+//id совпадает с перечисленными в свойстве childs цифрами
+export let setChildsCat = (obj, arr2, prop1, prop2) => {
+  let itemArr = [];
+  for(let i = 0; i < obj[prop1].length; i++) {
+      for(let z = 0; z < (arr2.length); z++) {
+          if(obj[prop1][i] == arr2[z][prop2]) {
+              itemArr.push(arr2[z]);
+          }
+      }
+  }
+  return itemArr;
+}
+
 
 export let translitText = (text, language, sliceCount) => {
     if(!text) return;
@@ -137,7 +155,6 @@ export let translitText = (text, language, sliceCount) => {
     
       for(let i = 0; i < text.length; i++) {
         let result;
-        debugger;
         result = sampleText.find(item => item.ru == text[i]);
         translitText += result.en; 
       } 

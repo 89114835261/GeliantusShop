@@ -3,7 +3,7 @@ import H from './Header.module.css';
 
 let Header = (props) => {
     return(
-        <div className={H.header}>
+        <div className={H.header} >
                     HEADER
                 </div>
     );

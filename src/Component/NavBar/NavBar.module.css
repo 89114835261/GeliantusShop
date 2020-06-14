@@ -1,4 +1,14 @@
+.NavBox {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    height: 30px;
+    padding: 10px;
+}
+
 .navBar:last-child {
     font-weight: bold;
-    padding: 3px;
+    padding: 5px;
+    margin: 0;
 }
+

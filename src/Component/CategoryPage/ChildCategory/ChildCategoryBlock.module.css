@@ -1,0 +1,42 @@
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: bisque;
+    justify-content: center;
+    padding: 10px;
+}
+
+A.catBlock {
+    color: #851882;
+}
+
+.catBlock {
+    border: 1px solid black;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    color: #000;
+    width: 120px;
+    height: 120px;
+    margin: 0 10px 0 10px;
+}
+
+.catBlock IMG {
+    width: 70px;
+    height: 70px;
+    border: 1px;
+}
+
+.catBlock SPAN {
+    text-align: center;
+}
+
+.catBlock:first-child {
+    margin-left: 0;
+}
+
+.catBlock:last-child {
+    margin-right: 0;
+}

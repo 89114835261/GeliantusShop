@@ -3,7 +3,9 @@ const SET_COUNT_FLOWERS = 'SET_COUNT_FLOWERS';
 const CHANGE_CURRENT_VALUE = 'CHANGE_CURRENT_VALUE';
 const SET_PAGE_NAME = 'SET_PAGE_NAME';
 const SET_COVER_PAGE = 'SET_COVER_PAGE';
-const SET_SPECIFICATION_LIST = 'SET_SPECIFICATION_LIST'
+const SET_SPECIFICATION_LIST = 'SET_SPECIFICATION_LIST';
+const SET_ITEM_CATEGORY = 'SET_ITEM_CATEGORY';
+const SET_CHILD_CATEGORY = 'SET_CHILD_CATEGORY';
 
 let initialState = {
     flowers: [],
@@ -11,17 +13,29 @@ let initialState = {
     specificationList: [],
     currentValue: 1,
     pageName: '',
-    coverPage: ''
+    coverPage: '',
+    itemCategory: {},
+    childCategory: []
 }
 
 const TopFlowers = (state = initialState, action) => {
 
     switch(action.type) {
+        case SET_CHILD_CATEGORY: 
+            return {
+                ...state,
+                childCategory: action.childs
+            }
         case SET_FLOWERS: 
             return {
                 ...state,
                 flowers: action.flowers
             }
+        case SET_ITEM_CATEGORY:
+                return {
+                    ...state,
+                    itemCategory: action.catogory
+                }
         case SET_COVER_PAGE:
             return {
                 ...state,
@@ -49,6 +63,20 @@ const TopFlowers = (state = initialState, action) => {
                 currentValue: action.value
             }
         default: return state;
+    }
+}
+
+export let setChildCategoryAC = (childs) => {
+    return {
+        type: SET_CHILD_CATEGORY,
+        childs: childs
+    }
+}
+
+export let setItemCategoryAC = (catogory) => {
+    return {
+        type: SET_ITEM_CATEGORY,
+        catogory: catogory
     }
 }
 

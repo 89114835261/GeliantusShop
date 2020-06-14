@@ -2,10 +2,11 @@ import React from 'react';
 import F from './CategoryPageContainer.module.css';
 import { connect } from 'react-redux';
 import Product from '../Product/Product';
-import {quickSort, changeProducts} from '../redux/Project-reducer';
-import {setFlowersActionCreator, setCountFlowersActionCreator, changeCurrentValueActionCreator, setPageNameActionCreator, setCoverPageActionCreator, setSpecificationlistActionCreator} from '../redux/Flowers-reducer';
+import {quickSort, changeProducts, setChildsCat} from '../redux/Project-reducer';
+import {setFlowersActionCreator, setCountFlowersActionCreator, changeCurrentValueActionCreator, setPageNameActionCreator, setCoverPageActionCreator, setSpecificationlistActionCreator, setItemCategoryAC, setChildCategoryAC} from '../redux/Flowers-reducer';
 import { withRouter } from 'react-router-dom';
 import FiltersForm from './FiltersForm/FiltersForm';
+import ChildCategoryBlockContainer from './ChildCategory/ChildCategoryBlock';
 
 
 class Flowers extends React.Component {
@@ -18,22 +19,30 @@ class Flowers extends React.Component {
 
         //Получаем категории типа с сервера
         let catList = [ //Получаем категории
-            {catId: 1, name: 'Цветы', cover: 'url-image1', get url() {return `/Category/Category_Cvety/${this.catId}`}, specification: [1, 2, 4] }, 
-            {catId: 2, name: 'Товары для дома', cover: 'url-image2', get url() { return `/Category/Category_TovaryDlyaDoma/${this.catId}`}, specification: [1, 2, 4]},
-            {catId: 3, name: 'Декор', cover: 'url-image3', get url() { return `/Category/Category_Decor/${this.catId}`}, specification: [1, 2, 4]}
+            {catId: 1, name: 'Цветы', cover: 'url-image1', get url() {return `/Category/Category_Cvety/${this.catId}`}, specification: [1, 2, 4], childs: [2,3]}, 
+            {catId: 2, name: 'Товары для дома', cover: 'url-image2', get url() { return `/Category/Category_TovaryDlyaDoma/${this.catId}`}, specification: [1, 2, 4], childs: [3]},
+            {catId: 3, name: 'Декор', cover: 'url-image3', get url() { return `/Category/Category_Decor/${this.catId}`}, specification: [1, 2, 4], childs: [3]}
         ] 
-       
+
         
         let setCat = catList.filter(currentElement => currentElement.catId == this.props.match.params.catId);
+        let itCat = setCat[0];
         this.props.setPageName(setCat[0].name);
-        this.props.setCoverPage(setCat[0].cover)
+        this.props.setCoverPage(setCat[0].cover);
+        
+       
+        this.props.setItemCategory(setCat[0]);
 
-        let specificationIdList = setCat[0].specification.join('_') // result 1_2_4
+               
+        //Ниже имитация вызова детей-категорий основной категории(их id берутся из свойство childs основной категории)
+        this.props.setChildsCategory(setChildsCat(itCat, catList, 'childs', 'catId'))
+
+        let specificationIdList = setCat[0].specification.join('-') // result 1-2-4
+        let childCategoryList = setCat[0].childs.join('-') //result 2, 3 
         //Далее по задумке делаем запрос, /Specifications?id=2_5_8 и в в ответе
         //должны прити характеристики с id 2, 5, 8
-
+        // Тоже самое с childs(дочерними категориями)
         //Имитация результата вызова /Specifications?id=2_5_8 ниже:
-
         // this.props.setSpecificationList(specificationList); //Сэтаем наши характеристики
 
         let arr = [ //Сэтаем товары
@@ -69,14 +78,18 @@ class Flowers extends React.Component {
         
         if(this.mutate != this.props.mutateState) {
             let catList = [ //Получаем категории
-                {catId: 1, name: 'Цветы', cover: 'url-image1', get url() {return `/Category/Cvety/${this.catId}`}, specification: [1, 2, 4] }, 
-                {catId: 2, name: 'Товары для дома', cover: 'url-image2', get url() { return `/Category/TovaryDlyaDoma/${this.catId}`}, specification: [1, 2, 4]},
-                {catId: 3, name: 'Декор', cover: 'url-image3', get url() { return `/Category/Decor/${this.catId}`}, specification: [1, 2, 4]}
+                {catId: 1, name: 'Цветы', cover: 'url-image1', get url() {return `/Category/Category_Cvety/${this.catId}`}, specification: [1, 2, 4], childs: [2,3]}, 
+                {catId: 2, name: 'Товары для дома', cover: 'url-image2', get url() { return `/Category/Category_TovaryDlyaDoma/${this.catId}`}, specification: [1, 2, 4], childs: [3]},
+                {catId: 3, name: 'Декор', cover: 'url-image3', get url() { return `/Category/Category_Decor/${this.catId}`}, specification: [1, 2, 4], childs: [3]}
             ] 
            
             let setCat = catList.filter(currentElement => currentElement.catId == this.props.match.params.catId);
+            let itCat = setCat[0];
             this.props.setPageName(setCat[0].name);
             this.props.setCoverPage(setCat[0].cover)
+
+            this.props.setChildsCategory(setChildsCat(itCat, catList, 'childs', 'catId'))
+
             let arr = [ //Сэтаем товары
                 {id: 1, name: 'Цветок такой то', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 12, description: 'Бла-2', views: '23',homePaymant:  true, catId: [1, 3, 5, 7, 2], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
                 {id: 2, name: 'Я цветок', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 7, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
@@ -145,11 +158,12 @@ class Flowers extends React.Component {
 
                     <div className={F.filtersBox}>
                         <h1>Настроить фильтры</h1>
-                        <FiltersForm />
+                        <FiltersForm/>
                         
                     </div>
 
                 </div>
+                {this.props.childCategory.length != 0 ? <ChildCategoryBlockContainer childCategory={this.props.childCategory} /> : null}
                 <div className={F.productsLits}>
                 
                 {endProductList}
@@ -168,7 +182,9 @@ let mapStateToProps = (state) => {
         mutateState: state.Project.mutateState,
         currentValue: state.Flowers.currentValue,
         pageName: state.Flowers.pageName,
-        coverPage: state.Flowers.coverPage
+        coverPage: state.Flowers.coverPage,
+        itemCategory: state.Flowers.itemCategory,
+        childCategory: state.Flowers.childCategory
     }
 }
 
@@ -191,6 +207,12 @@ let mapDispatchToProps = (dispatch) => {
       },
       setSpecificationList: (specificationList) => {
           dispatch(setSpecificationlistActionCreator(specificationList))
+      },
+      setItemCategory: (catogory) => {
+          dispatch(setItemCategoryAC(catogory))
+      },
+      setChildsCategory: (childs) => {
+          dispatch(setChildCategoryAC(childs))
       }
     }
 }

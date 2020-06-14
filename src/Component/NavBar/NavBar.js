@@ -6,10 +6,20 @@ let WayLine = (props) => {
     let setLinks = (arr) => {
 
         if(arr && props.mainUrl) {
-            let changeUrl = (urlLabel) => {
-                let rer = props.mainUrl.slice(0, props.mainUrl.indexOf(urlLabel) + urlLabel.length + 2)
-                 return rer;
+            let changeUrl = (urlLabel) => { //фиксирует текущий URL и вовращает его
+               
+                let ourURL = props.mainUrl.slice(0, props.mainUrl.indexOf(urlLabel) + urlLabel.length + 1)
+                if(props.mainUrl.includes('/', ourURL.length)) {
+                    let countURL = props.mainUrl.indexOf('/', ourURL.length);
+                    let finalURL = props.mainUrl.slice(0, countURL)
+                    return finalURL;
+                } else {
+                    let sliceNumber = props.mainUrl.slice(ourURL.length);
+                    let finalURL = props.mainUrl.slice(0, ourURL.length + sliceNumber.length);
+                    return finalURL;
+                }
              }
+             
             let visualElementsUrlArrZ = arr.map((s, i) => {
                 if(s == 'Main') {
                     return;
@@ -28,7 +38,7 @@ let WayLine = (props) => {
     }
     
     return( 
-        <div><NavLink className={N.navBar} to="/Main">Главная</NavLink> > {setLinks(props.visualElementsUrlArr)}</div>
+        <div className={N.NavBox}><NavLink className={N.navBar} to="/Main">Главная</NavLink> > {setLinks(props.visualElementsUrlArr)}</div>
     );
 }
 

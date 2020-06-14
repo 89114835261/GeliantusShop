@@ -1,5 +1,8 @@
 .header {
     background-color: #d4ff9a;
     grid-area: header;
-    
+    background-image: url('./../../img/Header.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: bottom -100px right 0;
 }
