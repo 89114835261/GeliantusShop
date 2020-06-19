@@ -1,0 +1,318 @@
+{
+    "items": [{
+        "id": 1, 
+        "name": "Эритрема", 
+        "price": "2380", 
+        "photo": {
+            "smal": "url1",
+            "large": "url2"}, 
+        "orders": 12, 
+        "description": "Бла-2", 
+        "views": "23", 
+        "homePaymant":  true, 
+        "catId": [1], 
+        "specId": [2, 4, 9], 
+        "specifications": [
+            {
+            "id": 2, 
+            "name": "цвет",
+            "value": "Красный"
+            }
+        ]
+    },
+    {
+        "id": 2, 
+        "name": "Секвойа-мини", 
+        "price": "564", 
+        "photo": {
+            "smal": "url1",
+            "large": "url2"}, 
+        "orders": 16, 
+        "description": "Бла-2", 
+        "views": "23", 
+        "homePaymant":  true, 
+        "catId": [1], 
+        "specId": [2, 4, 9], 
+        "specifications": [
+            {
+            "id": 2, 
+            "name": "цвет",
+            "value": "Красный"
+            }
+        ]
+    },
+    {
+        "id": 3, 
+        "name": "Желтый фикус", 
+        "price": "23123", 
+        "photo": {
+            "smal": "url1",
+            "large": "url2"}, 
+        "orders": 12, 
+        "description": "Бла-2", 
+        "views": "23", 
+        "homePaymant":  true, 
+        "catId": [1,2], 
+        "specId": [2, 4, 9], 
+        "specifications": [
+            {
+            "id": 2, 
+            "name": "цвет",
+            "value": "Красный"
+            }
+        ]
+    },
+    {
+        "id": 4, 
+        "name": "Зелёный фикус", 
+        "price": "1200", 
+        "photo": {
+            "smal": "url1",
+            "large": "url2"}, 
+        "orders": 13, 
+        "description": "Бла-2", 
+        "views": "23", 
+        "homePaymant":  true, 
+        "catId": [1,3], 
+        "specId": [2, 4, 9], 
+        "specifications": [
+            {
+            "id": 2, 
+            "name": "цвет",
+            "value": "Красный"
+            }
+        ]
+    },
+    {
+        "id": 5, 
+        "name": "Партаз", 
+        "price": "1300", 
+        "photo": {
+            "smal": "url1",
+            "large": "url2"}, 
+        "orders": 23, 
+        "description": "Бла-2", 
+        "views": "23", 
+        "homePaymant":  true, 
+        "catId": [1], 
+        "specId": [2, 4, 9], 
+        "specifications": [
+            {
+            "id": 2, 
+            "name": "цвет",
+            "value": "Красный"
+            }
+        ]
+    },
+    {
+        "id": 6, 
+        "name": "Хвоя", 
+        "price": "320", 
+        "photo": {
+            "smal": "url1",
+            "large": "url2"}, 
+        "orders": 45, 
+        "description": "Бла-2", 
+        "views": "23", 
+        "homePaymant":  true, 
+        "catId": [1], 
+        "specId": [2, 4, 9], 
+        "specifications": [
+            {
+            "id": 2, 
+            "name": "цвет",
+            "value": "Красный"
+            }
+        ]
+    },
+    {
+        "id": 7, 
+        "name": "Розно", 
+        "price": "980", 
+        "photo": {
+            "smal": "url1",
+            "large": "url2"}, 
+        "orders": 1, 
+        "description": "Бла-2", 
+        "views": "23", 
+        "homePaymant":  true, 
+        "catId": [1], 
+        "specId": [2, 4, 9], 
+        "specifications": [
+            {
+            "id": 2, 
+            "name": "цвет",
+            "value": "Красный"
+            }
+        ]
+    },
+    {
+        "id": 8, 
+        "name": "Фарстатья", 
+        "price": "1760", 
+        "photo": {
+            "smal": "url1",
+            "large": "url2"}, 
+        "orders": 9, 
+        "description": "Бла-2", 
+        "views": "23", 
+        "homePaymant":  true, 
+        "catId": [1], 
+        "specId": [2, 4, 9], 
+        "specifications": [
+            {
+            "id": 2, 
+            "name": "цвет",
+            "value": "Красный"
+            }
+        ]
+    },
+    {
+        "id": 9, 
+        "name": "Поркас", 
+        "price": "1242", 
+        "photo": {
+            "smal": "url1",
+            "large": "url2"}, 
+        "orders": 36, 
+        "description": "Бла-2", 
+        "views": "23", 
+        "homePaymant":  true, 
+        "catId": [1], 
+        "specId": [2, 4, 9], 
+        "specifications": [
+            {
+            "id": 2, 
+            "name": "цвет",
+            "value": "Красный"
+            }
+        ]
+    },
+    {
+        "id": 10, 
+        "name": "Жлок", 
+        "price": "6574", 
+        "photo": {
+            "smal": "url1",
+            "large": "url2"}, 
+        "orders": 33, 
+        "description": "Бла-2", 
+        "views": "23", 
+        "homePaymant":  true, 
+        "catId": [1], 
+        "specId": [2, 4, 9], 
+        "specifications": [
+            {
+            "id": 2, 
+            "name": "цвет",
+            "value": "Красный"
+            }
+        ]
+    },
+    {
+        "id": 11, 
+        "name": "Парциссема", 
+        "price": "4367", 
+        "photo": {
+            "smal": "url1",
+            "large": "url2"}, 
+        "orders": 12, 
+        "description": "Бла-2", 
+        "views": "23", 
+        "homePaymant":  true, 
+        "catId": [1], 
+        "specId": [2, 4, 9], 
+        "specifications": [
+            {
+            "id": 2, 
+            "name": "цвет",
+            "value": "Красный"
+            }
+        ]
+    },
+    {
+        "id": 12, 
+        "name": "Роза секвойная", 
+        "price": "3342", 
+        "photo": {
+            "smal": "url1",
+            "large": "url2"}, 
+        "orders": 15, 
+        "description": "Бла-2", 
+        "views": "23", 
+        "homePaymant":  true, 
+        "catId": [1], 
+        "specId": [2, 4, 9], 
+        "specifications": [
+            {
+            "id": 2, 
+            "name": "цвет",
+            "value": "Красный"
+            }
+        ]
+    },
+    {
+        "id": 13, 
+        "name": "Лиственница", 
+        "price": "6400", 
+        "photo": {
+            "smal": "url1",
+            "large": "url2"}, 
+        "orders": 6, 
+        "description": "Бла-2", 
+        "views": "23", 
+        "homePaymant":  true, 
+        "catId": [1], 
+        "specId": [2, 4, 9], 
+        "specifications": [
+            {
+            "id": 2, 
+            "name": "цвет",
+            "value": "Красный"
+            }
+        ]
+    },
+    {
+        "id": 14, 
+        "name": "Берёзка-мини", 
+        "price": "3580", 
+        "photo": {
+            "smal": "url1",
+            "large": "url2"}, 
+        "orders": 2, 
+        "description": "Бла-2", 
+        "views": "23", 
+        "homePaymant":  true, 
+        "catId": [1], 
+        "specId": [2, 4, 9], 
+        "specifications": [
+            {
+            "id": 2, 
+            "name": "цвет",
+            "value": "Красный"
+            }
+        ]
+    },
+    {
+        "id": 15, 
+        "name": "Парван", 
+        "price": "2333", 
+        "photo": {
+            "smal": "url1",
+            "large": "url2"}, 
+        "orders": 1, 
+        "description": "Бла-2", 
+        "views": "23", 
+        "homePaymant":  true, 
+        "catId": [1], 
+        "specId": [2, 4, 9], 
+        "specifications": [
+            {
+            "id": 2, 
+            "name": "цвет",
+            "value": "Красный"
+            }
+        ]
+    }],
+    "totalCount": 15
+}

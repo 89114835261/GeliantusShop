@@ -7,6 +7,7 @@ import {setFlowersActionCreator, setCountFlowersActionCreator, changeCurrentValu
 import { withRouter } from 'react-router-dom';
 import FiltersForm from './FiltersForm/FiltersForm';
 import ChildCategoryBlockContainer from './ChildCategory/ChildCategoryBlock';
+import Axios from 'axios';
 
 
 class Flowers extends React.Component {
@@ -19,9 +20,9 @@ class Flowers extends React.Component {
 
         //Получаем категории типа с сервера
         let catList = [ //Получаем категории
-            {catId: 1, name: 'Цветы', cover: 'url-image1', get url() {return `/Category/Category_Cvety/${this.catId}`}, specification: [1, 2, 4], childs: [2,3]}, 
-            {catId: 2, name: 'Товары для дома', cover: 'url-image2', get url() { return `/Category/Category_TovaryDlyaDoma/${this.catId}`}, specification: [1, 2, 4], childs: [3]},
-            {catId: 3, name: 'Декор', cover: 'url-image3', get url() { return `/Category/Category_Decor/${this.catId}`}, specification: [1, 2, 4], childs: [3]}
+            {catId: 1, name: 'Цветы', cover: 'url-image1', get url() {return `/Category/Category-Cvety/${this.catId}`}, specification: [1, 2, 4], childs: [2,3]}, 
+            {catId: 2, name: 'Товары для дома', cover: 'url-image2', get url() { return `/Category/Category-Tovary-Dlya-Doma/${this.catId}`}, specification: [1, 2, 4], childs: [3]},
+            {catId: 3, name: 'Декор', cover: 'url-image3', get url() { return `/Category/Category-Dekor/${this.catId}`}, specification: [1, 2, 4], childs: [3]}
         ] 
 
         
@@ -44,32 +45,11 @@ class Flowers extends React.Component {
         // Тоже самое с childs(дочерними категориями)
         //Имитация результата вызова /Specifications?id=2_5_8 ниже:
         // this.props.setSpecificationList(specificationList); //Сэтаем наши характеристики
+        Axios.get('/Products.json').then(response => {this.props.setFlowers(changeProducts(response.data.items, this.props.match.params.catId))});
+        this.mutate = this.props.mutateState;
 
-        let arr = [ //Сэтаем товары
-            {id: 1, name: 'Цветок такой то', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 12, description: 'Бла-2', views: '23',homePaymant:  true, catId: [1, 3, 5, 7, 2], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 2, name: 'Я цветок', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 7, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 3, name: 'Цветочеггг', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 4, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 4, name: 'Ромашка', price: '333', photo: {smal: 'url1', large: 'url2'}, orders: 18, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 5, name: 'Роза', price: '2222', photo: {smal: 'url1', large: 'url2'}, orders: 2, description: 'Бла-2', views: '23', homePaymant:  true, catId: [3], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 6, name: 'Пантилея', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 1, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1, 2], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 7, name: 'Название', price: '21', photo: {smal: 'url1', large: 'url2'}, orders: 16, description: 'Бла-2', views: '23', homePaymant:  true, catId: [3], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 8, name: 'ААВВВВВВВВ', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 4, description: 'Бла-2', views: '23', homePaymant:  true, catId: [4], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 9, name: 'Борн', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 4, description: 'Бла-2', views: '23', homePaymant:  true, catId: [5], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 10, name: 'Эритрема', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 6, description: 'Бла-2', views: '23', homePaymant:  true, catId: [5], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 11, name: 'Цветок такой то', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 12, description: 'Бла-2', views: '23', homePaymant:  true, catId: [8], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 12, name: 'Я цветок', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 7, description: 'Бла-2', views: '23', homePaymant:  true, catId: [6], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 13, name: 'Цветочеггг', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 4, description: 'Бла-2', views: '23', homePaymant:  true, catId: [2], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 14, name: 'Ромашка', price: '333', photo: {smal: 'url1', large: 'url2'}, orders: 18, description: 'Бла-2', views: '23', homePaymant:  true, catId: [7], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 15, name: 'Роза', price: '2222', photo: {smal: 'url1', large: 'url2'}, orders: 2, description: 'Бла-2', views: '23', homePaymant:  true, catId: [6], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 16, name: 'Пантилея', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 1, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1, 2], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 17, name: 'Название', price: '21', photo: {smal: 'url1', large: 'url2'}, orders: 16, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 18, name: 'ААВВВВВВВВ', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 4, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 19, name: 'Борн', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 4,description: 'Бла-2', views: '23', homePaymant:  true, catId: [1], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-            {id: 20, name: 'Эритрема', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 6, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]}
-        ];
-        
         //Отбираем только те объекты, которые равны текущему id страницы (catId)  ниже:
-        this.props.setFlowers(changeProducts(arr, this.props.match.params.catId)); 
+        // this.props.setFlowers(changeProducts(arr, this.props.match.params.catId)); 
          this.props.setCountFlowers(15) //Сэтаем кол-во товаров на странице
         
     }
@@ -78,9 +58,9 @@ class Flowers extends React.Component {
         
         if(this.mutate != this.props.mutateState) {
             let catList = [ //Получаем категории
-                {catId: 1, name: 'Цветы', cover: 'url-image1', get url() {return `/Category/Category_Cvety/${this.catId}`}, specification: [1, 2, 4], childs: [2,3]}, 
-                {catId: 2, name: 'Товары для дома', cover: 'url-image2', get url() { return `/Category/Category_TovaryDlyaDoma/${this.catId}`}, specification: [1, 2, 4], childs: [3]},
-                {catId: 3, name: 'Декор', cover: 'url-image3', get url() { return `/Category/Category_Decor/${this.catId}`}, specification: [1, 2, 4], childs: [3]}
+                {catId: 1, name: 'Цветы', cover: 'url-image1', get url() {return `/Category/Category-Cvety/${this.catId}`}, specification: [1, 2, 4], childs: [2,3]}, 
+                {catId: 2, name: 'Товары для дома', cover: 'url-image2', get url() { return `/Category/Category-Tovary-Dlya-Doma/${this.catId}`}, specification: [1, 2, 4], childs: [3]},
+                {catId: 3, name: 'Декор', cover: 'url-image3', get url() { return `/Category/Category-Dekor/${this.catId}`}, specification: [1, 2, 4], childs: [3]}
             ] 
            
             let setCat = catList.filter(currentElement => currentElement.catId == this.props.match.params.catId);
@@ -89,30 +69,8 @@ class Flowers extends React.Component {
             this.props.setCoverPage(setCat[0].cover)
 
             this.props.setChildsCategory(setChildsCat(itCat, catList, 'childs', 'catId'))
-
-            let arr = [ //Сэтаем товары
-                {id: 1, name: 'Цветок такой то', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 12, description: 'Бла-2', views: '23',homePaymant:  true, catId: [1, 3, 5, 7, 2], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 2, name: 'Я цветок', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 7, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 3, name: 'Цветочеггг', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 4, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 4, name: 'Ромашка', price: '333', photo: {smal: 'url1', large: 'url2'}, orders: 18, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 5, name: 'Роза', price: '2222', photo: {smal: 'url1', large: 'url2'}, orders: 2, description: 'Бла-2', views: '23', homePaymant:  true, catId: [3], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 6, name: 'Пантилея', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 1, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1, 2], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 7, name: 'Название', price: '21', photo: {smal: 'url1', large: 'url2'}, orders: 16, description: 'Бла-2', views: '23', homePaymant:  true, catId: [3], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 8, name: 'ААВВВВВВВВ', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 4, description: 'Бла-2', views: '23', homePaymant:  true, catId: [4], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 9, name: 'Борн', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 4, description: 'Бла-2', views: '23', homePaymant:  true, catId: [5], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 10, name: 'Эритрема', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 6, description: 'Бла-2', views: '23', homePaymant:  true, catId: [5], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 11, name: 'Цветок такой то', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 12, description: 'Бла-2', views: '23', homePaymant:  true, catId: [8], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 12, name: 'Я цветок', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 7, description: 'Бла-2', views: '23', homePaymant:  true, catId: [6], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 13, name: 'Цветочеггг', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 4, description: 'Бла-2', views: '23', homePaymant:  true, catId: [2], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 14, name: 'Ромашка', price: '333', photo: {smal: 'url1', large: 'url2'}, orders: 18, description: 'Бла-2', views: '23', homePaymant:  true, catId: [7], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 15, name: 'Роза', price: '2222', photo: {smal: 'url1', large: 'url2'}, orders: 2, description: 'Бла-2', views: '23', homePaymant:  true, catId: [6], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 16, name: 'Пантилея', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 1, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1, 2], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 17, name: 'Название', price: '21', photo: {smal: 'url1', large: 'url2'}, orders: 16, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 18, name: 'ААВВВВВВВВ', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 4, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 19, name: 'Борн', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 4,description: 'Бла-2', views: '23', homePaymant:  true, catId: [1], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]},
-                {id: 20, name: 'Эритрема', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 6, description: 'Бла-2', views: '23', homePaymant:  true, catId: [1], specId: [2, 4, 9], specifications: [{id: 2, value: 'Красный'}]}
-            ];
-            this.props.setFlowers(changeProducts(arr, this.props.match.params.catId));
+            Axios.get('/Products.json').then(response => {this.props.setFlowers(changeProducts(response.data.items, this.props.match.params.catId))});
+       
             this.mutate = this.props.mutateState;
         }
     }
@@ -123,6 +81,7 @@ class Flowers extends React.Component {
         let func = () => {
             this.props.changeCurrentValue(changeOption.current.options.selectedIndex + 1)
         }
+        
         let sortProducts = quickSort(this.props.flowers, 'id'); // функция сортирующая массив
         if(this.props.currentValue == 1) {
             sortProducts.reverse();
@@ -163,7 +122,7 @@ class Flowers extends React.Component {
                     </div>
 
                 </div>
-                {this.props.childCategory.length != 0 ? <ChildCategoryBlockContainer childCategory={this.props.childCategory} /> : null}
+                {this.props.childCategory.length != 0 && this.props.mainUrl ? <ChildCategoryBlockContainer mainUrl={this.props.mainUrl} childCategory={this.props.childCategory} /> : null}
                 <div className={F.productsLits}>
                 
                 {endProductList}
@@ -184,7 +143,8 @@ let mapStateToProps = (state) => {
         pageName: state.Flowers.pageName,
         coverPage: state.Flowers.coverPage,
         itemCategory: state.Flowers.itemCategory,
-        childCategory: state.Flowers.childCategory
+        childCategory: state.Flowers.childCategory,
+        mainUrl: state.Project.mainUrl
     }
 }
 

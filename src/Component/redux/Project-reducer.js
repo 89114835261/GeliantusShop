@@ -10,7 +10,7 @@ let initialState = {
 
 const ProjectReducer = (state = initialState, action) => {
     switch(action.type) {
-        case SET_MAIN_URL_ADRESS:
+        case SET_MAIN_URL_ADRESS: 
             return {
               ...state,
               mainUrl: action.url
@@ -51,6 +51,16 @@ export let setChildsCat = (obj, arr2, prop1, prop2) => {
   return itemArr;
 }
 
+//Функция ниже вернёт true если в path слово начиная от 2 слэша(/) с конца ровно text
+export let isCategory = (path, text) => {
+  if(!path) return;
+  let w = path.slice(0, path.lastIndexOf('/'));
+  let t = w.lastIndexOf('/') + 1;
+  let d = path.slice(t, t + 9);
+  if(d == text) {
+    return true;
+  } else return false;
+}
 
 export let translitText = (text, language, sliceCount) => {
     if(!text) return;
@@ -58,8 +68,8 @@ export let translitText = (text, language, sliceCount) => {
     let newText = text.slice(sliceCount, text.length)
     let sampleText = [
       {en: '-', ru: ' ', id: '1'},
-      {en: ' ', ru: ' ', id: '2'},
-      {en: '/', ru: ' ', id: '3'},
+      {en: '-', ru: ' ', id: '2'},
+      {en: '/', ru: '/', id: '3'},
       {en: 'a', ru: 'а', id: '4'},
       {en: 'A', ru: 'А', id: '5'},
       {en: 'b', ru: 'б', id: '6'},
@@ -114,18 +124,19 @@ export let translitText = (text, language, sliceCount) => {
       {en: 'SH', ru: 'Ш', id: '55'},
       {en: 'sch', ru: 'щ', id: '56'},
       {en: 'SCH', ru: 'Щ', id: '57'},
-      {en: '', ru: 'ъ', id: '58'},
-      {en: '', ru: 'Ъ', id: '59'},
+      {en: null, ru: 'ъ', id: '58'},
+      {en: null, ru: 'Ъ', id: '59'},
       {en: 'y', ru: 'ы', id: '60'},
       {en: 'Y', ru: 'Ы', id: '61'},
-      {en: '', ru: 'ь', id: '62'},
-      {en: '', ru: 'Ь', id: '63'},
+      {en: null, ru: 'ь', id: '62'},
+      {en: null, ru: 'Ь', id: '63'},
       {en: 'e', ru: 'э', id: '64'},
       {en: 'E', ru: 'Э', id: '65'},
       {en: 'u', ru: 'ю', id: '66'},
       {en: 'U', ru: 'Ю', id: '67'},
       {en: 'ya', ru: 'я', id: '68'},
       {en: 'Ya', ru: 'Я', id: '69'},
+      {en: '-', ru: '-', id: '70'},
   ]
       let erorArr = [
         {erVal: 'ыа', val: 'я'},
@@ -154,6 +165,7 @@ export let translitText = (text, language, sliceCount) => {
   } else if(language == 'ru') {
     
       for(let i = 0; i < text.length; i++) {
+       
         let result;
         result = sampleText.find(item => item.ru == text[i]);
         translitText += result.en; 

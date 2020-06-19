@@ -9,6 +9,7 @@ let Product = (props) => {
             return translitText(props.name, 'ru')
         } return ''
     }
+            
     return(
         <NavLink to={props.url + '/Product/Product-' + myFunc() + '/' + props.id + '/Description'}>
             <div className={P.itemProduct}>

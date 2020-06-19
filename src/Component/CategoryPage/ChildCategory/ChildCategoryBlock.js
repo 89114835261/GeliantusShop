@@ -4,8 +4,13 @@ import { withRouter, NavLink } from 'react-router-dom';
 
 let ChildCategoryBlockContainer = (props) => {
 
+    
+    let setUrl = (URL, catUrl) => {
+     
+        return URL + (catUrl.slice(9));
+    }
     let categoryList = props.childCategory.map( item => 
-            <NavLink className={C.catBlock} to={item.url}>
+            <NavLink className={C.catBlock} to={setUrl(props.mainUrl, item.url)}>
                 <img src={item.url} />
                 <span>{item.name}</span>
             </NavLink>

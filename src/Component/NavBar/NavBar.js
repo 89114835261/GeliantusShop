@@ -31,8 +31,9 @@ let WayLine = (props) => {
                 return <NavLink className={N.navBar} to={changeUrl(s)}> > {props.translitText(s, 'en', 9)}</NavLink>
                 } else if(s.slice(0, 8) == 'Product-') {
                     return <NavLink className={N.navBar} to={changeUrl(s) + '/Description'}> > {props.translitText(s, 'en', 8)}</NavLink>
-                    }
-                else return });
+                } else if(s == Number) {
+                    return;
+                } else return });
                 return visualElementsUrlArrZ;
         } else return 'asda';
     }
