@@ -1,5 +1,6 @@
 [
     {"catId": 1, "name": "Цветы", "cover": "https://image.flaticon.com/icons/png/128/252/252252.png", "url": "/Category/Category-Cvety/1", "specification": [1, 2, 4], "childs": [2,3]}, 
     {"catId": 2, "name": "Товары для дома", "cover": "https://www.shareicon.net/data/128x128/2016/01/06/698957_home_512x512.png", "url": "/Category/Category-Tovary-Dlya-Doma/2", "specification": [1, 2, 4], "childs": [3]},
-    {"catId": 3, "name": "Декор", "cover": "https://fchat.vn/assets/images/landing/icon/icons8-home-decorations-96.png", "url" : "/Category/Category-Dekor/3", "specification": [1, 2, 4], "childs": [3]}
+    {"catId": 3, "name": "Декор", "cover": "https://fchat.vn/assets/images/landing/icon/icons8-home-decorations-96.png", "url" : "/Category/Category-Dekor/3", "specification": [1, 2, 4], "childs": [3,4]},
+    {"catId": 4, "name": "Лохмотья", "cover": "https://fchat.vn/assets/images/landing/icon/icons8-home-decorations-96.png", "url" : "/Category/Category-Lokhmotya/4", "specification": [1, 2, 4], "childs": [3]}
 ]

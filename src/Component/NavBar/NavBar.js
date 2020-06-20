@@ -2,10 +2,11 @@ import React from 'react';
 import N from './NavBar.module.css';
 import { NavLink } from 'react-router-dom';
 
+
 let WayLine = (props) => {
     let setLinks = (arr) => {
 
-        if(arr && props.mainUrl) {
+        if(arr && props.mainUrl && props.catigories) {
             let changeUrl = (urlLabel) => { //фиксирует текущий URL и вовращает его
                
                 let ourURL = props.mainUrl.slice(0, props.mainUrl.indexOf(urlLabel) + urlLabel.length + 1)
@@ -19,7 +20,7 @@ let WayLine = (props) => {
                     return finalURL;
                 }
              }
-             
+            //  {props.translitText(s, 'en', 9)}
             let visualElementsUrlArrZ = arr.map((s, i) => {
                 if(s == 'Main') {
                     return;
@@ -28,9 +29,11 @@ let WayLine = (props) => {
                 } else if(s == 'Category') {
                     return;
                 } else if(s.slice(0, 9) == 'Category-') {
-                return <NavLink className={N.navBar} to={changeUrl(s)}> > {props.translitText(s, 'en', 9)}</NavLink>
+                return <NavLink className={N.navBar} to={changeUrl(s)}> > 
+                {props.catigories[changeUrl(s).slice(-1) - 1].name}
+                </NavLink>
                 } else if(s.slice(0, 8) == 'Product-') {
-                    return <NavLink className={N.navBar} to={changeUrl(s) + '/Description'}> > {props.translitText(s, 'en', 8)}</NavLink>
+                    return <NavLink className={N.navBar} to={changeUrl(s) + '/Description'}> > {props.product && props.product[0].name}</NavLink>
                 } else if(s == Number) {
                     return;
                 } else return });
