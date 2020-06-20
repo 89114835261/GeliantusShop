@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ItemProduct from './itemProduct';
-import {setProductActionCreator, setItemProductCoverAC, setSpecificationsItemProductAC, setLongUrlActionCreator, setitemProductObjActionCreator} from './../redux/Product-reducer';
+import {setProductActionCreator, isOpenFullImageAC, setItemProductCoverAC, setSpecificationsItemProductAC, setLongUrlActionCreator, setitemProductObjActionCreator} from './../redux/Product-reducer';
 import Axios from 'axios';
 
 class itemProductContainer extends React.Component {
@@ -39,6 +39,8 @@ class itemProductContainer extends React.Component {
                 Specification={this.props.specifications}
                 mutateState={this.props.mutateState}
                 setProductCover={this.props.setProductCover}
+                isOpenFullImage={this.props.isOpenFullImage }
+                setIsOpenFullImage={this.props.setIsOpenFullImage}
             />}
            
             </div>
@@ -56,7 +58,9 @@ let mapStateToProps = (state) => {
         specifications: state.Product.specificationItemProduct,
         mutateState: state.Project.mutateState,
         longUrl: state.Product.longUrl,
-        itemProductObj: state.Product.itemProductObj
+        itemProductObj: state.Product.itemProductObj,
+        isOpenFullImage: state.Product.isOpenFullImage,
+        setIsOpenFullImage: state.Product.setIsOpenFullImage
     }
 }
 
@@ -76,6 +80,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         setProductCover: (url) => {
             dispatch(setItemProductCoverAC(url))
+        },
+        setIsOpenFullImage: () => {
+            dispatch(isOpenFullImageAC())
         }
     }
 }

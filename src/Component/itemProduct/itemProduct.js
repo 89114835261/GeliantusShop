@@ -7,15 +7,13 @@ let ItemProduct = (props) => {
    let visualSpecifications = props.Specification.map(v =>
    <div>{v.name} : {v.value}</div>
       );
-
    return (
       <div className={i.wrapper}>
-
+         {props.isOpenFullImage && <div className={i.fullImage}><div className={i.imgWrapper}><img src={props.productCover}></img><button onClick={() => props.setIsOpenFullImage()}>Закрыть</button></div></div>}
          <div className={i.wrapperTopBox}>
          
                <div className={i.leftBox}>
-                  <img src={props.productCover}></img>
-                  
+                  <img src={props.productCover} onClick={() => props.setIsOpenFullImage()}></img>
                </div>
 
                <div className={i.changePhoto}>
@@ -29,8 +27,8 @@ let ItemProduct = (props) => {
                   <img src={raiting} style={{width: '200px', marginTop: '10px', padding: '0'}}></img>
                   <p>Рейтинг товара: {props.itemProduct.raiting} из 5</p>
                   <p>Голосов: {props.itemProduct.voices}</p>  
-                  <button>Заказать</button>
-               </div>
+                     <button>Заказать</button>
+                  </div>
 
          </div>   
 

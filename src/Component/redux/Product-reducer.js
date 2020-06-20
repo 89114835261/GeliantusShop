@@ -3,6 +3,7 @@ const SET_SPECIFICATIONS_PRODUCT = 'SET_SPECIFICATIONS_PRODUCT';
 const SET_LONG_URL = 'SET_LONG_URL';
 const SET_ITEM_OBJ = 'SET_ITEM_OBJ';
 const ITEM_PRODUCT_COVER = 'ITEM_PRODUCT_COVER';
+const IS_OPEN_FULL_IMAGE = 'IS_OPEN_FULL_IMAGE'
 
 
 let initialState = {
@@ -10,7 +11,8 @@ let initialState = {
     specificationItemProduct: [],
     longUrl: null,
     itemProductObj: {},
-    productCover: null
+    productCover: null,
+    isOpenFullImage: false
 }
 
 let productReduser = (state = initialState, action) => {
@@ -20,6 +22,8 @@ let productReduser = (state = initialState, action) => {
                 ...state,
                 productCover: action.url
             }
+        case IS_OPEN_FULL_IMAGE:
+           return state.isOpenFullImage ? {...state, isOpenFullImage: false} : {...state, isOpenFullImage: true}
         case SET_ITEM_PRODUCT: 
             return {
                 ...state,
@@ -41,6 +45,12 @@ let productReduser = (state = initialState, action) => {
             specificationItemProduct: action.speccifications
         }
         default: return state;
+    }
+}
+
+export let isOpenFullImageAC = () => {
+    return {
+        type: IS_OPEN_FULL_IMAGE
     }
 }
 
