@@ -25,10 +25,7 @@ let productReduser = (state = initialState, action) => {
         case IS_OPEN_FULL_IMAGE:
            return state.isOpenFullImage ? {...state, isOpenFullImage: false} : {...state, isOpenFullImage: true}
         case SET_ITEM_PRODUCT: 
-            return {
-                ...state,
-                product: [action.product[action.itemId - 1]]
-            }
+                return action.product ? {...state, product: [action.product[action.itemId - 1]]} : {...state, product: null}
             case  SET_ITEM_OBJ: 
                 return {
                     ...state,

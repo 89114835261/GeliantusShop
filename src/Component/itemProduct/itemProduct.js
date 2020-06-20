@@ -7,6 +7,7 @@ let ItemProduct = (props) => {
    let visualSpecifications = props.Specification.map(v =>
    <div>{v.name} : {v.value}</div>
       );
+     
    return (
       <div className={i.wrapper}>
          {props.isOpenFullImage && <div className={i.fullImage}><div className={i.imgWrapper}><img src={props.productCover}></img><button onClick={() => props.setIsOpenFullImage()}>Закрыть</button></div></div>}

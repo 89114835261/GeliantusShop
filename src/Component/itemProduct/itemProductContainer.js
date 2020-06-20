@@ -15,7 +15,10 @@ class itemProductContainer extends React.Component {
     }
     // При реальных запросах, мы не будем использовать DidUpdate, а запустим получение
     // айдишников спецификаций при получении ответа в DidMount (response => наша функция)
-    
+    componentWillUnmount() {
+        this.props.setProduct(null);
+        this.props.setProductCover(null);
+    }
     render() {     
         // Ниже условие формирующее длину URL к которой мы будем прибавлять 
         // Description или Specification  и т.д. т.е. наши вкладки "описание", "Характеристики"
