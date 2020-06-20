@@ -56,11 +56,25 @@ class Flowers extends React.Component {
             this.props.changeCurrentValue(changeOption.current.options.selectedIndex + 1)
         }
         
-        let sortProducts = quickSort(this.props.flowers, 'id'); // функция сортирующая массив
-        if(this.props.currentValue == 1) {
-            sortProducts.reverse();
+         // функция сортирующая массив
+        let sortProduct = () => {
+            if(this.props.currentValue == 1) {
+                let sortProducts = quickSort(this.props.flowers, 'price');
+                sortProducts.reverse();
+                return sortProducts;
+            } else if(this.props.currentValue == 2) {
+                let sortProducts = quickSort(this.props.flowers, 'price');
+                return sortProducts;
+            } else if(this.props.currentValue == 3) {
+                let sortProducts = quickSort(this.props.flowers, 'orders');
+                return sortProducts;
+            } else{
+                let sortProducts = this.props.flowers;
+                return sortProducts
+            }
+           
         }
-        let endProductList = sortProducts.map( s =>
+        let endProductList = sortProduct().map( s =>
             <Product 
                 name={s.name}
                 price={s.price}
@@ -89,6 +103,7 @@ class Flowers extends React.Component {
                                 <select ref={changeOption} value={this.props.currentValue} name='sdsd' onChange={ () => func()} >
                                     <option value='1'>Возрастанию цены</option>
                                     <option value='2'>Убыванию цены</option>
+                                    <option value='3'>Количество заказов</option>
                                 </select>
                             
                         </div>
