@@ -19,14 +19,23 @@ class Flowers extends React.Component {
         let mutate = this.props.mutateState;
 
         //Получаем категории типа с сервера
-            
+        let catList = [ //Получаем категории
+            {catId: 1, name: 'Цветы', cover: 'url-image1', get url() {return `/Category/Category-Cvety/${this.catId}`}, specification: [1, 2, 4], childs: [2,3]}, 
+            {catId: 2, name: 'Товары для дома', cover: 'url-image2', get url() { return `/Category/Category-Tovary-Dlya-Doma/${this.catId}`}, specification: [1, 2, 4], childs: [3]},
+            {catId: 3, name: 'Декор', cover: 'url-image3', get url() { return `/Category/Category-Dekor/${this.catId}`}, specification: [1, 2, 4], childs: [3]}
+        ] 
 
-        Axios.get('/Categories.json').then(response => {this.props.setItemCategory(response.data.filter(currentElement => currentElement.catId == this.props.match.params.catId)); this.props.setChildsCategory(setChildsCat(this.props.itemCategory[0], response.data, 'childs', 'catId'))} )
-        //Ниже имитация вызова детей-категорий основной категории(их id берутся из свойство childs основной категории)
         
+        let setCat = catList.filter(currentElement => currentElement.catId == this.props.match.params.catId);
+        let itCat = setCat[0];
+        this.props.setItemCategory(setCat[0]);
 
-        // let specificationIdList = setCat[0].specification.join('-') // result 1-2-4
-        // let childCategoryList = setCat[0].childs.join('-') //result 2, 3 
+               
+        //Ниже имитация вызова детей-категорий основной категории(их id берутся из свойство childs основной категории)
+        this.props.setChildsCategory(setChildsCat(itCat, catList, 'childs', 'catId'))
+
+        let specificationIdList = setCat[0].specification.join('-') // result 1-2-4
+        let childCategoryList = setCat[0].childs.join('-') //result 2, 3 
         //Далее по задумке делаем запрос, /Specifications?id=2_5_8 и в в ответе
         //должны прити характеристики с id 2, 5, 8
         // Тоже самое с childs(дочерними категориями)
@@ -44,16 +53,15 @@ class Flowers extends React.Component {
     componentDidUpdate() {  
         
         if(this.mutate != this.props.mutateState) {
-            // let catList = [ //Получаем категории
-            //     {catId: 1, name: 'Цветы', cover: 'url-image1', get url() {return `/Category/Category-Cvety/${this.catId}`}, specification: [1, 2, 4], childs: [2,3]}, 
-            //     {catId: 2, name: 'Товары для дома', cover: 'url-image2', get url() { return `/Category/Category-Tovary-Dlya-Doma/${this.catId}`}, specification: [1, 2, 4], childs: [3]},
-            //     {catId: 3, name: 'Декор', cover: 'url-image3', get url() { return `/Category/Category-Dekor/${this.catId}`}, specification: [1, 2, 4], childs: [3]}
-            // ] 
+            let catList = [ //Получаем категории
+                {catId: 1, name: 'Цветы', cover: 'url-image1', get url() {return `/Category/Category-Cvety/${this.catId}`}, specification: [1, 2, 4], childs: [2,3]}, 
+                {catId: 2, name: 'Товары для дома', cover: 'url-image2', get url() { return `/Category/Category-Tovary-Dlya-Doma/${this.catId}`}, specification: [1, 2, 4], childs: [3]},
+                {catId: 3, name: 'Декор', cover: 'url-image3', get url() { return `/Category/Category-Dekor/${this.catId}`}, specification: [1, 2, 4], childs: [3]}
+            ] 
            
-            // let setCat = catList.filter(currentElement => currentElement.catId == this.props.match.params.catId);
-            // let itCat = setCat[0];
-            // this.props.setChildsCategory(setChildsCat(itCat, catList, 'childs', 'catId'))
-           
+            let setCat = catList.filter(currentElement => currentElement.catId == this.props.match.params.catId);
+            let itCat = setCat[0];
+            this.props.setChildsCategory(setChildsCat(itCat, catList, 'childs', 'catId'))
             Axios.get('/Products.json').then(response => {this.props.setFlowers(changeProducts(response.data.items, this.props.match.params.catId))});
        
             this.mutate = this.props.mutateState;

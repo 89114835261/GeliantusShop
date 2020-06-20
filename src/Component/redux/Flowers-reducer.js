@@ -22,6 +22,7 @@ const TopFlowers = (state = initialState, action) => {
 
     switch(action.type) {
         case SET_CHILD_CATEGORY: 
+       
             return {
                 ...state,
                 childCategory: action.childs

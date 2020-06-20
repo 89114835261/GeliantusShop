@@ -1,0 +1,5 @@
+[
+    {"catId": 1, "name": "Цветы", "cover": "url-image1", "url": "/Category/Category-Cvety/1", "specification": [1, 2, 4], "childs": [2,3]}, 
+    {"catId": 2, "name": "Товары для дома", "cover": "url-image2", "url": "/Category/Category-Tovary-Dlya-Doma/2", "specification": [1, 2, 4], "childs": [3]},
+    {"catId": 3, "name": "Декор", "cover": "url-image3", "url" : "/Category/Category-Dekor/3", "specification": [1, 2, 4], "childs": [3]}
+]
