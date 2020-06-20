@@ -21,7 +21,7 @@ class Flowers extends React.Component {
         //Получаем категории типа с сервера
             
 
-        Axios.get('/Categories.json').then(response => {this.props.setItemCategory(response.data.filter(currentElement => currentElement.catId == this.props.match.params.catId)); this.props.setChildsCategory(setChildsCat(this.props.itemCategory[0], response.data, 'childs', 'catId'))} )
+        Axios.get('/Categories.json').then(response => {this.props.setItemCategory(response.data.filter(currentElement => currentElement.catId == this.props.match.params.catId)); this.props.setChildsCategory(setChildsCat(this.props.itemCategory, response.data, 'childs', 'catId'))} )
         //Ниже имитация вызова детей-категорий основной категории(их id берутся из свойство childs основной категории)
         
 
@@ -44,18 +44,7 @@ class Flowers extends React.Component {
     componentDidUpdate() {  
         
         if(this.mutate != this.props.mutateState) {
-            // let catList = [ //Получаем категории
-            //     {catId: 1, name: 'Цветы', cover: 'url-image1', get url() {return `/Category/Category-Cvety/${this.catId}`}, specification: [1, 2, 4], childs: [2,3]}, 
-            //     {catId: 2, name: 'Товары для дома', cover: 'url-image2', get url() { return `/Category/Category-Tovary-Dlya-Doma/${this.catId}`}, specification: [1, 2, 4], childs: [3]},
-            //     {catId: 3, name: 'Декор', cover: 'url-image3', get url() { return `/Category/Category-Dekor/${this.catId}`}, specification: [1, 2, 4], childs: [3]}
-            // ] 
-           
-            // let setCat = catList.filter(currentElement => currentElement.catId == this.props.match.params.catId);
-            // let itCat = setCat[0];
-            // this.props.setChildsCategory(setChildsCat(itCat, catList, 'childs', 'catId'))
-           
             Axios.get('/Products.json').then(response => {this.props.setFlowers(changeProducts(response.data.items, this.props.match.params.catId))});
-       
             this.mutate = this.props.mutateState;
         }
     }
@@ -83,14 +72,17 @@ class Flowers extends React.Component {
                 
             />
           );    
+
+        if(this.props.itemCategory) {
         return(
             <div className={F.wrapper}>
                 <div className={F.topBoxWrapper}>
                    
                     <div className={F.nameBox}>
-                        <h1>{this.props.itemCategory.name}</h1>
-                        <img src={this.props.itemCategory.cover}></img>
-                        {this.props.itemCategory.cover}
+                        <div className={F.cover}>
+                            <h1>{this.props.itemCategory.name}</h1>
+                            <img src={this.props.itemCategory.cover}></img>
+                        </div>
                         <div className={F.filters}>
                            <p>Сортировать</p> 
 
@@ -116,7 +108,7 @@ class Flowers extends React.Component {
 
                 </div>
         </div>
-        );
+        );} else return <div></div>
     }
 }
 

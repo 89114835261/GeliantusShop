@@ -17,6 +17,12 @@
     flex-flow: row nowrap;
 }
 
+.cover {
+    background: #FFF;
+    text-align: center;
+    padding: 10px;
+}
+
 .nameBox {
     background-color: antiquewhite;
     width: 300px;

@@ -13,7 +13,7 @@ let Product = (props) => {
     let defaultIMG = 'https://image.flaticon.com/icons/svg/1269/1269266.svg';
 
     return(
-        <NavLink to={props.url + '/Product/Product-' + myFunc() + '/' + props.id + '/Description'}>
+        <NavLink to={props.url + '/Product/Product-' + myFunc() + '/' + props.id + '/Description'} title={props.name}>
             <div className={P.itemProduct}>
                 <div className={P.wrapper}>
                     <div className={P.ProductCover}>

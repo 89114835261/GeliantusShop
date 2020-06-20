@@ -14,7 +14,7 @@ let initialState = {
     currentValue: 1,
     pageName: '',
     coverPage: '',
-    itemCategory: {},
+    itemCategory: null,
     childCategory: []
 }
 
@@ -35,7 +35,7 @@ const TopFlowers = (state = initialState, action) => {
         case SET_ITEM_CATEGORY:
                 return {
                     ...state,
-                    itemCategory: action.catogory
+                    itemCategory: action.catogory[0]
                 }
         case SET_COVER_PAGE:
             return {
