@@ -81,7 +81,6 @@ class Flowers extends React.Component {
         let func = () => {
             this.props.changeCurrentValue(changeOption.current.options.selectedIndex + 1)
         }
-        
         let sortProducts = quickSort(this.props.flowers, 'id'); // функция сортирующая массив
         if(this.props.currentValue == 1) {
             sortProducts.reverse();
@@ -92,6 +91,8 @@ class Flowers extends React.Component {
                 price={s.price}
                 orders={s.orders}
                 id={s.id} 
+                raiting={s.raiting}
+                img={s.photo}
                 url={this.props.location.pathname}
                 
             />

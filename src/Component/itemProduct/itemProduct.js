@@ -7,20 +7,21 @@ let ItemProduct = (props) => {
    let visualSpecifications = props.Specification.map(v =>
    <div>{v.name} : {v.value}</div>
       );
-     
+
    return (
       <div className={i.wrapper}>
 
          <div className={i.wrapperTopBox}>
          
                <div className={i.leftBox}>
-                  <img src="/sd"></img>
+                  <img src={props.productCover}></img>
+                  
                </div>
 
                <div className={i.changePhoto}>
-                  <img src="/sd"></img>
-                  <img src="/sd"></img>
-                  <img src="/sd"></img>
+                  <img src={props.itemProduct.photo[0].small} onClick={(e) => props.setProductCover(props.itemProduct.photo[0].small)} />
+                  {props.itemProduct.photo[1] && <img src={props.itemProduct.photo[1].small} onClick={(e) => props.setProductCover(props.itemProduct.photo[1].small)} /> }
+                  {props.itemProduct.photo[2] && <img src={props.itemProduct.photo[2].small} onClick={(e) => props.setProductCover(props.itemProduct.photo[2].small)} /> }
                </div>
                
                <div className={i.infoWrapper}>

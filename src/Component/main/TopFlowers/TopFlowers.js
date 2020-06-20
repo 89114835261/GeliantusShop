@@ -5,6 +5,7 @@ import Product from '../../Product/Product';
 import {quickSort} from '../../redux/Project-reducer';
 import {setTopFlowersActionCreator, setCountTopFlowersActionCreator} from '../../redux/TopFlowers-reducer';
 import { withRouter } from 'react-router-dom';
+import Axios from 'axios';
 
 
 class TopFlowers extends React.Component {
@@ -12,18 +13,7 @@ class TopFlowers extends React.Component {
         super(props); // Это происходит по умолчанию
     }
     componentDidMount() {
-        this.props.setFlowers([ //Сэтаем товары
-        {id: 1, name: 'Цветок такой то', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 12, preDescriptions: 'Бла-1', description: 'Бла-2', homePaymant: 'True'},
-        {id: 2, name: 'Я цветок', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 7, preDescriptions: 'Бла-1', description: 'Бла-2', homePaymant: 'True'},
-        {id: 3, name: 'Цветочеггг', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 4, preDescriptions: 'Бла-1', description: 'Бла-2', homePaymant: 'True'},
-        {id: 4, name: 'Ромашка', price: '333', photo: {smal: 'url1', large: 'url2'}, orders: 18, preDescriptions: 'Бла-1', description: 'Бла-2', homePaymant: 'True'},
-        {id: 5, name: 'Роза', price: '2222', photo: {smal: 'url1', large: 'url2'}, orders: 2, preDescriptions: 'Бла-1', description: 'Бла-2', homePaymant: 'True'},
-        {id: 6, name: 'Пантилея', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 1, preDescriptions: 'Бла-1', description: 'Бла-2', homePaymant: 'True'},
-        {id: 7, name: 'Название', price: '21', photo: {smal: 'url1', large: 'url2'}, orders: 16, preDescriptions: 'Бла-1', description: 'Бла-2', homePaymant: 'True'},
-        {id: 8, name: 'ААВВВВВВВВ', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 4, preDescriptions: 'Бла-1', description: 'Бла-2', homePaymant: 'True'},
-        {id: 9, name: 'Борн', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 4, preDescriptions: 'Бла-1', description: 'Бла-2', homePaymant: 'True'},
-        {id: 10, name: 'Эритрема', price: '2380', photo: {smal: 'url1', large: 'url2'}, orders: 6, preDescriptions: 'Бла-1', description: 'Бла-2', homePaymant: 'True'}
-         ]);
+        Axios.get('/Products.json').then(response => {this.props.setFlowers(response.data.items)})
          this.props.setCountFlowers(5) //Сэтаем кол-во товаров на странице
         
     }
@@ -38,6 +28,8 @@ class TopFlowers extends React.Component {
                 price={s.price}
                 orders={s.orders}
                 id={s.id}
+                raiting={s.raiting}
+                img={s.photo}
                 url={this.props.itemUrl}
             />
           );

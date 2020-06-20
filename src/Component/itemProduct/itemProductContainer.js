@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import ItemProduct from './itemProduct';
-import {setProductActionCreator, setSpecificationsItemProductAC, setLongUrlActionCreator, setitemProductObjActionCreator} from './../redux/Product-reducer';
+import {setProductActionCreator, setItemProductCoverAC, setSpecificationsItemProductAC, setLongUrlActionCreator, setitemProductObjActionCreator} from './../redux/Product-reducer';
 import Axios from 'axios';
 
 class itemProductContainer extends React.Component {
@@ -15,7 +15,8 @@ class itemProductContainer extends React.Component {
     }
     // При реальных запросах, мы не будем использовать DidUpdate, а запустим получение
     // айдишников спецификаций при получении ответа в DidMount (response => наша функция)
-    render() {      
+    
+    render() {     
         // Ниже условие формирующее длину URL к которой мы будем прибавлять 
         // Description или Specification  и т.д. т.е. наши вкладки "описание", "Характеристики"
         //на странице товара
@@ -23,20 +24,22 @@ class itemProductContainer extends React.Component {
             let num = this.props.location.pathname.length - 12 // -12, что убрать слово Description из основного URL
             this.props.setLongUrl(num); // Устанавливаем это число в редьюсер
         }
-       
+        {(this.props.product && !this.props.productCover) && this.props.setProductCover(this.props.product[0].photo[0].small)}
         return(
             <div>
             
-            <ItemProduct 
+            {this.props.product && <ItemProduct 
                 itemProduct={this.props.product[0]}
                 // photoSmall={this.props.product.photos.small}
                 // photoLarge={this.props.product.photos.large}
                 url={this.props.location.pathname}
+                productCover={this.props.productCover}
                 urlLong={this.props.longUrl}
                 descriptionBoxSwitch={this.props.match.params.Parameters}
                 Specification={this.props.specifications}
                 mutateState={this.props.mutateState}
-            />
+                setProductCover={this.props.setProductCover}
+            />}
            
             </div>
         );
@@ -49,6 +52,7 @@ class itemProductContainer extends React.Component {
 let mapStateToProps = (state) => {
     return {
         product: state.Product.product,
+        productCover: state.Product.productCover,
         specifications: state.Product.specificationItemProduct,
         mutateState: state.Project.mutateState,
         longUrl: state.Product.longUrl,
@@ -69,6 +73,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         setItemObj: (obj) => {
             dispatch(setitemProductObjActionCreator(obj))
+        },
+        setProductCover: (url) => {
+            dispatch(setItemProductCoverAC(url))
         }
     }
 }

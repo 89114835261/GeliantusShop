@@ -3,12 +3,23 @@
         "id": 1, 
         "name": "Эритрема", 
         "price": "2380", 
-        "photo": {
-            "smal": "url1",
-            "large": "url2"}, 
+        "photo": [{
+            "small": "https://iz-ikea.club/images/product/ad322d535d18d3072722e0c60710de86_300_300_5c77a10746fd7.JPG",
+            "large": "https://felisov.ru/wp-content/uploads/img_20180713_192643.jpg"
+                },
+                {
+            "small": "https://get.pxhere.com/photo/tree-nature-grass-branch-plant-sunlight-leaf-flower-petal-green-botany-flora-close-up-macro-photography-plant-stem-woody-plant-arecales-palm-family-112994.jpg",
+            "large": "https://get.pxhere.com/photo/tree-nature-grass-branch-plant-sunlight-leaf-flower-petal-green-botany-flora-close-up-macro-photography-plant-stem-woody-plant-arecales-palm-family-112994.jpg"
+                },
+                {
+            "small": "https://ipehijau.files.wordpress.com/2015/04/gl7.jpg?w=640",
+            "large": "https://ipehijau.files.wordpress.com/2015/04/gl7.jpg?w=640"
+                }
+            ], 
         "orders": 12, 
         "description": "Бла-2", 
-        "views": "23", 
+        "views": 23, 
+        "raiting": 4.4,
         "homePaymant":  true, 
         "catId": [1], 
         "specId": [2, 4, 9], 
@@ -23,13 +34,15 @@
     {
         "id": 2, 
         "name": "Секвойа-мини", 
-        "price": "564", 
-        "photo": {
-            "smal": "url1",
-            "large": "url2"}, 
+        "price": 564, 
+        "photo": [{
+            "small": "https://avatars.mds.yandex.net/get-zen_doc/1583391/pub_5e4949f7acfc5923a77f600a_5e494e2dfc020165b28c0a33/scale_1200",
+            "large": "https://avatars.mds.yandex.net/get-zen_doc/1583391/pub_5e4949f7acfc5923a77f600a_5e494e2dfc020165b28c0a33/scale_1200"
+                }],
         "orders": 16, 
         "description": "Бла-2", 
-        "views": "23", 
+        "views": 23,
+        "raiting": 4.1, 
         "homePaymant":  true, 
         "catId": [1], 
         "specId": [2, 4, 9], 
@@ -44,13 +57,15 @@
     {
         "id": 3, 
         "name": "Желтый фикус", 
-        "price": "23123", 
-        "photo": {
-            "smal": "url1",
-            "large": "url2"}, 
+        "price": 23123, 
+        "photo": [{
+            "small": "https://www.nvgazeta.ru/upload/medialibrary/85d/85d21f510f356b500cbd861189ae5c04.jpg",
+            "large": "https://www.nvgazeta.ru/upload/medialibrary/85d/85d21f510f356b500cbd861189ae5c04.jpg"
+                }],
         "orders": 12, 
         "description": "Бла-2", 
-        "views": "23", 
+        "views": 23, 
+        "raiting": 3.2,
         "homePaymant":  true, 
         "catId": [1,2], 
         "specId": [2, 4, 9], 
@@ -65,13 +80,15 @@
     {
         "id": 4, 
         "name": "Зелёный фикус", 
-        "price": "1200", 
-        "photo": {
-            "smal": "url1",
-            "large": "url2"}, 
+        "price": 1200, 
+        "photo": [{
+            "small": "https://stella70.ru/wp-content/uploads/2020/02/Oformlenie-interera-tsvetami-v-gorshkah-3.jpg",
+            "large": "https://stella70.ru/wp-content/uploads/2020/02/Oformlenie-interera-tsvetami-v-gorshkah-3.jpg"
+                }],
         "orders": 13, 
         "description": "Бла-2", 
-        "views": "23", 
+        "views": 23, 
+        "raiting": 4.8,
         "homePaymant":  true, 
         "catId": [1,3], 
         "specId": [2, 4, 9], 
@@ -86,13 +103,15 @@
     {
         "id": 5, 
         "name": "Партаз", 
-        "price": "1300", 
-        "photo": {
-            "smal": "url1",
-            "large": "url2"}, 
+        "price": 1300, 
+        "photo": [{
+            "small": "https://avatars.mds.yandex.net/get-zen_doc/1360848/pub_5dcf7137a6ab130593cfd307_5dcf73375563ed655c35a92c/scale_1200",
+            "large": "https://avatars.mds.yandex.net/get-zen_doc/1360848/pub_5dcf7137a6ab130593cfd307_5dcf73375563ed655c35a92c/scale_1200"
+                }],
         "orders": 23, 
         "description": "Бла-2", 
-        "views": "23", 
+        "views": 23, 
+        "raiting": 4.9,
         "homePaymant":  true, 
         "catId": [1], 
         "specId": [2, 4, 9], 
@@ -107,13 +126,15 @@
     {
         "id": 6, 
         "name": "Хвоя", 
-        "price": "320", 
-        "photo": {
-            "smal": "url1",
-            "large": "url2"}, 
+        "price": 320, 
+        "photo": [{
+            "small": "https://di-fiori.ru/images/detailed/23/87550345-1.jpg",
+            "large": "https://di-fiori.ru/images/detailed/23/87550345-1.jpg"
+                }],
         "orders": 45, 
         "description": "Бла-2", 
-        "views": "23", 
+        "views": 23, 
+        "raiting": 3.9,
         "homePaymant":  true, 
         "catId": [1], 
         "specId": [2, 4, 9], 
@@ -128,13 +149,15 @@
     {
         "id": 7, 
         "name": "Розно", 
-        "price": "980", 
-        "photo": {
-            "smal": "url1",
-            "large": "url2"}, 
+        "price": 980, 
+        "photo": [{
+            "small": "https://di-fiori.ru/images/detailed/23/87770331-1.jpg",
+            "large": "https://di-fiori.ru/images/detailed/23/87770331-1.jpg"
+                }],
         "orders": 1, 
         "description": "Бла-2", 
-        "views": "23", 
+        "views": 23, 
+        "raiting": 4.1,
         "homePaymant":  true, 
         "catId": [1], 
         "specId": [2, 4, 9], 
@@ -149,13 +172,15 @@
     {
         "id": 8, 
         "name": "Фарстатья", 
-        "price": "1760", 
-        "photo": {
-            "smal": "url1",
-            "large": "url2"}, 
+        "price": 1760, 
+        "photo": [{
+            "small": "http://ecuador-flowers.ru/media/catalog/product/cache/6/image/9df78eab33525d08d6e5fb8d27136e95/9/0/9002.17_1.jpg",
+            "large": "http://ecuador-flowers.ru/media/catalog/product/cache/6/image/9df78eab33525d08d6e5fb8d27136e95/9/0/9002.17_1.jpg"
+                }],
         "orders": 9, 
         "description": "Бла-2", 
-        "views": "23", 
+        "views": 23, 
+        "raiting": 4.6,
         "homePaymant":  true, 
         "catId": [1], 
         "specId": [2, 4, 9], 
@@ -170,13 +195,15 @@
     {
         "id": 9, 
         "name": "Поркас", 
-        "price": "1242", 
-        "photo": {
-            "smal": "url1",
-            "large": "url2"}, 
+        "price": 1242, 
+        "photo": [{
+            "small": "https://sun9-39.userapi.com/c639619/v639619441/31cec/lV40D5MzI-I.jpg",
+            "large": "https://sun9-39.userapi.com/c639619/v639619441/31cec/lV40D5MzI-I.jpg"
+                }],
         "orders": 36, 
         "description": "Бла-2", 
-        "views": "23", 
+        "views": 23, 
+        "raiting": 3.2,
         "homePaymant":  true, 
         "catId": [1], 
         "specId": [2, 4, 9], 
@@ -191,13 +218,15 @@
     {
         "id": 10, 
         "name": "Жлок", 
-        "price": "6574", 
-        "photo": {
-            "smal": "url1",
-            "large": "url2"}, 
+        "price": 6574, 
+        "photo": [{
+            "small": "https://www.palmenmann.de/media/image/17/ea/d3/Goldfruchtpalme_Luftverbesserer_1280x1280@2x.jpg",
+            "large": "https://www.palmenmann.de/media/image/17/ea/d3/Goldfruchtpalme_Luftverbesserer_1280x1280@2x.jpg"
+                }],
         "orders": 33, 
         "description": "Бла-2", 
-        "views": "23", 
+        "views": 23, 
+        "raiting": 4.7,
         "homePaymant":  true, 
         "catId": [1], 
         "specId": [2, 4, 9], 
@@ -212,13 +241,15 @@
     {
         "id": 11, 
         "name": "Парциссема", 
-        "price": "4367", 
-        "photo": {
-            "smal": "url1",
-            "large": "url2"}, 
+        "price": 4367, 
+        "photo": [{
+            "small": "https://avatars.mds.yandex.net/get-pdb/38069/ff8ed540-2415-47f6-b2cf-c6daddb301c5/s1200?webp=false",
+            "large": "https://avatars.mds.yandex.net/get-pdb/38069/ff8ed540-2415-47f6-b2cf-c6daddb301c5/s1200?webp=false"
+                }], 
         "orders": 12, 
         "description": "Бла-2", 
-        "views": "23", 
+        "views": 23, 
+        "raiting": 3.2,
         "homePaymant":  true, 
         "catId": [1], 
         "specId": [2, 4, 9], 
@@ -233,13 +264,15 @@
     {
         "id": 12, 
         "name": "Роза секвойная", 
-        "price": "3342", 
-        "photo": {
-            "smal": "url1",
-            "large": "url2"}, 
+        "price": 3342, 
+        "photo": [{
+            "small": "https://dacha.help/wp-content/uploads/2019/12/imagetools3-8.jpg",
+            "large": "https://dacha.help/wp-content/uploads/2019/12/imagetools3-8.jpg"
+                }],
         "orders": 15, 
         "description": "Бла-2", 
-        "views": "23", 
+        "views": 23, 
+        "raiting": 2.8,
         "homePaymant":  true, 
         "catId": [1], 
         "specId": [2, 4, 9], 
@@ -254,13 +287,15 @@
     {
         "id": 13, 
         "name": "Лиственница", 
-        "price": "6400", 
-        "photo": {
-            "smal": "url1",
-            "large": "url2"}, 
+        "price": 6400, 
+        "photo": [{
+            "small": "https://wowspace.ru/uploads/rent_item/preview_image/467/i675_DSC_1385_--min.jpg",
+            "large": "https://wowspace.ru/uploads/rent_item/preview_image/467/i675_DSC_1385_--min.jpg"
+                }],
         "orders": 6, 
         "description": "Бла-2", 
-        "views": "23", 
+        "views": 23,
+        "raiting": 4.1, 
         "homePaymant":  true, 
         "catId": [1], 
         "specId": [2, 4, 9], 
@@ -275,13 +310,15 @@
     {
         "id": 14, 
         "name": "Берёзка-мини", 
-        "price": "3580", 
-        "photo": {
-            "smal": "url1",
-            "large": "url2"}, 
+        "price": 3580, 
+        "photo": [{
+            "small": "https://www.cosmorelax.ru/upload/medialibrary/6d8/6d8931707b2ce96cf32d9cf514bfce03.jpg",
+            "large": "https://www.cosmorelax.ru/upload/medialibrary/6d8/6d8931707b2ce96cf32d9cf514bfce03.jpg"
+                }],
         "orders": 2, 
         "description": "Бла-2", 
-        "views": "23", 
+        "views": 23, 
+        "raiting": 4.8,
         "homePaymant":  true, 
         "catId": [1], 
         "specId": [2, 4, 9], 
@@ -296,13 +333,15 @@
     {
         "id": 15, 
         "name": "Парван", 
-        "price": "2333", 
-        "photo": {
-            "smal": "url1",
-            "large": "url2"}, 
+        "price": 2333, 
+        "photo": [{
+            "small": "https://www.ikea.com/ru/ru/images/products/chiafroen-plant-pot__0754969_PE748238_S5.JPG?f=s",
+            "large": "https://www.ikea.com/ru/ru/images/products/chiafroen-plant-pot__0754969_PE748238_S5.JPG?f=s"
+                }],
         "orders": 1, 
         "description": "Бла-2", 
-        "views": "23", 
+        "views": 23, 
+        "raiting": 4.9,
         "homePaymant":  true, 
         "catId": [1], 
         "specId": [2, 4, 9], 
