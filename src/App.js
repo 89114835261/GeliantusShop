@@ -29,21 +29,21 @@ let App = (props) => {
                             <WayLineContainer />
                         </div>
                     <div className={ap.content}>
-                        <Route exact path='/Products/Category/:catName/:catId/Product/:productId' render={() => <ItemProductContainer />} />
-                        <Route path={'/Products/Category/:catName/:catId/Product/:productName/:productId/:Parameters'} render={() => <ItemProductContainer />} />
-                        <Route path={'/Products/Category/:catName/:catId/:catName/:catId/Product/:productName/:productId/:Parameters'} render={() => <ItemProductContainer />} />
-                        <Route path={'/Products/Category/:catName/:catId/:catName/:catId/:catName/:catId/Product/:productName/:productId/:Parameters'} render={() => <ItemProductContainer />} />
-                        <Route path={'/Products/Category/:catName/:catId/:catName/:catId/:catName/:catId/:catName/:catId/Product/:productName/:productId/:Parameters'} render={() => <ItemProductContainer />} />
-                        <Route path={'/Products/Category/:catName/:catId/:catName/:catId/:catName/:catId/:catName/:catId/:catName/:catId/Product/:productName/:productId/:Parameters'} render={() => <ItemProductContainer />} />
+                        <Route exact path='/:catName/:catId/Product/:productId' render={() => <ItemProductContainer />} />
+                        <Route path={'/:catName/:catId/Product/:productName/:productId/:Parameters'} render={() => <ItemProductContainer />} />
+                        <Route path={'/:catName/:catId/:catName/:catId/Product/:productName/:productId/:Parameters'} render={() => <ItemProductContainer />} />
+                        <Route path={'/:catName/:catId/:catName/:catId/:catName/:catId/Product/:productName/:productId/:Parameters'} render={() => <ItemProductContainer />} />
+                        <Route path={'/:catName/:catId/:catName/:catId/:catName/:catId/:catName/:catId/Product/:productName/:productId/:Parameters'} render={() => <ItemProductContainer />} />
+                        <Route path={'/:catName/:catId/:catName/:catId/:catName/:catId/:catName/:catId/:catName/:catId/Product/:productName/:productId/:Parameters'} render={() => <ItemProductContainer />} />
                         <Route exact path='/Product/:productId' render={() => <ItemProductContainer/>} />
                         <Route path='/Product/:productName/:productId/:Parameters' render={() => <ItemProductContainer/>} />
                         <Route exact path='/Main/1' render={() => <KingAutorisation/>}  />
                         <Route exact path='/Main' render={() => <Main/>}  />  
-                        {(isCategory(props.mainUrl, 'Category-') && props.mainUrl) && <Route exact path={'/Products/Category/:catName/:catId' } render={() => <CategoryPageContainer/>} />}
-                        {(isCategory(props.mainUrl, 'Category-') && props.mainUrl) && <Route exact path={'/Products/Category/:catName/:catId/:catName/:catId' } render={() => <CategoryPageContainer/>} />} 
-                        {(isCategory(props.mainUrl, 'Category-') && props.mainUrl) && <Route exact path={'/Products/Category/:catName/:catId/:catName/:catId/:catName/:catId' } render={() => <CategoryPageContainer/>} />}   
-                        {(isCategory(props.mainUrl, 'Category-') && props.mainUrl) && <Route exact path={'/Products/Category/:catName/:catId/:catName/:catId/:catName/:catId/:catName/:catId' } render={() => <CategoryPageContainer/>} />}
-                        {(isCategory(props.mainUrl, 'Category-') && props.mainUrl) && <Route exact path={'/Products/Category/:catName/:catId/:catName/:catId/:catName/:catId/:catName/:catId/:catName/:catId' } render={() => <CategoryPageContainer/>} />}
+                        {(isCategory(props.mainUrl, 'Kategoriya-') && props.mainUrl) && <Route exact path={'/:catName/:catId' } render={() => <CategoryPageContainer/>} />}
+                        {(isCategory(props.mainUrl, 'Kategoriya-') && props.mainUrl) && <Route exact path={'/:catName/:catId/:catName/:catId' } render={() => <CategoryPageContainer/>} />} 
+                        {(isCategory(props.mainUrl, 'Kategoriya-') && props.mainUrl) && <Route exact path={'/:catName/:catId/:catName/:catId/:catName/:catId' } render={() => <CategoryPageContainer/>} />}   
+                        {(isCategory(props.mainUrl, 'Kategoriya-') && props.mainUrl) && <Route exact path={'/:catName/:catId/:catName/:catId/:catName/:catId/:catName/:catId' } render={() => <CategoryPageContainer/>} />}
+                        {(isCategory(props.mainUrl, 'Kategoriya-') && props.mainUrl) && <Route exact path={'/:catName/:catId/:catName/:catId/:catName/:catId/:catName/:catId/:catName/:catId' } render={() => <CategoryPageContainer/>} />}
                         <Route path='/AutorizationFromKing' render={() => <KingAutorisation/>}  />
                         <Route exact path=' '><Redirect to='/Main'></Redirect></Route>
                         <Route exact path='/'><Redirect to='/Main'></Redirect></Route>

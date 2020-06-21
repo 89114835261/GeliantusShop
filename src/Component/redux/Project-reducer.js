@@ -57,7 +57,7 @@ export let isCategory = (path, text) => {
   if(!path) return;
   let w = path.slice(0, path.lastIndexOf('/'));
   let t = w.lastIndexOf('/') + 1;
-  let d = path.slice(t, t + 9);
+  let d = path.slice(t, t + 11);
   if(d == text) {
     return true;
   } else return false;

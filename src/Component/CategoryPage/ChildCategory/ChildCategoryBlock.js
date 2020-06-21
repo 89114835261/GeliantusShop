@@ -7,7 +7,7 @@ let ChildCategoryBlockContainer = (props) => {
     
     let setUrl = (URL, catUrl) => {
      
-        return URL + (catUrl.slice(9));
+        return URL + catUrl;
     }
     let categoryList = props.childCategory.map( item => 
             <NavLink className={C.catBlock} to={setUrl(props.mainUrl, item.url)}>

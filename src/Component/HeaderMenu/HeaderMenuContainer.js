@@ -17,10 +17,10 @@ class HeaderMenu extends React.Component {
         this.props.setMainMenu(buttonList);
 
         let catList = [ //Получаем категории
-            {catId: 0, name: 'Товары', get url() {return `/Products/Category/Category-Tovary/${this.catId}`} }, 
-            {catId: 1, name: 'Цветы', get url() {return `/Products/Category/Category-Cvety/${this.catId}`} }, 
-            {catId: 2, name: 'Товары для дома', get url() { return `/Products/Category/Category-Tovary-Dlya-Doma/${this.catId}`}},
-            {catId: 3, name: 'Декор', get url() { return `/Products/Category/Category-Dekor/${this.catId}`}}
+            {catId: 0, name: 'Каталог', get url() {return `/Kategoriya-Katalog/${this.catId}`} }, 
+            {catId: 1, name: 'Цветы', get url() {return `/Kategoriya-Cvety/${this.catId}`} }, 
+            {catId: 2, name: 'Товары для дома', get url() { return `/Kategoriya-Tovary-Dlya-Doma/${this.catId}`}},
+            {catId: 3, name: 'Декор', get url() { return `/Kategoriya-Dekor/${this.catId}`}}
         ]
 
         let menuList = [
