@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {SetMenuActionCreator} from '../redux/HeaderMenuReducer';
+import {SetMenuActionCreator, changeIsOpenMenuAC} from '../redux/HeaderMenuReducer';
 import {wayLinkActionCreator, mutateStateActionCreator} from './../redux/Project-reducer';
 import H from './HeaderMenu.module.css';
 import Button from './button/Button';
@@ -31,17 +31,20 @@ class HeaderMenu extends React.Component {
     }
     render() {
         
-        
        let arrMenu = this.props.menu.map(
-           m => <Button name={m.name} url={m.url} mutateStateFunc={this.props.mutateStateFunc} />
+           m => <Button changeIsOpenMenu={this.props.changeIsOpenMenu} name={m.name} url={m.url} mutateStateFunc={this.props.mutateStateFunc} />
        )
     
         return (
+            <>
+            {this.props.isOpenMenu && <div className={H.menuOpenList}>{arrMenu}</div>}
             <div class={H.headerMenu}>
-                        
+            
+            <button onClick={() => this.props.changeIsOpenMenu()}>Товары</button>
+            
             <div className={H.headerNav}>
     
-                {arrMenu}
+                
                
             </div>
     
@@ -51,6 +54,7 @@ class HeaderMenu extends React.Component {
           </div>
     
         </div>
+        </>
         );
     }
 
@@ -59,7 +63,8 @@ class HeaderMenu extends React.Component {
 let mapStateToProps = (state) => {
     return {
         menu: state.HeaderMenu.menu,
-        mutateState: state.Project.mutateState
+        mutateState: state.Project.mutateState,
+        isOpenMenu: state.HeaderMenu.isOpenMenu
     }
 }
 
@@ -73,6 +78,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         mutateStateFunc: () => {
             dispatch(mutateStateActionCreator())
+        }, 
+        changeIsOpenMenu: (booleanType = ' ') => {
+            dispatch(changeIsOpenMenuAC(booleanType))
         }
     }
 }

@@ -27,7 +27,7 @@ class HeaderMenu extends React.Component {
             <div class={H.headerMenu}>
                         
             <div className={H.headerNav}>
-    
+            
                 {arrMenu}
                 {/* <NavLink to="/Main"><span>Главная</span></NavLink>
                 <NavLink to="/Flowers"><span>Цветы</span></NavLink>

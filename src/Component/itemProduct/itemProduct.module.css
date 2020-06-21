@@ -108,6 +108,7 @@
 
 .leftDescriptionBox {
     flex-grow: 1;
+    padding: 0 20px 0 0;
 }
 
 .survey {
