@@ -1,9 +1,11 @@
 const SET_MENU = 'SET_MENU';
-const CHANGE_IS_OPEN_MENU = 'CHANGE_IS_OPEN_MENU'
+const CHANGE_IS_OPEN_MENU = 'CHANGE_IS_OPEN_MENU';
+const SET_MAIN_MENU = 'SET_MAIN_MENU';
 
 let initialState =  {
-    menu: [],
-    isOpenMenu: false
+    menu: null,
+    isOpenMenu: false,
+    mainMenu: null
 }
 
 const HeaderMenuReducer = (state = initialState, action) => {
@@ -13,7 +15,13 @@ const HeaderMenuReducer = (state = initialState, action) => {
                 ...state,
                 menu: action.menu
             }
+        case SET_MAIN_MENU:
+            return {
+                ...state,
+                mainMenu: action.menu
+            }
         case CHANGE_IS_OPEN_MENU:
+            
             if(action.booleanType === true || action.booleanType === false) {
                 return {
                     ...state,
@@ -24,10 +32,18 @@ const HeaderMenuReducer = (state = initialState, action) => {
     }
 }
 
+
 export const changeIsOpenMenuAC = (booleanType) => {
     return {
         type: CHANGE_IS_OPEN_MENU,
-        bolleanType: booleanType
+        booleanType: booleanType
+    }
+}
+
+export const SetMainMenuActionCreator = (menu) => {
+    return {
+        type: SET_MAIN_MENU,
+        menu: menu
     }
 }
 

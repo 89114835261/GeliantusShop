@@ -46,6 +46,7 @@ class Flowers extends React.Component {
         if(this.mutate != this.props.mutateState) {
             Axios.get('/Products.json').then(response => {this.props.setFlowers(changeProducts(response.data.items, this.props.match.params.catId))});
             this.mutate = this.props.mutateState;
+            Axios.get('/Categories.json').then(response => {this.props.setItemCategory(response.data.filter(currentElement => currentElement.catId == this.props.match.params.catId)); this.props.setChildsCategory(setChildsCat(this.props.itemCategory, response.data, 'childs', 'catId'))} )
         }
     }
 

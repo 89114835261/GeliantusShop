@@ -21,7 +21,7 @@
         "views": 23, 
         "raiting": 4.4,
         "homePaymant":  true, 
-        "catId": [1], 
+        "catId": [0,1], 
         "specId": [2, 4, 9], 
         "specifications": [
             {
@@ -54,7 +54,7 @@
         "views": 23,
         "raiting": 4.1, 
         "homePaymant":  true, 
-        "catId": [1], 
+        "catId": [0,1], 
         "specId": [2, 4, 9], 
         "specifications": [
             {
@@ -77,7 +77,7 @@
         "views": 23, 
         "raiting": 3.2,
         "homePaymant":  true, 
-        "catId": [1,2], 
+        "catId": [0,1,2], 
         "specId": [2, 4, 9], 
         "specifications": [
             {
@@ -100,7 +100,7 @@
         "views": 23, 
         "raiting": 4.8,
         "homePaymant":  true, 
-        "catId": [1,3], 
+        "catId": [0,1,3], 
         "specId": [2, 4, 9], 
         "specifications": [
             {
@@ -123,7 +123,7 @@
         "views": 23, 
         "raiting": 4.9,
         "homePaymant":  true, 
-        "catId": [1], 
+        "catId": [0,1], 
         "specId": [2, 4, 9], 
         "specifications": [
             {
@@ -146,7 +146,7 @@
         "views": 23, 
         "raiting": 3.9,
         "homePaymant":  true, 
-        "catId": [1], 
+        "catId": [0,1], 
         "specId": [2, 4, 9], 
         "specifications": [
             {
@@ -169,7 +169,7 @@
         "views": 23, 
         "raiting": 4.1,
         "homePaymant":  true, 
-        "catId": [1], 
+        "catId": [0,1], 
         "specId": [2, 4, 9], 
         "specifications": [
             {
@@ -192,7 +192,7 @@
         "views": 23, 
         "raiting": 4.6,
         "homePaymant":  true, 
-        "catId": [1], 
+        "catId": [0,1], 
         "specId": [2, 4, 9], 
         "specifications": [
             {
@@ -215,7 +215,7 @@
         "views": 23, 
         "raiting": 3.2,
         "homePaymant":  true, 
-        "catId": [1], 
+        "catId": [0,1], 
         "specId": [2, 4, 9], 
         "specifications": [
             {
@@ -238,7 +238,7 @@
         "views": 23, 
         "raiting": 4.7,
         "homePaymant":  true, 
-        "catId": [1], 
+        "catId": [0,1], 
         "specId": [2, 4, 9], 
         "specifications": [
             {
@@ -261,7 +261,7 @@
         "views": 23, 
         "raiting": 3.2,
         "homePaymant":  true, 
-        "catId": [1], 
+        "catId": [0,1], 
         "specId": [2, 4, 9], 
         "specifications": [
             {
@@ -284,7 +284,7 @@
         "views": 23, 
         "raiting": 2.8,
         "homePaymant":  true, 
-        "catId": [1], 
+        "catId": [0,1], 
         "specId": [2, 4, 9], 
         "specifications": [
             {
@@ -307,7 +307,7 @@
         "views": 23,
         "raiting": 4.1, 
         "homePaymant":  true, 
-        "catId": [1], 
+        "catId": [0,1], 
         "specId": [2, 4, 9], 
         "specifications": [
             {
@@ -330,7 +330,7 @@
         "views": 23, 
         "raiting": 4.8,
         "homePaymant":  true, 
-        "catId": [1], 
+        "catId": [0,1], 
         "specId": [2, 4, 9], 
         "specifications": [
             {
@@ -353,7 +353,7 @@
         "views": 23, 
         "raiting": 4.9,
         "homePaymant":  true, 
-        "catId": [1], 
+        "catId": [0,1], 
         "specId": [2, 4, 9], 
         "specifications": [
             {

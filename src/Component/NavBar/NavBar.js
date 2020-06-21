@@ -30,7 +30,7 @@ let WayLine = (props) => {
                     return;
                 } else if(s.slice(0, 9) == 'Category-') {
                 return <NavLink className={N.navBar} to={changeUrl(s)}> &nbsp;>&nbsp;
-                {props.catigories[changeUrl(s).slice(-1) - 1].name}
+                {changeUrl(s).slice(-1) == 0 ? props.catigories[changeUrl(s).slice(-1)].name : props.catigories[changeUrl(s).slice(-1) - 1].name}
                 </NavLink>
                 } else if(s.slice(0, 8) == 'Product-') {
                     return <NavLink className={N.navBar} to={changeUrl(s) + '/Description'}> > {props.product && props.product[0].name}</NavLink>

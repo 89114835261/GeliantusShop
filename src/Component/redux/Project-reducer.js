@@ -40,6 +40,7 @@ export let setMainUrlAC = (url) => {
 //Данная функция позволит получить все объекты из массива arr2 у которых
 //id совпадает с перечисленными в свойстве childs цифрами
 export let setChildsCat = (obj, arr2, prop1, prop2) => {
+
   let itemArr = [];
   for(let i = 0; i < obj[prop1].length; i++) {
       for(let z = 0; z < (arr2.length); z++) {
