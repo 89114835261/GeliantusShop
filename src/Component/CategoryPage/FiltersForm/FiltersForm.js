@@ -3,16 +3,17 @@ import F from './FiltersForm.module.css';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import {setSpecificationsActionCreator} from './../../redux/FiltersForm-reducer';
+import Axios from 'axios';
 
 
 let FiltersBox = (props) => {
     return(
         <form onSubmit={props.handleSubmit}>
-            <Field placeholder={'login'} component={'input'} />
+            
             {props.remapForm}
-            <button>sda</button>
+            <button type='submit'>sda</button>
         </form>
-    );
+    );  
 }
 
 const LoginReduxForm = reduxForm({form: 'filters'})(FiltersBox);
@@ -22,26 +23,29 @@ class FiltersForm extends React.Component {
         super(props); // Это происходит по умолчанию
     }
         componentDidMount() {
-            let specificationList = [
-                {id: 1, technicalName: 'Diametr', name: 'Диаметр', type: 'checkbox'},
-                {id: 2, name: 'Cvet', value: 'Цвет', type: ''},
-                {id: 4, name: 'Uzor', value: 'Узор', type: ''}
-            ]
-        this.props.setSpecificationForm (specificationList);
+        Axios.get('/Specification.json').then(response => {this.props.setSpecificationForm(response.data)})
+
+    
     }
 
 
 
         render() {
+            
+            if(this.props.specification) {
         let remapForm = this.props.specification.map( f => 
         <div className={F.blockFiltersElement}><span>{f.name}</span> 
-        <Field type={f.type} name={f.name} placeholder={f.name} component={'input'} /></div>);
-        return(
+        <Field type={f.type} name={f.id + '-' + f.name} placeholder={f.name} component={'select'}>
+        {f.value && f.value.map((g, i) => i == 0 ? <option hidden label={g} value={g}></option> : <option label={g} value={g}></option>)}
+            </Field></div>);
+        const onSubmit = (formData) => { //formData - то, что выбрал юзер. Отправится на сервер
+            console.log(formData); //здесь делаем колбэк, который делает запрос
+        }
+       return(
             <div>
-                <div>asdasdasdasd   </div>
-                <LoginReduxForm remapForm={remapForm} specificationForm={this.props.specification} />
+                <LoginReduxForm onSubmit={onSubmit} remapForm={remapForm} specificationForm={this.props.specification} />
             </div>
-        );
+        );   } else return <div></div>
     }
 }
 

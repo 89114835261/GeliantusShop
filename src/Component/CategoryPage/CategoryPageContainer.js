@@ -86,7 +86,7 @@ class Flowers extends React.Component {
                 
             />
           );    
-
+         
         if(this.props.itemCategory) {
         return(
             <div className={F.wrapper}>

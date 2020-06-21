@@ -12,6 +12,7 @@
     border-radius: 4px;
     margin: 10px 0 0 0;
     width: 100%;
+    background-color: #FFF;
 }
 
 .fullImage {
@@ -54,7 +55,12 @@
     transition: opacity 2s linear;
     border: #FFF solid 6px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
+    transition: box-shadow 0.1s linear;
     cursor: pointer;
+}
+
+.leftBox IMG:hover {
+    box-shadow: 0 7px 9px rgba(0, 0, 0, .5);
 }
 
 .changePhoto {
@@ -94,16 +100,57 @@
     display: flex;
     flex-flow: column wrap;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
-    border-radius: 0 0 4px 4px;
+    border-radius: 4px 4px 4px 4px;
     margin: 10px 0 0 0;
+    padding: 0;
     
+}
+
+.leftDescriptionBox {
+    flex-grow: 1;
+}
+
+.survey {
+    border-radius: 5px;
+    border: solid 1px #e8e8e8;
+    width: 200px;
+    min-width: 200px;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.survey P {
+    font-weight: bold;
+}
+
+.survey BUTTON {
+    background: none;
+    margin: 15px 0 5px 0;
+    border: solid 1px #e8e8e8;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+}
+
+.navProductBox {
+    display: flex;
+    flex-flow: row nowrap;
+    background: #FFF;
+    padding: 20px;
+    margin: 0;
+    border-radius: 4px 4px 4px 4px;
+}
+
+.navProductBox H2 {
+    margin:0 0 20px 0;
+    padding: 0;
 }
 
 .descriptionMenu {
     display: flex;
     flex-flow: row nowrap;
     height: 40px;
-    background-color: #e4e4e4;
     color: #000;
 }
 
@@ -114,15 +161,55 @@
     text-align: center;
     margin: 0;
     padding: 10px;
-    border-right: solid 1px black;
-    background-color:  red;
+    border-left: solid 1px #e8e8e8;
 }
 
-.active {
-    background-color: #FFF;
+.tabButton:last-child {
+    border-right: solid 1px #e8e8e8;
+}
+
+.tabButton:first-child {
+    border-left: none;
+}
+
+.tabButton:hover {
+    background-color: #efefef;
+}
+
+A.tabButton {
     color: #000;
 }
 
-.descriptionBox {
+.active {
+    color: #000;
+    background-color: #fff;
+    border-radius: 4px 4px 0 0;
+    border-top: solid 4px;
+}
+
+.active:hover {
+    background-color: #FFF;
+}
+
+A.active {
+    color: #000;
+}
+
+.bugReport {
     padding: 20px;
+    color: #000;
+    background-color: #ffe4df;
+}
+
+.bugReport A {
+    color: #6a72ff;
+}
+
+.specificationString {
+    padding: 10px;
+    border-top: solid 1px #e8e8e8;
+}
+
+.specificationString:last-child {
+    border-bottom: solid 1px #e8e8e8;
 }

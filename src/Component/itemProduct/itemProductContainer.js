@@ -24,7 +24,7 @@ class itemProductContainer extends React.Component {
         // Description или Specification  и т.д. т.е. наши вкладки "описание", "Характеристики"
         //на странице товара
         if(this.props.longUrl === null || this.props.match.params.Parameters == 'Description') { 
-            let num = this.props.location.pathname.length - 12 // -12, что убрать слово Description из основного URL
+            let num = this.props.location.pathname.lastIndexOf('/'); // -12, что убрать слово Description из основного URL
             this.props.setLongUrl(num); // Устанавливаем это число в редьюсер
         }
         {(this.props.product && !this.props.productCover) && this.props.setProductCover(this.props.product[0].photo[0].small)}
@@ -39,7 +39,6 @@ class itemProductContainer extends React.Component {
                 productCover={this.props.productCover}
                 urlLong={this.props.longUrl}
                 descriptionBoxSwitch={this.props.match.params.Parameters}
-                Specification={this.props.specifications}
                 mutateState={this.props.mutateState}
                 setProductCover={this.props.setProductCover}
                 isOpenFullImage={this.props.isOpenFullImage }
@@ -53,12 +52,10 @@ class itemProductContainer extends React.Component {
     }
 
 }
-
 let mapStateToProps = (state) => {
     return {
         product: state.Product.product,
         productCover: state.Product.productCover,
-        specifications: state.Product.specificationItemProduct,
         mutateState: state.Project.mutateState,
         longUrl: state.Product.longUrl,
         itemProductObj: state.Product.itemProductObj,

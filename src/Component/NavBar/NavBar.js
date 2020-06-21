@@ -29,7 +29,7 @@ let WayLine = (props) => {
                 } else if(s == 'Category') {
                     return;
                 } else if(s.slice(0, 9) == 'Category-') {
-                return <NavLink className={N.navBar} to={changeUrl(s)}> > 
+                return <NavLink className={N.navBar} to={changeUrl(s)}> &nbsp;>&nbsp;
                 {props.catigories[changeUrl(s).slice(-1) - 1].name}
                 </NavLink>
                 } else if(s.slice(0, 8) == 'Product-') {
@@ -42,7 +42,7 @@ let WayLine = (props) => {
     }
     
     return( 
-        <div className={N.NavBox}><NavLink className={N.navBar} to="/Main">Главная</NavLink> > {setLinks(props.visualElementsUrlArr)}</div>
+        <div className={N.NavBox}><NavLink className={N.navBar} to="/Main">Главная >&nbsp;</NavLink> {setLinks(props.visualElementsUrlArr)}</div>
     );
 }
 

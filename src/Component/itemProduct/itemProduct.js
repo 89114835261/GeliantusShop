@@ -4,8 +4,8 @@ import raiting from './../../img/raiting.png';
 import { NavLink } from 'react-router-dom';
 
 let ItemProduct = (props) => {
-   let visualSpecifications = props.Specification.map(v =>
-   <div>{v.name} : {v.value}</div>
+   let visualSpecifications = props.itemProduct.specifications.map(v =>
+   <div className={i.specificationString}>{v.name} : {v.value}</div>
       );
      
    return (
@@ -43,10 +43,18 @@ let ItemProduct = (props) => {
                   <NavLink to={`${props.url.slice(0, props.urlLong)}/Questions`} className={i.tabButton} activeClassName={i.active}>Вопрос-Ответ</NavLink>
                </div>
 
-               <div className={i.descriptionBox}>
-                  {props.descriptionBoxSwitch == 'Description' ? props.itemProduct.description : null} 
-                  {props.descriptionBoxSwitch == 'Specification' ? visualSpecifications : null}
+               <div className={i.navProductBox}>
+                  <div className={i.leftDescriptionBox}>
+                  {props.descriptionBoxSwitch == 'Description' ? <div><h2>{props.itemProduct.name}</h2>{props.itemProduct.description}</div> : null} 
+                  {props.descriptionBoxSwitch == 'Specification' ? <div><h2>Характеристики</h2>{visualSpecifications}</div> : null}
+                  </div>
+                  <div className={i.survey}>
+                     <p>Сделаем сайт лучше!</p>
+                     <span>Пожалуйста, ответьте на несколько вопросов.<br></br> Это займёт не более минуты.</span>
+                     <button>Пройти опрос</button>
+                  </div>
                </div>
+               <div className={i.bugReport}>Нашли ошибку в описании? <NavLink to='' className={i.reportLink}>Сообщите нам!</NavLink></div>
          </div>
 
       </div>

@@ -8,7 +8,7 @@ const IS_OPEN_FULL_IMAGE = 'IS_OPEN_FULL_IMAGE'
 
 let initialState = {
     product: null,
-    specificationItemProduct: [],
+    specificationItemProduct: null,
     longUrl: null,
     itemProductObj: {},
     productCover: null,

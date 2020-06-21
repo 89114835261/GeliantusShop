@@ -1,7 +1,7 @@
 const SET_SPECIFICATIONS = 'SET_SPECIFICATIONS';
 
 let initialState = {
-    specifications: []
+    specifications: null
 }
 
 const FiltersFormReducer = (state = initialState, action) => {
