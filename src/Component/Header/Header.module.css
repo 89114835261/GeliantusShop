@@ -1,8 +1,20 @@
 .header {
-    background-color: #d4ff9a;
     grid-area: header;
     background-image: url('./../../img/Header.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: bottom -100px right 0;
+    position: relative;
+}
+
+.infoBlock {
+    background-image: url('./../../img/opacityBlack.png');
+    border-radius: 0 0 0 10px;
+    color: #FFF;
+    white-space: nowrap;
+    height: 50px;
+    float: right;
+    margin: 0 0 0 15px;
+    text-align: center;
+    padding: 0 10px 0 10px;
 }
