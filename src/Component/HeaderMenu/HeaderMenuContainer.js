@@ -5,6 +5,7 @@ import {wayLinkActionCreator, mutateStateActionCreator} from './../redux/Project
 import H from './HeaderMenu.module.css';
 import Button from './button/Button';
 import MainButton from './MainButton/MainButton';
+import { NavLink } from 'react-router-dom';
 
 class HeaderMenu extends React.Component {
     constructor(props) {
@@ -39,21 +40,23 @@ class HeaderMenu extends React.Component {
             );
      
             let arrMenu = this.props.menu.map(
-                m => <Button changeIsOpenMenu={this.props.changeIsOpenMenu} name={m.name} url={m.url} mutateStateFunc={this.props.mutateStateFunc} />
+                m => m.catId != 0 && <Button changeIsOpenMenu={this.props.changeIsOpenMenu} name={m.name} url={m.url} mutateStateFunc={this.props.mutateStateFunc} />
             );
         return (
             <>
             {this.props.isOpenMenu && <div className={H.menuOpenList}>{arrMenu}</div>}
             <div class={H.headerMenu}>
                 <div className={H.headerNav}>
-                    <p><span>Geliantus Shop</span></p>
-                    {setMainMenu}
-                    <button onClick={() => this.props.changeIsOpenMenu()}>Товары</button>
+                    <p><span><NavLink to='/Main'>Geliantus Shop</NavLink></span></p>
+                    {/* {setMainMenu} Это кнопки по типу 'Главная'*/}
+                    <NavLink className={H.menuLink} to onClick={() => this.props.changeIsOpenMenu()}><span>Каталог товаров</span></NavLink>
+                    <NavLink className={H.menuLink} to='/Registration'><span>Регистрация</span></NavLink>
+                    <NavLink className={H.menuLink} to='/Autorisation'><span>Вход</span></NavLink>
                 </div>
         
                 <div className={H.headerRightBox}>
-                    <input type="text"></input>
-                    <button>S</button>
+                    <input type="text" placeholder='Поиск...'></input>
+                    <button></button>
                 </div>
     
              </div>

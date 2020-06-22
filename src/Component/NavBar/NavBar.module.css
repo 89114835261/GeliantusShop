@@ -6,9 +6,15 @@
     padding: 10px;
 }
 
+.NavBox A:hover {
+    color: #06cd01;
+}
+
 .navBar:last-child {
-    font-weight: bold;
-    padding: 5px;
+    color: #9a9a9a;
+    pointer-events: none;
+    cursor: default;
     margin: 0;
+    padding:0;
 }
 

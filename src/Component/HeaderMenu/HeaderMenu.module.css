@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
 .headerMenu {
     background-color: #333333;  
     height: 50px;
@@ -7,14 +9,11 @@
     left: 0;
     padding: 5px;
     z-index: 3;
-    -webkit-box-shadow: 0px 10px 35px -2px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 10px 35px -2px rgba(0,0,0,0.75);
-box-shadow: 0px 10px 35px -2px rgba(0,0,0,0.75);
 }
 
 .headerMenu P {
   margin: 0;
-  width: 160px;
+  width: 220px;
   position: relative;
   color: #06cd01;
   font-size: 16pt;
@@ -23,40 +22,81 @@ box-shadow: 0px 10px 35px -2px rgba(0,0,0,0.75);
   letter-spacing: 1px;
   text-align: center;
   vertical-align: middle;
+  border-right: solid 1px #5c5c5c;
 }
 
 .headerMenu P SPAN {
   position: absolute;
-  height: 20px;
+  height: 25pt;
+  margin: 0 0 0 10px;
   left:0;
   top: 50%;
-  margin-top: -10px;
+  margin-top: -17pt;
+}
+
+.headerMenu P SPAN A {
+  font-family: 'Sacramento', cursive;
+  font-size: 25pt;
+}
+
+.headerMenu P SPAN A:hover {
+    color: #06cd01;
+    
 }
 
 .menuOpenList {
   padding:0;
-  margin: 70px 0 0 0;
+  margin: 57px 0 0 0;
   position: fixed;
   top: 0;
-  left: 200px;
+  left: 225px;
   background-color: #1e1e1e;
-  z-index: 0;
+  z-index: 2;
   display: flex;
   flex-flow: column wrap;
   justify-content: start;
-  border-radius: 10px;
+  border-radius: 0 0 10px 10px;
   width:200px;
 }
-
-
 
 .headerNav {
     display: flex;
     flex-flow: row nowrap;
     align-items: stretch;
-
     height: 100%;
     float: left;
+}
+
+A.menuLink {
+    display: block;
+    position: relative;
+    padding: 15px 0 0 20px;
+}
+
+A.menuLink:hover {
+  color: #06cd01;
+}
+
+A.menuLink SPAN {
+  border-bottom: #FFF 1px dashed;
+}
+
+.headerNav BUTTON {
+  border-radius: 10px;
+  border: none;
+  font-size: 12pt;
+  padding: 0 10px 0 10px;
+  width: 200px;
+  background-color: none;
+}
+
+.headerNav BUTTON:hover {
+  cursor: pointer;
+  
+}
+
+.headerNav BUTTON:active, BUTTON:focus {
+  outline: none;
 }
 
 .headerRightBox {
@@ -70,19 +110,43 @@ box-shadow: 0px 10px 35px -2px rgba(0,0,0,0.75);
     height: 100%;
 }
 
+.headerRightBox BUTTON {
+  width:40px;
+  border-radius: 0 5px 5px 0;
+  border: none;
+  background-image: url('./../../img/search.png');
+  background-repeat: no-repeat;
+  background-position: 10px;
+  background-size: 20px;
+}
+
+.headerRightBox BUTTON:hover {
+  cursor: pointer;
+}
+
+.headerRightBox BUTTON:focus :active{
+  outline: none;
+}
+
+.headerRightBox INPUT:focus :active {
+  outline: none;
+}
+
 .headerRightBox INPUT {
     display: block;
     margin: 0;
     border: none;
-    border-radius: 5px;
+    border-radius: 5px 0 0 5px;
     resize: none;
     float: left;
     padding: 10px;
+    outline: none;
     box-shadow: 0 1px 2px rgba(0,0,0,.2) inset, 0 -1px 0 rgba(0,0,0,.05) inset;
 }
 
 .headerRightBox INPUT:hover {  /* при наведении курсора мышки */
     box-shadow: 0 0 0 2px #7eb4ea inset, 0 1px 2px rgba(0,0,0,.2) inset;
+    outline: none;
   }
   .headerRightBox INPUT:focus {  /* при фокусе, когда поле input активно */
     outline: none;

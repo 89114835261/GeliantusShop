@@ -29,10 +29,9 @@ let WayLine = (props) => {
                 } else if(s == 'Category') {
                     return;
                 } else if(s.slice(0, 11) == 'Kategoriya-') {
-                   
-                return <NavLink className={N.navBar} to={changeUrl(s)}> &nbsp;>&nbsp;
+                return <>{s.slice(11,19) != 'Katalog' && <>&nbsp;>&nbsp;</>}<NavLink className={N.navBar} to={changeUrl(s)}>
                {props.catigories[changeUrl(s).slice(-1)].name}
-                </NavLink>
+                </NavLink></>
                 } else if(s.slice(0, 8) == 'Product-') {
                     return <NavLink className={N.navBar} to={changeUrl(s) + '/Description'}> > {props.product && props.product[0].name}</NavLink>
                 } else if(s == Number) {
@@ -43,7 +42,9 @@ let WayLine = (props) => {
     }
     
     return( 
-        <div className={N.NavBox}><NavLink className={N.navBar} to="/Main">Главная >&nbsp;</NavLink> {setLinks(props.visualElementsUrlArr)}</div>
+        //Ссылка 'Каталог' выводится только если начало mainUrl(текущего url) Не начинается с самого талога
+        //Что бы не было Каталог > Каталог, выводится если ссылка начинается с /Kategoriya или /Product
+        <div className={N.NavBox}><NavLink className={N.navBar} to="/Main">Главная</NavLink>&nbsp;&mdash;&nbsp;{(props.mainUrl && props.mainUrl.slice(0, 11) == '/Kategoriya' && props.mainUrl.slice(12, 19) != 'Katalog' || (props.mainUrl && props.mainUrl.slice(0, 8) == '/Product')) && <NavLink className={N.navBar} to="/Kategoriya-Katalog/0">Каталог</NavLink>}&nbsp;{setLinks(props.visualElementsUrlArr)}</div>
     );
 }
 
