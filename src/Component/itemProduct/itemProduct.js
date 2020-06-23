@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 let ItemProduct = (props) => {
    let visualSpecifications = props.itemProduct.specifications.map(v =>
-   <div className={i.specificationString}>{v.name} : {v.value}</div>
+   <div key={ v.name } className={i.specificationString}>{v.name} : {v.value}</div>
       );
      
    return (

@@ -40,12 +40,12 @@ class HeaderMenu extends React.Component {
             );
      
             let arrMenu = this.props.menu.map(
-                m => m.catId != 0 && <Button changeIsOpenMenu={this.props.changeIsOpenMenu} name={m.name} url={m.url} mutateStateFunc={this.props.mutateStateFunc} />
+                m => m.catId != 0 && <Button key={m.catId} changeIsOpenMenu={this.props.changeIsOpenMenu} name={m.name} url={m.url} mutateStateFunc={this.props.mutateStateFunc} />
             );
         return (
             <>
             {this.props.isOpenMenu && <div className={H.menuOpenList}>{arrMenu}</div>}
-            <div class={H.headerMenu}>
+            <div className={H.headerMenu}>
                 <div className={H.headerNav}>
                     <p><span><NavLink to='/Main'>Geliantus Shop</NavLink></span></p>
                     {/* {setMainMenu} Это кнопки по типу 'Главная'*/}

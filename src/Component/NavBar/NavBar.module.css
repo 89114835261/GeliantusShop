@@ -10,11 +10,11 @@
     color: #06cd01;
 }
 
-.navBar:last-child {
+/* .navBar:last-child {
     color: #9a9a9a;
     pointer-events: none;
     cursor: default;
     margin: 0;
     padding:0;
-}
+} */
 

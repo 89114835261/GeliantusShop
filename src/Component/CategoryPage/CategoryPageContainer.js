@@ -17,32 +17,14 @@ class Flowers extends React.Component {
 
     componentDidMount() {
         let mutate = this.props.mutateState;
-
-        //Получаем категории типа с сервера
-            
-
-        Axios.get('/Categories.json').then(response => {this.props.setItemCategory(response.data.filter(currentElement => currentElement.catId == this.props.match.params.catId)); this.props.setChildsCategory(setChildsCat(this.props.itemCategory, response.data, 'childs', 'catId'))} )
-        //Ниже имитация вызова детей-категорий основной категории(их id берутся из свойство childs основной категории)
-        
-
-        // let specificationIdList = setCat[0].specification.join('-') // result 1-2-4
-        // let childCategoryList = setCat[0].childs.join('-') //result 2, 3 
-        //Далее по задумке делаем запрос, /Specifications?id=2_5_8 и в в ответе
-        //должны прити характеристики с id 2, 5, 8
-        // Тоже самое с childs(дочерними категориями)
-        //Имитация результата вызова /Specifications?id=2_5_8 ниже:
-        // this.props.setSpecificationList(specificationList); //Сэтаем наши характеристики
+        Axios.get('/Categories.json').then(response => {this.props.setItemCategory(response.data.filter(currentElement => currentElement.catId == this.props.match.params.catId)); this.props.setChildsCategory(setChildsCat(this.props.itemCategory, response.data, 'childs', 'catId'))} );
         Axios.get('/Products.json').then(response => {this.props.setFlowers(changeProducts(response.data.items, this.props.match.params.catId))});
-        this.mutate = this.props.mutateState;
-
-        //Отбираем только те объекты, которые равны текущему id страницы (catId)  ниже:
-        // this.props.setFlowers(changeProducts(arr, this.props.match.params.catId)); 
-         this.props.setCountFlowers(15) //Сэтаем кол-во товаров на странице
+        this.mutate = this.props.mutateState; 
+         this.props.setCountFlowers(15);
         
     }
  
     componentDidUpdate() {  
-        
         if(this.mutate != this.props.mutateState) {
             Axios.get('/Products.json').then(response => {this.props.setFlowers(changeProducts(response.data.items, this.props.match.params.catId))});
             this.mutate = this.props.mutateState;
@@ -51,13 +33,12 @@ class Flowers extends React.Component {
     }
 
     render() {
-
         let changeOption = React.createRef();
         let func = () => {
             this.props.changeCurrentValue(changeOption.current.options.selectedIndex + 1)
         }
-        
          // функция сортирующая массив
+         //Удалить перед сборкой. Этим занимается сервер
         let sortProduct = () => {
             if(this.props.currentValue == 1) {
                 let sortProducts = quickSort(this.props.flowers, 'price');
@@ -76,7 +57,7 @@ class Flowers extends React.Component {
            
         }
         let endProductList = sortProduct().map( s =>
-            <Product 
+            <Product key={s.id}
                 name={s.name}
                 price={s.price}
                 orders={s.orders}
@@ -98,30 +79,23 @@ class Flowers extends React.Component {
                             <h1>{this.props.itemCategory.name}</h1>
                             <img src={this.props.itemCategory.cover}></img>
                         </div>
-                        <div className={F.filters}>
-                           <p>Сортировать</p> 
-
-                                <select ref={changeOption} value={this.props.currentValue} name='sdsd' onChange={ () => func()} >
-                                    <option value='1'>Возрастанию цены</option>
-                                    <option value='2'>Убыванию цены</option>
-                                    <option value='3'>Количество заказов</option>
-                                </select>
-                            
-                        </div>
-                    </div>
-
-                    <div className={F.filtersBox}>
-                        <h1>Настроить фильтры</h1>
-                        <FiltersForm/>
                         
                     </div>
-
+                    {this.props.childCategory.length != 0 && this.props.mainUrl ? <ChildCategoryBlockContainer mainUrl={this.props.mainUrl} childCategory={this.props.childCategory} /> : null}
                 </div>
-                {this.props.childCategory.length != 0 && this.props.mainUrl ? <ChildCategoryBlockContainer mainUrl={this.props.mainUrl} childCategory={this.props.childCategory} /> : null}
-                <div className={F.productsLits}>
+                <div className={F.filtersBox}>
+                    <div className={F.blockFiltersElement}>
+                        <select ref={changeOption} value={this.props.currentValue} name='sdsd' onChange={ () => func()} >
+                            <option value='1'>Возрастанию цены</option>
+                            <option value='2'>Убыванию цены</option>
+                            <option value='3'>Количество заказов</option>
+                        </select>  
+                    </div>
+                    <FiltersForm/>
+                </div>
                 
-                {endProductList}
-
+                <div className={F.productsLits}>
+                    {endProductList}
                 </div>
         </div>
         );} else return <div></div>

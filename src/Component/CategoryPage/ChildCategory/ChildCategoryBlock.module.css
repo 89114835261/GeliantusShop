@@ -1,9 +1,8 @@
 .wrapper {
     display: flex;
     flex-flow: row wrap;
-    background-color: bisque;
     justify-content: center;
-    padding: 10px;
+    padding: 0 0 0 10px;
 }
 
 A.catBlock {
@@ -11,7 +10,7 @@ A.catBlock {
 }
 
 .catBlock {
-    border: 1px solid black;
+    border-top: 1px solid #dbdbdb;
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -19,13 +18,12 @@ A.catBlock {
     padding: 10px;
     color: #000;
     width: 120px;
-    height: 120px;
     margin: 0 10px 0 10px;
 }
 
 .catBlock IMG {
-    width: 70px;
-    height: 70px;
+    width: 90px;
+    height: 90px;
     border: 1px;
 }
 

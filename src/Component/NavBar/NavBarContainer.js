@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import NavBar from './NavBar';
 import { withRouter, NavLink } from 'react-router-dom';
 import {setUrlElementsAC, setCategoriesAC} from './../redux/NavBar-reducer';
-import {setMainUrlAC, translitText} from './../redux/Project-reducer';
+import {setMainUrlAC, translitText, mutateStateActionCreator} from './../redux/Project-reducer';
 import Axios from 'axios';
 
 class WayLineContainer extends React.Component {
@@ -23,7 +23,7 @@ class WayLineContainer extends React.Component {
 
     render() {
         return(
-            <NavBar catigories={this.props.catigories} itemCategory={this.props.itemCategory} product={this.props.product} translitText={translitText} mainUrl={this.props.mainUrl} visualElementsUrlArr={this.props.urlElements}/>
+            <NavBar mutateStateFunc={this.props.mutateStateFunc} catigories={this.props.catigories} itemCategory={this.props.itemCategory} product={this.props.product} translitText={translitText} mainUrl={this.props.mainUrl} visualElementsUrlArr={this.props.urlElements}/>
         );
     }
 }
@@ -48,6 +48,9 @@ let mapDispatchToProps = (dispatch) => {
         setUrlAdress: (url) => {
             dispatch(setMainUrlAC(url))
         },
+        mutateStateFunc: () => {
+            dispatch(mutateStateActionCreator())
+        }, 
     }
 }
 

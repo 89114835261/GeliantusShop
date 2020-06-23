@@ -26,7 +26,7 @@ class TopProducts extends React.Component {
         let sortProducts = quickSort(this.props.products, 'id'); // алерт?
         let endArrProducts = sortProducts.slice(sortProducts.length - this.props.countProducts, sortProducts.length);
         let endProductList = endArrProducts.map( s =>
-            <Product 
+            <Product key={s.id}
                 name={s.name}
                 mainCategory={s.mainCategory}
                 url={this.props.itemUrl}
