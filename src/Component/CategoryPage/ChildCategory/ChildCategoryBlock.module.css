@@ -19,6 +19,12 @@ A.catBlock {
     color: #000;
     width: 120px;
     margin: 0 10px 0 10px;
+    transition: all 0.2s;
+}
+
+.catBlock:hover {
+    background-color: #f2f2f2;
+    color: #06cd01;
 }
 
 .catBlock IMG {
