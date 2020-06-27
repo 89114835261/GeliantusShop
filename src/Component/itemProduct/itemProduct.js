@@ -18,19 +18,22 @@ let ItemProduct = (props) => {
   </div>);
   
    let visualReviews = props.reviews.map(item => 
-   <div key={item.id}>
-      <div>Пользователь <NavLink to={`/Profile/${item.userId}`}>{item.userName}</NavLink></div>
-      <div>оценил данный товар на <b>{item.raiting}</b></div>
-      <div>Достоинства: {item.goodQuality}</div>
-      <div>Недостатки: {item.badQuality}</div>
-      <div>Комментарий: {item.comment}</div>
-      <button onClick={() => getAnswers(item.id, item.productId)}>Ответы</button>
-         {props.answers.map(answersItem => 
-         {if(answersItem.reviewsId == item.id && answersItem.isVisible === true) {
-         return <div key={answersItem.id}>
-         {answersItem.name}
-         {answersItem.text}
-      </div>} else return})}
+   <div key={item.id} className={i.reviewWrapper}>
+      <div className={i.avatar} style={{backgroundImage: "url('https://cs6.pikabu.ru/avatars/332/v332269.jpg?1435819946   ')"}}></div>
+      <div className={i.review}>
+         <div>Пользователь <NavLink to={`/Profile/${item.userId}`}>{item.userName}</NavLink></div>
+         <div>оценил данный товар на <b>{item.raitingProduct}</b></div>
+         <div><p>Достоинства:</p> {item.goodQuality}</div>
+         <div><p>Недостатки:</p> {item.badQuality}</div>
+         <div><p>Комментарий:</p> {item.comment}<div className={i.likes}>Лайков: {item.likesReviews} | Дизлайков: {item.dislikesReviews ? item.dislikesReviews : '0'}</div></div>
+         <button onClick={() => getAnswers(item.id, item.productId)}>Ответы</button>
+            {props.answers.map(answersItem => 
+            {if(answersItem.reviewsId == item.id && answersItem.isVisible === true) {
+            return <div key={answersItem.id} className={i.answer}>
+            <p>{answersItem.userName}</p>
+            <div>{answersItem.text}</div>
+         </div>} else return})}
+      </div>
    </div>)
    return (
       <div className={i.wrapper}>
@@ -71,7 +74,7 @@ let ItemProduct = (props) => {
                   <div className={i.leftDescriptionBox}>
                   {props.descriptionBoxSwitch == 'Description' ? <div><h2>{props.itemProduct.name}</h2>{props.itemProduct.description}</div> : null} 
                   {props.descriptionBoxSwitch == 'Specification' ? <div><h2>Характеристики</h2>{visualSpecifications}</div> : null}
-                  {props.descriptionBoxSwitch == 'Reviews' ? <div><h2>Отзывы о товаре</h2>{visualReviews}}</div> : null}
+                  {props.descriptionBoxSwitch == 'Reviews' ? <div><h2>Отзывы о товаре</h2>{visualReviews}</div> : null}
                   {props.descriptionBoxSwitch == 'Questions' ? <div><h2>Вопрос - ответ</h2></div> : null}
                   </div>
                   <div className={i.survey}>

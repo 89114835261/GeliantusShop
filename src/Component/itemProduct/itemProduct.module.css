@@ -59,6 +59,50 @@
     cursor: zoom-in;
 }
 
+.reviewWrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    border-top: solid 1px #e8e8e8;
+    padding: 20px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    display: block;
+    border-radius: 25px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 5px 0 0 0;
+}
+
+.answer {
+    margin: 10px 0 0 50px;
+}
+
+.review {
+    padding: 0 0 0 20px;
+}
+
+.likes {
+    float: right;
+}
+
+.review DIV {
+    padding: 5px 0 5px 0
+}
+
+.review P {
+    margin: 0;
+    display: inline;
+    font-weight: bold;
+}
+
+.review A {
+    color: #6a72ff;
+}
+
 .leftBox IMG:hover {
     box-shadow: 0 7px 9px rgba(0, 0, 0, .5);
 }
