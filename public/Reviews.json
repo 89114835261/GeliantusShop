@@ -1,0 +1,4 @@
+[
+    {"id": 1, "productId": 2, "goodQuality": "Очень красивый вид", "badQuality": "Надо часто поливать", "comment": "Очень крутой цветок, мне нравится!", "userId": 3, "userName": "Вася", "userPhoto": "/url", "isIncognito": false, "ansrwesId": [1], "raitingProduct": 3, "likesReviews": 2, "disLike": 0},
+    {"id": 2, "productId": 2, "goodQuality": "Шляпа", "badQuality": "Не о чём", "comment": "Вообще не понравился", "userId": 3, "userName": "Перец", "userPhoto": "/url", "isIncognito": false, "ansrwesId": [2], "raitingProduct": 3, "likesReviews": 2, "disLike": 0}
+]

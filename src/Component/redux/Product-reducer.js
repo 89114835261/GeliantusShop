@@ -3,8 +3,10 @@ const SET_SPECIFICATIONS_PRODUCT = 'SET_SPECIFICATIONS_PRODUCT';
 const SET_LONG_URL = 'SET_LONG_URL';
 const SET_ITEM_OBJ = 'SET_ITEM_OBJ';
 const ITEM_PRODUCT_COVER = 'ITEM_PRODUCT_COVER';
-const IS_OPEN_FULL_IMAGE = 'IS_OPEN_FULL_IMAGE'
-
+const IS_OPEN_FULL_IMAGE = 'IS_OPEN_FULL_IMAGE';
+const SET_REVIEWS = 'SET_REVIEWS';
+const SET_ANSWERS = 'SET_ANSWERS';
+const SET_IS_VISIBLE_ANSWER = 'SET_IS_VISIBLE_ANSWER';
 
 let initialState = {
     product: null,
@@ -12,7 +14,10 @@ let initialState = {
     longUrl: null,
     itemProductObj: {},
     productCover: null,
-    isOpenFullImage: false
+    isOpenFullImage: false,
+    reviews: null,
+    answers: [],
+    isLoadAnswer: false
 }
 
 let productReduser = (state = initialState, action) => {
@@ -21,6 +26,20 @@ let productReduser = (state = initialState, action) => {
             return {
                 ...state,
                 productCover: action.url
+            }
+        case SET_IS_VISIBLE_ANSWER: 
+            let newState = {...state};
+            newState.answers = state.answers.map(item => {if(item.reviewsId == action.id) {return {id: item.id, userId: item.userId, userName: item.userName, reviewsId: item.reviewsId, productId: item.productId, text: item.text, isVisible: item.isVisible ? false : true, isIncognito: item.isIncognito, likes: item.likes, dislikes: item.dislikes}} else return item})
+            return newState;
+            case SET_ANSWERS: 
+            return {
+                ...state,
+                answers: action.answers
+            }
+        case SET_REVIEWS:
+            return {
+                ...state,
+                reviews: action.reviews
             }
         case IS_OPEN_FULL_IMAGE:
            return state.isOpenFullImage ? {...state, isOpenFullImage: false} : {...state, isOpenFullImage: true}
@@ -42,6 +61,27 @@ let productReduser = (state = initialState, action) => {
             specificationItemProduct: action.speccifications
         }
         default: return state;
+    }
+}
+
+export let setIsVisibleAC = (id) => {
+    return {
+        type: SET_IS_VISIBLE_ANSWER,
+        id: id
+    }
+}
+
+export let setReviewsAnswerAC = (answers) => {
+    return {
+        type: SET_ANSWERS,
+        answers: answers
+    }
+}
+
+export let setReviewsAC = (reviews) => {
+    return {
+        type: SET_REVIEWS,
+        reviews: reviews
     }
 }
 

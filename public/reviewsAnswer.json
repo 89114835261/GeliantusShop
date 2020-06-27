@@ -1,0 +1,4 @@
+[
+    {"id": 1, "userId": 3, "userName": "Дима", "reviewsId": 1, "productId": 1, "text": "А мне не оч понравился", "isVisible": false, "isIncognito": false, "likes": 0, "dislikes": 2},
+    {"id": 1, "userId": 3, "userName": "Дима", "reviewsId": 2, "productId": 1, "text": "полностью согласен", "isVisible": false, "isIncognito": false, "likes": 0, "dislikes": 2}
+]
