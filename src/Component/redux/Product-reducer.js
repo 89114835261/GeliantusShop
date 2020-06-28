@@ -29,7 +29,7 @@ let productReduser = (state = initialState, action) => {
             }
         case SET_IS_VISIBLE_ANSWER: 
             let newState = {...state};
-            newState.answers = state.answers.map(item => {if(item.reviewsId == action.id) {return {id: item.id, userId: item.userId, userName: item.userName, reviewsId: item.reviewsId, productId: item.productId, text: item.text, isVisible: item.isVisible ? false : true, isIncognito: item.isIncognito, likes: item.likes, dislikes: item.dislikes}} else return item})
+            newState.answers = state.answers.map(item => {if(item.reviewsId == action.id) {return {id: item.id, userId: item.userId, userName: item.userName, userAvatar: item.userAvatar, reviewsId: item.reviewsId, productId: item.productId, text: item.text, isVisible: item.isVisible ? false : true, isIncognito: item.isIncognito, likes: item.likes, dislikes: item.dislikes}} else return item})
             return newState;
             case SET_ANSWERS: 
             return {

@@ -331,7 +331,6 @@
         "raiting": 4.8,
         "homePaymant":  true, 
         "catId": [0,1], 
-        "specId": [2, 4, 9], 
         "specifications": [
             {
             "id": 2, 

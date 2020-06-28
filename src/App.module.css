@@ -134,7 +134,6 @@ A:active {text-decoration: none;color: white;}
   background-color: #f6f6f6;
   grid-area: content;
   display: flex;
-  min-height: 1000px;
   flex-flow: column wrap;
   padding: 0 0 20px 0;
   justify-content: start;

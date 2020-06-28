@@ -66,23 +66,49 @@
     padding: 20px;
 }
 
+.answerBox {
+    display: flex;
+    flex-flow: row nowrap;
+    margin: 10px 0 10px 50px;
+}
+
 .avatar {
     width: 50px;
     height: 50px;
     display: block;
     border-radius: 25px;
-    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 5px 0 0 0;
+}
+
+.answerAvatar {
+    width: 30px;
+    height: 20px;
+    display: block;
+    border-radius: 15px;
     background-repeat: no-repeat;
     background-size: contain;
     margin: 5px 0 0 0;
 }
 
 .answer {
-    margin: 10px 0 0 50px;
+   flex-grow: 1;
+   margin: 0 0 0 10px;
+}
+
+.linkName {
+    padding: 5px;
+}
+
+.answer SPAN {
+    display: block;
+    padding: 5px;
 }
 
 .review {
     padding: 0 0 0 20px;
+    flex-grow: 1;
 }
 
 .likes {

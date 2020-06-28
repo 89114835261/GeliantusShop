@@ -19,7 +19,7 @@ let ItemProduct = (props) => {
   
    let visualReviews = props.reviews.map(item => 
    <div key={item.id} className={i.reviewWrapper}>
-      <div className={i.avatar} style={{backgroundImage: "url('https://cs6.pikabu.ru/avatars/332/v332269.jpg?1435819946   ')"}}></div>
+      <div className={i.avatar} style={{backgroundImage: "url('https://cs6.pikabu.ru/avatars/332/v332269.jpg?1435819946')"}}></div>
       <div className={i.review}>
          <div>Пользователь <NavLink to={`/Profile/${item.userId}`}>{item.userName}</NavLink></div>
          <div>оценил данный товар на <b>{item.raitingProduct}</b></div>
@@ -29,10 +29,14 @@ let ItemProduct = (props) => {
          <button onClick={() => getAnswers(item.id, item.productId)}>Ответы</button>
             {props.answers.map(answersItem => 
             {if(answersItem.reviewsId == item.id && answersItem.isVisible === true) {
-            return <div key={answersItem.id} className={i.answer}>
-            <p>{answersItem.userName}</p>
-            <div>{answersItem.text}</div>
-         </div>} else return})}
+            return   <div key={answersItem.id} className={i.answerBox}>
+                        <div className={i.answerAvatar} style={{backgroundImage: `url(${answersItem.userAvatar})`}}></div>
+                        <div className={i.answer}>
+                           <NavLink to={`/Profile/${answersItem.userId}`} className={i.linkName}>{answersItem.userName}</NavLink>
+                           <span>{answersItem.text}<div className={i.likes}>Лайков: {answersItem.likes} | Дизлайков: {answersItem.dislikes ? answersItem.dislikes : '0'}</div></span>
+                        </div>
+                        
+                     </div>} else return})}
       </div>
    </div>)
    return (

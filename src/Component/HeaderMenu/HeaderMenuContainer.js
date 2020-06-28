@@ -6,6 +6,7 @@ import H from './HeaderMenu.module.css';
 import Button from './button/Button';
 import MainButton from './MainButton/MainButton';
 import { NavLink } from 'react-router-dom';
+import Axios from 'axios';
 
 class HeaderMenu extends React.Component {
     constructor(props) {
@@ -16,22 +17,7 @@ class HeaderMenu extends React.Component {
             {name: 'Главная', url: '/Main'}
         ]
         this.props.setMainMenu(buttonList);
-
-        let catList = [ //Получаем категории
-            {catId: 0, name: 'Каталог', get url() {return `/Kategoriya-Katalog/${this.catId}`} }, 
-            {catId: 1, name: 'Цветы', get url() {return `/Kategoriya-Cvety/${this.catId}`} }, 
-            {catId: 2, name: 'Товары для дома', get url() { return `/Kategoriya-Tovary-Dlya-Doma/${this.catId}`}},
-            {catId: 3, name: 'Декор', get url() { return `/Kategoriya-Dekor/${this.catId}`}}
-        ]
-
-        let menuList = [
-            ...catList //Разворачиваем массив catList 
-            // {name: 'Растения', url: '/Plants'},
-            // {name: 'Декор', url: '/Decor'},
-            // {name: 'Цветочные ёмкости', url: '/Decor'}
-        ]   
-        this.props.menuSetCategories(menuList)
-
+        Axios.get('/Categories.json').then(response => this.props.menuSetCategories(response.data));
     }
     render() {
         if(this.props.mainMenu && this.props.menu) {
