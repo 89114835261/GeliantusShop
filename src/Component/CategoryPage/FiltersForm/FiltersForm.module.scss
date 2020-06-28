@@ -1,0 +1,27 @@
+@import "./../../Styles/colors";
+
+.filerFormBox {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 10px 0 10px 0;
+    SELECT {
+        border-radius: 10px;
+        padding: 10px;
+        border: solid 1px #e4e4e4;
+        margin: 0 10px 0 0;
+        &:hover {
+            cursor: pointer;
+            background-color: $gray-bg-hover-input-color;
+        }
+    }
+    &:focus {
+        outline: none;
+    }
+    &:active {
+        outline: none;
+    }
+}
+
+.blockFiltersElement {
+   
+}

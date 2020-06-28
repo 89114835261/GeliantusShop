@@ -1,3 +1,5 @@
+@import "./../Styles/colors";
+
 .wrapper {
     width: 1200px;
     display: flex;
@@ -12,7 +14,7 @@
     border-radius: 4px;
     margin: 10px 0 0 0;
     width: 100%;
-    background-color: #FFF;
+    background-color: $white-bg-block-color;
 }
 
 .fullImage {
@@ -23,46 +25,45 @@
     bottom:0;
     left:0;
     right:0;
+    IMG {
+        max-width: calc(100vw - 100px);
+        max-height: calc(100vh - 100px);
+        border: solid 10px #FFF;
+    }
 }
 
 .imgWrapper {
     text-align: center;
     padding: 10px 0 20px 0px;
     position: relative;
-
-}
-
-.imgWrapper BUTTON {
-    display: block;
-    width: 100%;
-}
-
-.fullImage IMG {
-    max-width: calc(100vw - 100px);
-    max-height: calc(100vh - 100px);
-    border: solid 10px #FFF;
+    BUTTON {
+        display: block;
+        width: 100%;
+    }
 }
 
 .leftBox {
     width: 300px;
     padding: 10px 4px 10px 10px;
-}
-
-.leftBox IMG {
-    width: 294px;
-    height: 294px;
-    transition: box-shadow 0.1s linear;
-    transition: opacity 2s linear;
-    border: #FFF solid 6px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
-    transition: box-shadow 0.1s linear;
-    cursor: zoom-in;
+    IMG {
+        width: 294px;
+        height: 294px;
+        transition: box-shadow 0.1s linear;
+        transition: opacity 2s linear;
+        border: $white-border-img-color solid 6px;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
+        transition: box-shadow 0.1s linear;
+        cursor: zoom-in;
+        &:hover {
+            box-shadow: 0 7px 9px rgba(0, 0, 0, .5);
+        }
+    }
 }
 
 .reviewWrapper {
     display: flex;
     flex-flow: row nowrap;
-    border-top: solid 1px #e8e8e8;
+    border-top: solid 1px $gray-border-color;
     padding: 20px;
 }
 
@@ -95,42 +96,34 @@
 .answer {
    flex-grow: 1;
    margin: 0 0 0 10px;
+    SPAN {
+        display: block;
+        padding: 5px;
+        }
 }
 
 .linkName {
     padding: 5px;
 }
 
-.answer SPAN {
-    display: block;
-    padding: 5px;
-}
-
 .review {
     padding: 0 0 0 20px;
     flex-grow: 1;
+    DIV {
+        padding: 5px 0 5px 0
+    }
+    P {
+        margin: 0;
+        display: inline;
+        font-weight: bold;
+    }
+    A {
+        color: $blue-content-link-color;
+    }
 }
 
 .likes {
     float: right;
-}
-
-.review DIV {
-    padding: 5px 0 5px 0
-}
-
-.review P {
-    margin: 0;
-    display: inline;
-    font-weight: bold;
-}
-
-.review A {
-    color: #6a72ff;
-}
-
-.leftBox IMG:hover {
-    box-shadow: 0 7px 9px rgba(0, 0, 0, .5);
 }
 
 .changePhoto {
@@ -141,29 +134,26 @@
     width: 80px;
     padding: 0;
     border-right: solid 1px black;
-}
-
-.changePhoto IMG {
-    width: 50px;
-    height: 50px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
-    transition: box-shadow 0.1s linear;
-    border: #FFF solid 2px;
-}
-
-.changePhoto IMG:hover {
-    cursor: pointer;
-    box-shadow: 0 5px 7px rgba(0, 0, 0, .4);
+    IMG {
+        width: 50px;
+        height: 50px;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
+        transition: box-shadow 0.1s linear;
+        border: $white-border-img-color solid 2px;
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0 5px 7px rgba(0, 0, 0, .4);
+        }
+    }
 }
 
 .infoWrapper {
     flex-grow: 1;
     padding: 10px 10px 10px 20px;
     flex-flow: wrap row;
-}
-
-.infoWrapper H2 {
-    margin: 0;
+    H2 {
+        margin: 0;
+    }
 }
 
 .descriptionBox {
@@ -183,39 +173,36 @@
 
 .survey {
     border-radius: 5px;
-    border: solid 1px #e8e8e8;
+    border: solid 1px $gray-border-color;
     width: 200px;
     min-width: 200px;
     padding: 10px;
     text-align: center;
     display: flex;
     flex-flow: column wrap;
-}
-
-.survey P {
-    font-weight: bold;
-}
-
-.survey BUTTON {
-    background: none;
-    margin: 15px 0 5px 0;
-    border: solid 1px #e8e8e8;
-    border-radius: 10px;
-    padding: 10px 20px 10px 20px;
+    P {
+        font-weight: bold;
+    }
+    BUTTON {
+        background: none;
+        margin: 15px 0 5px 0;
+        border: solid 1px $gray-border-color;
+        border-radius: 10px;
+        padding: 10px 20px 10px 20px;
+    }
 }
 
 .navProductBox {
     display: flex;
     flex-flow: row nowrap;
-    background: #FFF;
+    background: $white-bg-block-color;
     padding: 20px;
     margin: 0;
     border-radius: 4px 4px 4px 4px;
-}
-
-.navProductBox H2 {
-    margin:0 0 20px 0;
-    padding: 0;
+    H2 {
+        margin:0 0 20px 0;
+        padding: 0;
+    }
 }
 
 .descriptionMenu {
@@ -232,19 +219,16 @@
     text-align: center;
     margin: 0;
     padding: 10px;
-    border-left: solid 1px #e8e8e8;
-}
-
-.tabButton:last-child {
-    border-right: solid 1px #e8e8e8;
-}
-
-.tabButton:first-child {
-    border-left: none;
-}
-
-.tabButton:hover {
-    background-color: #efefef;
+    border-left: solid 1px $gray-border-color;
+    &:last-child {
+        border-right: solid 1px $gray-border-color;
+    }
+    &:first-child {
+        border-left: none;
+    }
+    &:hover {
+        background-color: $gray-bg-hover-button-color;
+    }
 }
 
 A.tabButton {
@@ -253,13 +237,12 @@ A.tabButton {
 
 .active {
     color: #000;
-    background-color: #fff;
+    background-color: $white-bg-button-color;
     border-radius: 4px 4px 0 0;
     border-top: solid 4px;
-}
-
-.active:hover {
-    background-color: #FFF;
+    &:hover {
+        background-color: $white-bg-button-hover-color;
+    }
 }
 
 A.active {
@@ -270,17 +253,15 @@ A.active {
     padding: 20px;
     color: #000;
     background-color: #ffe4df;
-}
-
-.bugReport A {
-    color: #6a72ff;
+    A {
+        color: $blue-content-link-color;
+    }
 }
 
 .specificationString {
     padding: 10px;
-    border-top: solid 1px #e8e8e8;
-}
-
-.specificationString:last-child {
-    border-bottom: solid 1px #e8e8e8;
+    border-top: solid 1px $gray-border-color;
+    &:last-child {
+        border-bottom: solid 1px $gray-border-color;
+    }
 }

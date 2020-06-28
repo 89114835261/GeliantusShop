@@ -1,5 +1,5 @@
 import React from 'react';
-import C from './ChildCategoryBlock.module.css';
+import C from './ChildCategoryBlock.module.scss';
 import { withRouter, NavLink } from 'react-router-dom';
 
 let ChildCategoryBlockContainer = (props) => {

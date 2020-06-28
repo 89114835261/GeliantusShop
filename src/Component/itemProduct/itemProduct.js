@@ -1,5 +1,5 @@
 import React from 'react';
-import i from './itemProduct.module.css';
+import i from './itemProduct.module.scss';
 import raiting from './../../img/raiting.png';
 import { NavLink } from 'react-router-dom';
 

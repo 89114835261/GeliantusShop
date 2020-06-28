@@ -1,5 +1,5 @@
 import React from 'react';
-import F from './FiltersForm.module.css';
+import F from './FiltersForm.module.scss';
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import {setSpecificationsActionCreator} from './../../redux/FiltersForm-reducer';

@@ -24,7 +24,9 @@ class itemProductContainer extends React.Component {
         //Получаем ответы у которых reviewsId == получаемому праметру(id)
         //А он в свою очередь равен id отзыва
         {this.props.answers.length < 1 ? Axios.get('/reviewsAnswer.json').then(response =>{this.props.setReviewsAnswer(response.data); this.props.setIsVisible(id)}) : this.props.setIsVisible(id)}
-
+    }
+    componentWillUnmount() {
+        this.props.setReviewsAnswer([]);
     }
     render() {     
         // Ниже условие формирующее длину URL к которой мы будем прибавлять 
