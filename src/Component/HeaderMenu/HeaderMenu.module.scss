@@ -1,0 +1,127 @@
+@import "./../Styles/fonts";
+@import "./../Styles/flex";
+@import "./../Styles/border-radius";
+
+.headerMenu {
+    background-color: #242424;  
+    height: 50px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 5px;
+    z-index: 3;
+    P {
+      margin: 0;
+      width: 220px;
+      position: relative;
+      color: #06cd01;
+      font-size: 16pt;
+      font-weight: lighter;
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing: 1px;
+      text-align: center;
+      vertical-align: middle;
+      border-right: solid 1px #5c5c5c;
+      SPAN {
+        position: absolute;
+        height: 25pt;
+        margin: 0 0 0 10px;
+        left:0;
+        top: 50%;
+        margin-top: -17pt;
+        A {
+          font-family: $logo-font;
+          font-size: $logo-font-size;
+          &:hover {
+            color: #06cd01;
+            
+        }
+        }
+        
+      }
+    }
+}
+
+.menuOpenList {
+    padding:0;
+    margin: 57px 0 0 0;
+    position: fixed;
+    top: 0;
+    left: 225px;
+    background-color: #1e1e1e;
+    z-index: 2;
+    @include flex;
+    @include flex-direction-column;
+    @include flex-wrap;
+    @include justify-content-start;
+    @include border-radius(0, 0, 10px, 10px);
+    width:200px;
+}
+
+.headerNav {
+    @include flex;
+    @include flex-direction-row;
+    @include flex-nowrap;
+    @include align-item-stretch;
+    height: 100%;
+    float: left;
+    BUTTON {
+      @include border-radius(10px);
+      border: none;
+      font-size: 12pt;
+      padding: 0 10px 0 10px;
+      width: 200px;
+      background-color: none;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+}
+
+A.menuLink {
+    display: block;
+    position: relative;
+    padding: 15px 0 0 20px;
+    &:hover {
+      color: #06cd01;
+    }
+    SPAN {
+      border-bottom: #FFF 1px dashed;
+    }
+}
+
+.headerRightBox {
+    @include flex;
+    @include flex-direction-row;
+    @include flex-nowrap;
+    @include align-item-stretch;
+    float: right;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    BUTTON {
+      @include border-radius(0, 5px, 5px, 0);
+      width:40px;
+      border: none;
+      background-image: url('./../../img/search.png');
+      background-repeat: no-repeat;
+      background-position: 10px;
+      background-size: 20px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    INPUT {
+      display: block;
+      margin: 0;
+      border: none;
+      @include border-radius(5px, 0, 0, 5px);
+      resize: none;
+      float: left;
+      padding: 10px;
+      outline: none;
+      box-shadow: 0 1px 2px rgba(0,0,0,.2) inset, 0 -1px 0 rgba(0,0,0,.05) inset;
+  }
+}
+

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {SetMenuActionCreator, changeIsOpenMenuAC, SetMainMenuActionCreator} from '../redux/HeaderMenuReducer';
 import {wayLinkActionCreator, mutateStateActionCreator} from './../redux/Project-reducer';
-import H from './HeaderMenu.module.css';
+import H from './HeaderMenu.module.scss';
 import Button from './button/Button';
 import MainButton from './MainButton/MainButton';
 import { NavLink } from 'react-router-dom';
