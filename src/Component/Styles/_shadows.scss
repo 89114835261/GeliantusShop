@@ -1,0 +1,7 @@
+@mixin box-shadow($value1, $value2, $value3, $value4, $color) {
+    -moz-box-shadow: $value1 $value2 $value3 $value4 $color;
+    -webkit-box-shadow: $value1 $value2 $value3 $value4 $color;
+    -ms-box-shadow: $value1 $value2 $value3 $value4 $color;
+    -o-box-shadow: $value1 $value2 $value3 $value4 $color;
+    box-shadow: $value1 $value2 $value3 $value4 $color;
+}

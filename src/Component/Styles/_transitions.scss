@@ -1,6 +1,6 @@
-@mixin transition-block($time) {
-    -webkit-transition: all $time linear;
-    -moz-transition: all $time linear;
-    -o-transition: all $time linear;
-    transition: all $time linear;
+@mixin transition-block($parameter, $time, $value) {
+    -webkit-transition: $parameter $time $value;
+    -moz-transition: $parameter $time $value;
+    -o-transition: $parameter $time $value;
+    transition: $parameter $time $value;
 }

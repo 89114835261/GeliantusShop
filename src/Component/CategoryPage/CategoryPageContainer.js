@@ -1,5 +1,5 @@
 import React from 'react';
-import F from './CategoryPageContainer.module.css';
+import F from './CategoryPageContainer.module.scss';
 import { connect } from 'react-redux';
 import Product from '../Product/Product';
 import {quickSort, changeProducts, setChildsCat} from '../redux/Project-reducer';

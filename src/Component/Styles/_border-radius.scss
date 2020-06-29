@@ -1,0 +1,7 @@
+@mixin border-radius($size, $size2: $size, $size3: $size, $size4: $size) {
+    -webkit-border-radius: $size $size2 $size3 $size4;
+    -moz-border-radius: $size $size2 $size3 $size4;
+    border-radius: $size $size2 $size3 $size4;
+}
+
+$border-radius-big-block: 4px;

@@ -1,17 +1,19 @@
 @import "./../Styles/colors";
+@import "./../Styles/shadows";
+@import "./../Styles/transitions";
+@import "./../Styles/border-radius";
+@import "./../Styles/flex";
 
 .wrapper {
     width: 1200px;
-    display: flex;
-    flex-flow: column wrap;
     margin: 0 auto;
 }
 
 .wrapperTopBox {
-    display: flex;
-    flex-flow: row nowrap;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
-    border-radius: 4px;
+    @include flex;
+    @include flex-direction-row;
+    @include box-shadow(0, 0, 5px, 0px, rgba(0, 0, 0, 0.2));
+    @include border-radius($border-radius-big-block);
     margin: 10px 0 0 0;
     width: 100%;
     background-color: $white-bg-block-color;
@@ -48,28 +50,28 @@
     IMG {
         width: 294px;
         height: 294px;
-        transition: box-shadow 0.1s linear;
-        transition: opacity 2s linear;
         border: $white-border-img-color solid 6px;
-        box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
-        transition: box-shadow 0.1s linear;
+        @include box-shadow(0, 2px, 5px, 0px, rgba(0, 0, 0, 0.2));
+        @include transition-block(all, .2s, linear);
         cursor: zoom-in;
         &:hover {
-            box-shadow: 0 7px 9px rgba(0, 0, 0, .5);
+            @include box-shadow(0, 3px, 5px, 0px, rgba(0, 0, 0, 0.6));
         }
     }
 }
 
 .reviewWrapper {
-    display: flex;
-    flex-flow: row nowrap;
+    @include flex;
+    @include flex-direction-row;
+    @include flex-nowrap;
     border-top: solid 1px $gray-border-color;
     padding: 20px;
 }
 
 .answerBox {
-    display: flex;
-    flex-flow: row nowrap;
+    @include flex;
+    @include flex-direction-row;
+    @include flex-nowrap;
     margin: 10px 0 10px 50px;
 }
 
@@ -77,7 +79,7 @@
     width: 50px;
     height: 50px;
     display: block;
-    border-radius: 25px;
+    @include border-radius(25px);
     background-repeat: no-repeat;
     background-size: contain;
     margin: 5px 0 0 0;
@@ -87,14 +89,14 @@
     width: 30px;
     height: 20px;
     display: block;
-    border-radius: 15px;
+    @include border-radius(15px);
     background-repeat: no-repeat;
     background-size: contain;
     margin: 5px 0 0 0;
 }
 
 .answer {
-   flex-grow: 1;
+   @include flex-grow(1);
    margin: 0 0 0 10px;
     SPAN {
         display: block;
@@ -108,7 +110,7 @@
 
 .review {
     padding: 0 0 0 20px;
-    flex-grow: 1;
+    @include flex-grow(1);
     DIV {
         padding: 5px 0 5px 0
     }
@@ -127,22 +129,23 @@
 }
 
 .changePhoto {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-around;
-    align-items: center;
+    @include flex;
+    @include flex-direction-column;
+    @include flex-wrap;
+    @include justify-content-space-around;
+    @include align-item-center;
     width: 80px;
     padding: 0;
     border-right: solid 1px black;
     IMG {
         width: 50px;
         height: 50px;
-        box-shadow: 0 2px 3px rgba(0, 0, 0, .5);
-        transition: box-shadow 0.1s linear;
+        @include box-shadow(0, 1px, 3px, 0px, rgba(0, 0, 0, 0.2));
+        @include transition-block(all, .2s, linear);
         border: $white-border-img-color solid 2px;
         &:hover {
             cursor: pointer;
-            box-shadow: 0 5px 7px rgba(0, 0, 0, .4);
+            @include box-shadow(0, 3px, 4px, 0px, rgba(0, 0, 0, 0.4));
         }
     }
 }
@@ -157,10 +160,11 @@
 }
 
 .descriptionBox {
-    display: flex;
-    flex-flow: column wrap;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
-    border-radius: 4px 4px 4px 4px;
+    @include flex;
+    @include flex-direction-column;
+    @include flex-wrap;
+    @include box-shadow(0, 0, 5px, 0px, rgba(0, 0, 0, 0.2));
+    @include border-radius($border-radius-big-block);
     margin: 10px 0 0 0;
     padding: 0;
     
@@ -172,14 +176,12 @@
 }
 
 .survey {
-    border-radius: 5px;
+    @include border-radius(5px);
     border: solid 1px $gray-border-color;
     width: 200px;
     min-width: 200px;
     padding: 10px;
     text-align: center;
-    display: flex;
-    flex-flow: column wrap;
     P {
         font-weight: bold;
     }
@@ -187,18 +189,19 @@
         background: none;
         margin: 15px 0 5px 0;
         border: solid 1px $gray-border-color;
-        border-radius: 10px;
+        @include border-radius(10px);
         padding: 10px 20px 10px 20px;
     }
 }
 
 .navProductBox {
-    display: flex;
-    flex-flow: row nowrap;
+    @include flex;
+    @include flex-direction-row;
+    @include flex-nowrap;
     background: $white-bg-block-color;
     padding: 20px;
     margin: 0;
-    border-radius: 4px 4px 4px 4px;
+    @include border-radius(4px);
     H2 {
         margin:0 0 20px 0;
         padding: 0;
@@ -206,8 +209,9 @@
 }
 
 .descriptionMenu {
-    display: flex;
-    flex-flow: row nowrap;
+    @include flex;
+    @include flex-direction-row;
+    @include flex-nowrap;
     height: 40px;
     color: #000;
 }
@@ -238,8 +242,8 @@ A.tabButton {
 .active {
     color: #000;
     background-color: $white-bg-button-color;
-    border-radius: 4px 4px 0 0;
-    border-top: solid 4px;
+    border-top: solid 4px black;
+    @include border-radius(4px, 4px, 0, 0);
     &:hover {
         background-color: $white-bg-button-hover-color;
     }

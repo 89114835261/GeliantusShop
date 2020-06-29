@@ -1,0 +1,62 @@
+@import "./../Styles/colors";
+@import "./../Styles/shadows";
+@import "./../Styles/border-radius";
+@import "./../Styles/flex";
+
+.wrapper {
+    margin: 20px;
+    @include box-shadow(0, 0, 5px, 0px, rgba(0, 0, 0, 0.2));
+    @include border-radius(4px);
+    padding: 20px;
+}
+
+.productsLits {
+    @include flex;
+    @include flex-direction-row;
+    @include flex-wrap;
+}
+
+.topBoxWrapper {
+    @include flex;
+    @include flex-direction-row;
+    @include flex-nowrap;
+}
+
+.cover {
+    text-align: center;
+}
+
+.nameBox {
+    width: 300px;
+    P {
+        margin: 0 0 15px 0;
+        padding: 0;
+    }
+    IMG {
+        width: 130px;
+        height: 130px;
+        margin: 5px;
+    }
+    H1 {
+        margin: 0;
+        text-align: center;
+    }
+}
+
+.filters  {
+    text-align: center;
+}
+
+.filtersBox {
+    @include flex-grow(1);
+    @include flex;
+    @include flex-direction-row;
+    @include flex-wrap;
+    margin: 10px 0 0 0;
+    border-top: solid 1px $gray-border-color;
+    border-bottom: solid 1px $gray-border-color;
+    H1 {
+        margin: 0;
+    }
+    
+}
