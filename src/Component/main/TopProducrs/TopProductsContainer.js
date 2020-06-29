@@ -1,5 +1,5 @@
 import React from 'react';
-import TP from './TopProducts.module.css';
+import TP from './../Main.module.scss';
 import { connect } from 'react-redux';
 import Product from '../../Product/Product';
 import {quickSort} from '../../redux/Project-reducer';
