@@ -1,5 +1,5 @@
 import React from 'react';
-import B from './MainButton.module.css';
+import B from './MainButton.module.scss';
 import { NavLink } from 'react-router-dom';
 
 let mainButton = (props) => {

@@ -1,0 +1,17 @@
+@import "./../../Styles/colors";
+@import "./../../Styles/border-radius";
+
+.headerLink {
+    background-color: #333333;
+    padding:  20px;
+    &:hover {
+        background-color: $green-link-color;
+    }
+    &:last-child {
+        @include border-radius(0, 0, 10px, 10px);
+    }
+}
+
+.activeLink {
+    background-color: $green-link-color;
+}

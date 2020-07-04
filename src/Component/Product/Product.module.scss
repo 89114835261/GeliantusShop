@@ -1,3 +1,7 @@
+@import './../Styles/shadows';
+@import './../Styles/flex';
+@import './../Styles/border-radius';
+
 .itemProduct {
     display: block;
     width: 250px;
@@ -9,38 +13,37 @@
     margin: 20px;
     position: relative;
     z-index: 1;
+    &:hover {
+        opacity: 1;
+        @include box-shadow(0, 5px, 5px, 1px, rgba(0, 0, 0, .2));
+    }
+    h5 {
+        width: auto;
+        text-align: left;
+        padding: 5px 10px 5px 10px;
+        margin: 0;
+        font-weight: bold;
+        font-size: 14pt;
+        align-self: stretch;
+    }
 }
 
 .wrapper {
-    box-shadow: 0 2px 3px rgba(0, 0, 0, .2);
+    @include box-shadow(0, 2px, 4px, 1px, rgba(0, 0, 0, .3));
     min-height: 350px;
-}
-
-.itemProduct:hover {
-    opacity: 1;
-    box-shadow: 0 5px 7px rgba(0, 0, 0, .4);
 }
 
 .ProductCover {
     width: auto;
-    border-radius: 20px 20px 0 0;
+    @include border-radius(20px, 20px, 0 0);
     align-items: center;
-    display: flex;
-    flex-flow: column wrap;
-}
-
-.ProductCover IMG {
-    width: 230px;
-    height: 230px;
-}
-.itemProduct h5 {
-    width: auto;
-    text-align: left;
-    padding: 5px 10px 5px 10px;
-    margin: 0;
-    font-weight: bold;
-    font-size: 14pt;
-    align-self: stretch;
+    @include flex;
+    @include flex-direction-column;
+    @include flex-wrap;
+    IMG {
+        width: 230px;
+        height: 230px;
+    }
 }
 
 .productInfo {
@@ -49,8 +52,9 @@
 }
 
 .info {
-    display: flex;
-    flex-flow: column wrap;
+    @include flex;
+    @include flex-direction-column;
+    @include flex-wrap;
     position: absolute;
     width: 125px;
     height: auto;
@@ -60,15 +64,12 @@
     text-align: left;
     padding: 10px;
     font-size: 12pt;
-    
-}
-
-.info P {
-    margin: 0;
+    P {
+        margin: 0;
+    }
 }
 
 .star {
-
     background-image: url('./../../img/star.png');
     background-repeat: no-repeat;
     text-align: center;

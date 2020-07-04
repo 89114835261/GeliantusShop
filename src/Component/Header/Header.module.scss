@@ -1,3 +1,5 @@
+@import './../Styles/border-radius';
+
 .header {
     grid-area: header;
     background-image: url('./../../img/Header.jpg');
@@ -9,7 +11,7 @@
 
 .infoBlock {
     background-image: url('./../../img/opacityBlack.png');
-    border-radius: 0 0 0 10px;
+    @include border-radius(0, 0, 0, 10px);
     color: #FFF;
     white-space: nowrap;
     height: 50px;

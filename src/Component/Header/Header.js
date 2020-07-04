@@ -1,5 +1,5 @@
 import React from 'react';
-import H from './Header.module.css';
+import H from './Header.module.scss';
 
 let Header = (props) => {
     return(

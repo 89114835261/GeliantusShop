@@ -1,5 +1,5 @@
 import React from 'react';
-import P from './Product.module.css';
+import P from './Product.module.scss';
 import { NavLink } from 'react-router-dom';
 import {translitText} from './../redux/Project-reducer';
 
