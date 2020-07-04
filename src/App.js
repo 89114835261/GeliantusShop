@@ -12,6 +12,8 @@ import CategoryPageContainer from './Component/CategoryPage/CategoryPageContaine
 import ItemProductContainer from './Component/itemProduct/itemProductContainer';
 import WayLineContainer from './Component/NavBar/NavBarContainer';
 import {isCategory} from './Component/redux/Project-reducer'
+import { connect } from 'react-redux';
+
 
 
 
@@ -19,16 +21,16 @@ import {isCategory} from './Component/redux/Project-reducer'
 let App = (props) => {
 
     return (
-                <div className={ap.kingWrapper}>
+                <div className={ap.kingWrapper} >
 
                         <HeaderMenuContainer />
-                    <div className={ap.wrapper}>
-                        <Header /> 
-                        <LeftSide />
+                    <div className={ap.wrapper} onClick={() => {props.isOpenMenu && props.changeIsOpenMenu(false)}}>
+                        <Header/> 
+                        <LeftSide/>
                         <div className={ap.wayLine}>
-                            <WayLineContainer />
+                            <WayLineContainer/>
                         </div>
-                    <div className={ap.content}>
+                    <div className={ap.content} >
                         <Route exact path='/:catName/:catId/Product/:productId' render={() => <ItemProductContainer />} />
                         <Route path={'/:catName/:catId/Product/:productName/:productId/:Parameters'} render={() => <ItemProductContainer />} />
                         <Route path={'/:catName/:catId/:catName/:catId/Product/:productName/:productId/:Parameters'} render={() => <ItemProductContainer />} />
@@ -57,5 +59,7 @@ let App = (props) => {
       );
 
    }
+
+
 
 export default App;

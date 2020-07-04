@@ -7,6 +7,7 @@ const IS_OPEN_FULL_IMAGE = 'IS_OPEN_FULL_IMAGE';
 const SET_REVIEWS = 'SET_REVIEWS';
 const SET_ANSWERS = 'SET_ANSWERS';
 const SET_IS_VISIBLE_ANSWER = 'SET_IS_VISIBLE_ANSWER';
+const SET_QUESTIONS = 'SET_QUESTIONS';
 
 let initialState = {
     product: null,
@@ -17,7 +18,8 @@ let initialState = {
     isOpenFullImage: false,
     reviews: null,
     answers: [],
-    isLoadAnswer: false
+    isLoadAnswer: false,
+    questions: null
 }
 
 let productReduser = (state = initialState, action) => {
@@ -35,6 +37,12 @@ let productReduser = (state = initialState, action) => {
             return {
                 ...state,
                 answers: action.answers
+            }
+        case SET_QUESTIONS:
+            let questionsArr = action.questions.filter(item => item.productId == state.product[0].id)
+            return {
+                ...state,
+                questions: questionsArr
             }
         case SET_REVIEWS:
             return {
@@ -61,6 +69,13 @@ let productReduser = (state = initialState, action) => {
             specificationItemProduct: action.speccifications
         }
         default: return state;
+    }
+}
+
+export let setQuestionsAC = (questions) => {
+    return {
+        type: SET_QUESTIONS,
+        questions
     }
 }
 

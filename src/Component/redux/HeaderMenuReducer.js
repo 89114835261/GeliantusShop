@@ -21,7 +21,6 @@ const HeaderMenuReducer = (state = initialState, action) => {
                 mainMenu: action.menu
             }
         case CHANGE_IS_OPEN_MENU:
-            
             if(action.booleanType === true || action.booleanType === false) {
                 return {
                     ...state,

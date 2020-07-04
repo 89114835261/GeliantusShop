@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, NavLink } from 'react-router-dom';
 import ItemProduct from './itemProduct';
-import {setProductActionCreator, isOpenFullImageAC,setIsVisibleAC, setReviewsAnswerAC, setReviewsAC, setItemProductCoverAC, setSpecificationsItemProductAC, setLongUrlActionCreator, setitemProductObjActionCreator} from './../redux/Product-reducer';
+import {setProductActionCreator, setQuestionsAC, isOpenFullImageAC,setIsVisibleAC, setReviewsAnswerAC, setReviewsAC, setItemProductCoverAC, setSpecificationsItemProductAC, setLongUrlActionCreator, setitemProductObjActionCreator} from './../redux/Product-reducer';
 import Axios from 'axios';
 
 class itemProductContainer extends React.Component {
@@ -13,13 +13,10 @@ class itemProductContainer extends React.Component {
         // //Далее делаем "типа" запрос вида /Specifications?id=2_5_8
         //И получаем характеристики с id 2, 5, 8
         Axios.get('/Reviews.json').then(response => {this.props.setReviews(response.data)});
+        Axios.get('/Questions.json').then(response => {this.props.setQuestions(response.data)});
     }
     // При реальных запросах, мы не будем использовать DidUpdate, а запустим получение
     // айдишников спецификаций при получении ответа в DidMount (response => наша функция)
-    componentWillUnmount() {
-        this.props.setProduct(null);
-        this.props.setProductCover(null);
-    }
     getAnswers = (id, productId) => {
         //Получаем ответы у которых reviewsId == получаемому праметру(id)
         //А он в свою очередь равен id отзыва
@@ -27,6 +24,8 @@ class itemProductContainer extends React.Component {
     }
     componentWillUnmount() {
         this.props.setReviewsAnswer([]);
+        this.props.setProduct(null);
+        this.props.setProductCover(null);
     }
     render() {     
         // Ниже условие формирующее длину URL к которой мы будем прибавлять 
@@ -56,6 +55,7 @@ class itemProductContainer extends React.Component {
                 reviews={this.props.reviews}
                 answers={this.props.answers}
                 getAnswers={this.getAnswers}
+                questions={this.props.questions}
             /> : 's'}
            
             </div>
@@ -76,7 +76,8 @@ let mapStateToProps = (state) => {
         setIsOpenFullImage: state.Product.setIsOpenFullImage,
         reviews: state.Product.reviews,
         answers: state.Product.answers,
-        isLoadAnswer: state.Product.isLoadAnswer
+        isLoadAnswer: state.Product.isLoadAnswer,
+        questions: state.Product.questions
     }
 }
 
@@ -108,6 +109,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         setIsVisible: (id) => {
             dispatch(setIsVisibleAC(id));
+        },
+        setQuestions: (questions) => {
+            dispatch(setQuestionsAC(questions));
         }
     }
 }

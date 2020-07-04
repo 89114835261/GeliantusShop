@@ -12,12 +12,9 @@ let ItemProduct = (props) => {
    let visualSpecifications = props.itemProduct.specifications.map(v =>
    <div key={ v.name } className={i.specificationString}>{v.name} : {v.value}</div>
       );
-   let visualAnswers = props.answers.map(item => <div key={item.id}>
-      <p><NavLink to={`/Profile/${item.id}`}>{item.userName}</NavLink></p>
-      <span>{item.text}</span>
-  </div>);
-  
-   let visualReviews = props.reviews.map(item => 
+
+   let mapReviews = props.reviews.filter(item => item.productId === props.itemProduct.id);
+   let visualReviews = mapReviews.length > 0 ? mapReviews.map(item =>
    <div key={item.id} className={i.reviewWrapper}>
       <div className={i.avatar} style={{backgroundImage: "url('https://cs6.pikabu.ru/avatars/332/v332269.jpg?1435819946')"}}></div>
       <div className={i.review}>
@@ -27,7 +24,7 @@ let ItemProduct = (props) => {
          <div><p>Недостатки:</p> {item.badQuality}</div>
          <div><p>Комментарий:</p> {item.comment}<div className={i.likes}>Лайков: {item.likesReviews} | Дизлайков: {item.dislikesReviews ? item.dislikesReviews : '0'}</div></div>
          <button onClick={() => getAnswers(item.id, item.productId)}>Ответы</button>
-            {props.answers.map(answersItem => 
+            {props.answers && props.answers.map(answersItem => 
             {if(answersItem.reviewsId == item.id && answersItem.isVisible === true) {
             return   <div key={answersItem.id} className={i.answerBox}>
                         <div className={i.answerAvatar} style={{backgroundImage: `url(${answersItem.userAvatar})`}}></div>
@@ -38,7 +35,11 @@ let ItemProduct = (props) => {
                         
                      </div>} else return})}
       </div>
-   </div>)
+   </div>) : null;
+
+   let visualQestions = props.questions && props.questions.map(item =>
+      <div>{item.text}</div>
+      );
    return (
       <div className={i.wrapper}>
          {props.isOpenFullImage && <div className={i.fullImage}><div className={i.imgWrapper}><img src={props.productCover}></img><button onClick={() => props.setIsOpenFullImage()}>Закрыть</button></div></div>}
@@ -78,8 +79,8 @@ let ItemProduct = (props) => {
                   <div className={i.leftDescriptionBox}>
                   {props.descriptionBoxSwitch == 'Description' ? <div><h2>{props.itemProduct.name}</h2>{props.itemProduct.description}</div> : null} 
                   {props.descriptionBoxSwitch == 'Specification' ? <div><h2>Характеристики</h2>{visualSpecifications}</div> : null}
-                  {props.descriptionBoxSwitch == 'Reviews' ? <div><h2>Отзывы о товаре</h2>{visualReviews}</div> : null}
-                  {props.descriptionBoxSwitch == 'Questions' ? <div><h2>Вопрос - ответ</h2></div> : null}
+                  {props.descriptionBoxSwitch == 'Reviews' ? <div><h2>Отзывы о товаре</h2>{visualReviews ? visualReviews : "У данного товара пока нет отзывов. Станьте первым!"}</div> : null}
+                  {props.descriptionBoxSwitch == 'Questions' ? <div><h2>Вопрос - ответ</h2>{visualQestions ? visualQestions : "Пока по данному товару вопрос не было. Станьте первым!"}</div> : null}
                   </div>
                   <div className={i.survey}>
                      <p>Сделаем сайт лучше!</p>

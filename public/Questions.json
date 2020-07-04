@@ -1,3 +1,9 @@
 [
-    {"id": 1, "userId": 2, "productId": 2, "userName": "Василий", "userAvatar": "/img", "text": "Скажите, а долго этот цветок живёт?"}
+    {
+    "id": 1, 
+    "userId": 2, 
+    "productId": 2, 
+    "userName": "Василий", 
+    "userAvatar": "/img",
+    "text": "Скажите, а долго этот цветок живёт?"}
 ]

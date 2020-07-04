@@ -4,6 +4,7 @@ import App from './App';
 import { setRouteActionCreator } from './Component/redux/App-reducer';
 import {setMainUrlAC} from './Component/redux/Project-reducer';
 import { withRouter, Route } from 'react-router-dom';
+import { changeIsOpenMenuAC } from './Component/redux/HeaderMenuReducer';
 
  class AppContainer extends React.Component {
 
@@ -16,7 +17,7 @@ import { withRouter, Route } from 'react-router-dom';
     render() {
          return(
              
-            <App mainUrl={this.props.location.pathname}/>
+            <App mainUrl={this.props.location.pathname} isOpenMenu={this.props.isOpenMenu} changeIsOpenMenu={this.props.changeIsOpenMenu}/>
          );
      }
  }
@@ -24,7 +25,8 @@ import { withRouter, Route } from 'react-router-dom';
 let mapStateToProps = (state) => {
     return {
         routeList: state.AppPage.routeList,
-        mainUrl: state.Project.mainUrl
+        mainUrl: state.Project.mainUrl,
+        isOpenMenu: state.HeaderMenu.isOpenMenu
     }
 }
 
@@ -35,6 +37,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         setUrlAdress: (url) => {
             dispatch(setMainUrlAC(url))
+        },
+        changeIsOpenMenu: (booleanType = ' ') => {
+            dispatch(changeIsOpenMenuAC(booleanType))
         }
     }
 }

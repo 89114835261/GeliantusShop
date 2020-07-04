@@ -24,5 +24,18 @@
          "isIncognito": false, 
          "likes": 0, 
          "dislikes": 2
+    },
+    {
+        "id": 3,
+        "userId": 3, 
+        "userName": "Дима", 
+        "userAvatar": "https://cs8.pikabu.ru/avatars/954/x954999-1613064080.png", 
+        "reviewsId": 1, 
+        "productId": 1, 
+        "text": "И вообще, этот цветок просто ужасен!", 
+        "isVisible": false, 
+        "isIncognito": false, 
+        "likes": 0, 
+        "dislikes": 2
     }
 ]
