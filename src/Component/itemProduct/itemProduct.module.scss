@@ -19,6 +19,20 @@
     background-color: $white-bg-block-color;
 }
 
+.question {
+    border-top: solid 1px $gray-border-color;
+    border-bottom: solid 1px $gray-border-color;
+    padding: 10px;
+    P {
+        padding: 0 0 5px 0;
+        margin: 0;
+        font-weight: bolder;
+    }
+    DIV {
+        padding: 10px 10px 10px 30px;
+    }
+}
+
 .fullImage {
     position: fixed;
     background-image: url('./../../img/opacityBlack.png');
@@ -167,12 +181,17 @@
     @include border-radius($border-radius-big-block);
     margin: 10px 0 0 0;
     padding: 0;
-    
 }
 
 .leftDescriptionBox {
     flex-grow: 1;
     padding: 0 20px 0 0;
+    A {
+        color: $blue-content-link-color;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
 
 .survey {

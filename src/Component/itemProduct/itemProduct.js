@@ -37,8 +37,10 @@ let ItemProduct = (props) => {
       </div>
    </div>) : null;
 
-   let visualQestions = props.questions && props.questions.map(item =>
-      <div>{item.text}</div>
+   let visualQestions = (props.questions && props.questions.length > 0) && props.questions.map(item =>
+      <div key={item.id} className={i.question}><p>{item.userName}</p>{item.text}
+      <div><p>Администратор</p>{item.answer && item.answer}</div>
+      </div>
       );
    return (
       <div className={i.wrapper}>
@@ -79,8 +81,8 @@ let ItemProduct = (props) => {
                   <div className={i.leftDescriptionBox}>
                   {props.descriptionBoxSwitch == 'Description' ? <div><h2>{props.itemProduct.name}</h2>{props.itemProduct.description}</div> : null} 
                   {props.descriptionBoxSwitch == 'Specification' ? <div><h2>Характеристики</h2>{visualSpecifications}</div> : null}
-                  {props.descriptionBoxSwitch == 'Reviews' ? <div><h2>Отзывы о товаре</h2>{visualReviews ? visualReviews : "У данного товара пока нет отзывов. Станьте первым!"}</div> : null}
-                  {props.descriptionBoxSwitch == 'Questions' ? <div><h2>Вопрос - ответ</h2>{visualQestions ? visualQestions : "Пока по данному товару вопрос не было. Станьте первым!"}</div> : null}
+   {props.descriptionBoxSwitch == 'Reviews' ? <div><h2>Отзывы о товаре</h2>{visualReviews ? visualReviews : <>У данного товара пока нет отзывов. {<NavLink to>Станьте первым!</NavLink>}</>}</div> : null}
+                  {props.descriptionBoxSwitch == 'Questions' ? <div><h2>Вопрос - ответ</h2>{visualQestions ? visualQestions : <>Пока по данному товару вопросов не было. {<NavLink to>Станьте первым!</NavLink>}</>}</div> : null}
                   </div>
                   <div className={i.survey}>
                      <p>Сделаем сайт лучше!</p>
