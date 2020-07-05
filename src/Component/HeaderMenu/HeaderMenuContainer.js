@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {SetMenuActionCreator, changeIsOpenMenuAC, SetMainMenuActionCreator} from '../redux/HeaderMenuReducer';
+import {SetMenuActionCreator, changeIsOpenMenuAC, SetMainMenuActionCreator, isOpenRegistrationModalAC} from '../redux/HeaderMenuReducer';
 import {wayLinkActionCreator, mutateStateActionCreator} from './../redux/Project-reducer';
 import H from './HeaderMenu.module.scss';
 import Button from './button/Button';
@@ -36,7 +36,7 @@ class HeaderMenu extends React.Component {
                     <p><span><NavLink to='/Main'>Geliantus Shop</NavLink></span></p>
                     {/* {setMainMenu} Это кнопки по типу 'Главная'*/}
                     <NavLink className={H.menuLink} to onClick={() => this.props.changeIsOpenMenu()}><span>Каталог товаров</span></NavLink>
-                    <NavLink className={H.menuLink} to='/Registration'><span>Регистрация</span></NavLink>
+                    <NavLink className={H.menuLink} to onClick={() => this.props.isOpenRegistrationModal()}><span>Регистрация</span></NavLink>
                     <NavLink className={H.menuLink} to='/Autorisation'><span>Вход</span></NavLink>
                 </div>
         
@@ -77,6 +77,9 @@ let mapDispatchToProps = (dispatch) => {
         }, 
         changeIsOpenMenu: (booleanType = ' ') => {
             dispatch(changeIsOpenMenuAC(booleanType))
+        },
+        isOpenRegistrationModal: (booleanType = ' ') => {
+            dispatch(isOpenRegistrationModalAC(booleanType));
         }
     }
 }

@@ -1,0 +1,49 @@
+@import './../Styles/border-radius';
+@import './../Styles/colors';
+@import './../Styles/flex';
+
+.registrationModal {
+    position: fixed;
+    z-index: 5;
+    background-image: url('./../../img/opacityBlack.png');
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    .formBox {
+      text-align: center;
+      position: fixed;
+      z-index: 6;
+      background-color: #FFF;
+      top:10%;
+      left:30%;
+      right:30%;
+      min-width: 420px;
+      padding: 0 0 20px 0;
+      @include border-radius(5px);
+      FORM {
+        width: 400px;
+        margin: 0 auto;
+        @include flex;
+        @include flex-direction-column;
+        @include flex-wrap;
+        BUTTON {
+          padding: 10px;
+          @include border-radius(3px);
+          border: solid 1px $gray-border-color;
+          margin: 10px 0 20px 0;
+          background-color: $gray-bg-hover-button-color;
+          &:hover {
+            cursor: pointer;
+            background-color: $gray-bg-hover-child-cat-block-color;
+          }
+        }
+      }
+    }
+    A {
+        &:link { text-decoration: none; color: $blue-content-link-color}
+        &:visited { text-decoration: none; color: $blue-content-link-color } 
+        &:hover { text-decoration: underline; color: $blue-content-link-color }
+        &:active { text-decoration: none; color: $blue-content-link-color }
+      }
+  }

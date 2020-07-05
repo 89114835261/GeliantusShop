@@ -4,6 +4,7 @@ import { withRouter, NavLink } from 'react-router-dom';
 import ItemProduct from './itemProduct';
 import {setProductActionCreator, setQuestionsAC, isOpenFullImageAC,setIsVisibleAC, setReviewsAnswerAC, setReviewsAC, setItemProductCoverAC, setSpecificationsItemProductAC, setLongUrlActionCreator, setitemProductObjActionCreator} from './../redux/Product-reducer';
 import Axios from 'axios';
+import { isOpenRegistrationModalAC } from './../redux/HeaderMenuReducer';
 
 class itemProductContainer extends React.Component {
     
@@ -26,6 +27,7 @@ class itemProductContainer extends React.Component {
         this.props.setReviewsAnswer([]);
         this.props.setProduct(null);
         this.props.setProductCover(null);
+        this.props.setQuestions([]);
     }
     render() {     
         // Ниже условие формирующее длину URL к которой мы будем прибавлять 
@@ -41,6 +43,7 @@ class itemProductContainer extends React.Component {
             
             {(this.props.product && this.props.reviews && this.props.answers) ? <ItemProduct 
                 itemProduct={this.props.product[0]}
+                isOpenRegistrationModal={this.props.isOpenRegistrationModal}
                 // photoSmall={this.props.product.photos.small}
                 // photoLarge={this.props.product.photos.large}
                 url={this.props.location.pathname}
@@ -112,6 +115,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         setQuestions: (questions) => {
             dispatch(setQuestionsAC(questions));
+        },
+        isOpenRegistrationModal: (booleanType = ' ') => {
+            dispatch(isOpenRegistrationModalAC(booleanType));
         }
     }
 }

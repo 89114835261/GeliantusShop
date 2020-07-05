@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
-import ap from './App.module.css';
-import { Route, Redirect, withRouter,} from 'react-router-dom';
+import ap from './App.module.scss';
+import { Route, Redirect, withRouter, NavLink,} from 'react-router-dom';
 import Header from './Component/Header/Header';
 import LeftSide from './Component/LeftSide/LeftSide';
 import Footer from './Component/Footer/Footer';
@@ -13,6 +13,7 @@ import ItemProductContainer from './Component/itemProduct/itemProductContainer';
 import WayLineContainer from './Component/NavBar/NavBarContainer';
 import {isCategory} from './Component/redux/Project-reducer'
 import { connect } from 'react-redux';
+import Registration from './Component/Registration/Registration';
 
 
 
@@ -22,7 +23,7 @@ let App = (props) => {
 
     return (
                 <div className={ap.kingWrapper} >
-
+                        {props.isOpenRegistration && <Registration isOpenRegistrationModal={props.isOpenRegistrationModal}/>}
                         <HeaderMenuContainer />
                     <div className={ap.wrapper} onClick={() => {props.isOpenMenu && props.changeIsOpenMenu(false)}}>
                         <Header/> 

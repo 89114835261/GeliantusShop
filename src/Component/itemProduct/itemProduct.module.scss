@@ -181,6 +181,7 @@
     @include border-radius($border-radius-big-block);
     margin: 10px 0 0 0;
     padding: 0;
+    
 }
 
 .leftDescriptionBox {
@@ -277,8 +278,11 @@ A.active {
     color: #000;
     background-color: #ffe4df;
     A {
-        color: $blue-content-link-color;
-    }
+        &:link { text-decoration: none; color: $blue-content-link-color}
+        &:visited { text-decoration: none; color: $blue-content-link-color } 
+        &:hover { text-decoration: underline; color: $blue-content-link-color }
+        &:active { text-decoration: none; color: $blue-content-link-color }
+      }
 }
 
 .specificationString {

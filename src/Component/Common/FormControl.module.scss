@@ -1,0 +1,41 @@
+@import './../Styles/flex';
+@import './../Styles/border-radius';
+@import './../Styles/colors';
+
+.inputBox {
+    padding: 10px 0 0 0;
+    @include flex;
+    @include flex-direction-column;
+    @include flex-wrap;
+    INPUT {
+        display: block;
+        @include flex-grow(1);
+        padding: 10px;
+        @include border-radius(3px);
+        &::placeholder {
+          color: $gray-placeholder-color;
+        }
+    }
+}
+
+.inputBox.error INPUT {
+    border: solid 2px red;
+    @include border-radius(3px, 3px, 0, 0);
+    &:focus {
+       outline: solid 2px red;
+    }
+}
+
+.inputBox.error SPAN {
+    color: #FFF;
+    background-color: red;
+    display: block;
+    clear: both;
+}
+
+.inputBox.ok INPUT {
+    border: solid 2px lime;
+    &:focus {
+       outline: solid 2px lime;
+    }
+}

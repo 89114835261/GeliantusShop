@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import App from './App';
 import { setRouteActionCreator } from './Component/redux/App-reducer';
 import {setMainUrlAC} from './Component/redux/Project-reducer';
-import { withRouter, Route } from 'react-router-dom';
-import { changeIsOpenMenuAC } from './Component/redux/HeaderMenuReducer';
+import { withRouter } from 'react-router-dom';
+import { changeIsOpenMenuAC, isOpenRegistrationModalAC} from './Component/redux/HeaderMenuReducer';
 
  class AppContainer extends React.Component {
 
@@ -17,7 +17,7 @@ import { changeIsOpenMenuAC } from './Component/redux/HeaderMenuReducer';
     render() {
          return(
              
-            <App mainUrl={this.props.location.pathname} isOpenMenu={this.props.isOpenMenu} changeIsOpenMenu={this.props.changeIsOpenMenu}/>
+            <App isOpenRegistrationModal={this.props.isOpenRegistrationModal} isOpenRegistration={this.props.isOpenRegistration} mainUrl={this.props.location.pathname} isOpenMenu={this.props.isOpenMenu} changeIsOpenMenu={this.props.changeIsOpenMenu}/>
          );
      }
  }
@@ -26,7 +26,8 @@ let mapStateToProps = (state) => {
     return {
         routeList: state.AppPage.routeList,
         mainUrl: state.Project.mainUrl,
-        isOpenMenu: state.HeaderMenu.isOpenMenu
+        isOpenMenu: state.HeaderMenu.isOpenMenu,
+        isOpenRegistration: state.HeaderMenu.isOpenRegistration
     }
 }
 
@@ -40,6 +41,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         changeIsOpenMenu: (booleanType = ' ') => {
             dispatch(changeIsOpenMenuAC(booleanType))
+        },
+        isOpenRegistrationModal: (booleanType = ' ') => {
+            dispatch(isOpenRegistrationModalAC(booleanType));
         }
     }
 }

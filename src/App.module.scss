@@ -1,0 +1,61 @@
+@import './Component/Styles/colors';
+@import './Component/Styles/fonts';
+
+BODY {
+  background-color: black;
+  padding: 0;
+  margin: 0;
+  font-family: $main-font;
+  font-size: 14px;
+}
+
+A {
+  &:link { text-decoration: none; color: $white-color-link }
+  &:visited { text-decoration: none; color: $white-color-link } 
+  &:hover { text-decoration: none; color: $white-color-link-hover }
+  &:active { text-decoration: none; color: $white-color-link }
+}
+
+.kingWrapper {
+  position: relative;
+  padding: 0;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-areas: "header header"
+  "wayLine wayLine"
+  "leftSide content"
+  "footer footer";
+  grid-template-rows: 600px 50px 13fr 100px;
+  grid-template-columns: 0 1fr;
+  margin: 50px auto 0 auto;
+}
+
+.wayLine {
+  grid-area: wayLine;
+  height: 50px;
+  color: #FFF;
+  background-color: #1e1e1e;
+}
+
+.leftSide {
+  background-color: bisque;
+  grid-area: leftSide;
+}
+
+.content {
+  background-color: #f6f6f6;
+  grid-area: content;
+  display: flex;
+  flex-flow: column wrap;
+  padding: 0 0 20px 0;
+  justify-content: start;
+}
+
+.footer {
+  background-color: #222;
+  grid-area: footer;
+  text-align: center;
+}
+

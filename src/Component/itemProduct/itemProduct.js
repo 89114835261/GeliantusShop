@@ -81,8 +81,8 @@ let ItemProduct = (props) => {
                   <div className={i.leftDescriptionBox}>
                   {props.descriptionBoxSwitch == 'Description' ? <div><h2>{props.itemProduct.name}</h2>{props.itemProduct.description}</div> : null} 
                   {props.descriptionBoxSwitch == 'Specification' ? <div><h2>Характеристики</h2>{visualSpecifications}</div> : null}
-   {props.descriptionBoxSwitch == 'Reviews' ? <div><h2>Отзывы о товаре</h2>{visualReviews ? visualReviews : <>У данного товара пока нет отзывов. {<NavLink to>Станьте первым!</NavLink>}</>}</div> : null}
-                  {props.descriptionBoxSwitch == 'Questions' ? <div><h2>Вопрос - ответ</h2>{visualQestions ? visualQestions : <>Пока по данному товару вопросов не было. {<NavLink to>Станьте первым!</NavLink>}</>}</div> : null}
+                  {props.descriptionBoxSwitch == 'Reviews' ? <div><h2>Отзывы о товаре</h2>{visualReviews ? visualReviews : <>У данного товара пока нет отзывов. {<NavLink to onClick={() => props.isOpenRegistrationModal()}>Станьте первым!</NavLink>}</>}</div> : null}
+                  {props.descriptionBoxSwitch == 'Questions' ? <div><h2>Вопрос - ответ</h2>{visualQestions ? visualQestions : <>Пока по данному товару вопросов не было. {<NavLink to onClick={() => props.isOpenRegistrationModal()}>Станьте первым!</NavLink>}</>}</div> : null}
                   </div>
                   <div className={i.survey}>
                      <p>Сделаем сайт лучше!</p>
