@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {SetMenuActionCreator, changeIsOpenMenuAC, SetMainMenuActionCreator, isOpenRegistrationModalAC} from '../redux/HeaderMenuReducer';
+import {SetMenuActionCreator, changeIsOpenMenuAC, isOpenCartModalAC, SetMainMenuActionCreator, isOpenRegistrationModalAC} from '../redux/HeaderMenuReducer';
 import {wayLinkActionCreator, mutateStateActionCreator} from './../redux/Project-reducer';
 import H from './HeaderMenu.module.scss';
 import Button from './button/Button';
@@ -19,6 +19,7 @@ class HeaderMenu extends React.Component {
         this.props.setMainMenu(buttonList);
         Axios.get('/Categories.json').then(response => this.props.menuSetCategories(response.data));
     }
+
     render() {
         if(this.props.mainMenu && this.props.menu) {
             let setMainMenu = this.props.mainMenu.map(
@@ -43,6 +44,7 @@ class HeaderMenu extends React.Component {
                 <div className={H.headerRightBox}>
                     <input type="text" placeholder='Поиск...'></input>
                     <button></button>
+                    <div className={H.cart} onClick={() => this.props.isOpenCartModal()}>корзина {this.props.productsCount}</div>
                 </div>
     
              </div>
@@ -57,7 +59,9 @@ let mapStateToProps = (state) => {
         menu: state.HeaderMenu.menu,
         mutateState: state.Project.mutateState,
         isOpenMenu: state.HeaderMenu.isOpenMenu,
-        mainMenu: state.HeaderMenu.mainMenu
+        mainMenu: state.HeaderMenu.mainMenu,
+        productsCount: state.CartReducer.productsCount,
+        isOpenCart: state.HeaderMenu.isOpenCart
     }
 }
 
@@ -80,6 +84,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         isOpenRegistrationModal: (booleanType = ' ') => {
             dispatch(isOpenRegistrationModalAC(booleanType));
+        },
+        isOpenCartModal: (booleanType = ' ') => {
+            dispatch(isOpenCartModalAC(booleanType));
         }
     }
 }

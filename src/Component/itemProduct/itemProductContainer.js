@@ -5,6 +5,7 @@ import ItemProduct from './itemProduct';
 import {setProductActionCreator, setQuestionsAC, isOpenFullImageAC,setIsVisibleAC, setReviewsAnswerAC, setReviewsAC, setItemProductCoverAC, setSpecificationsItemProductAC, setLongUrlActionCreator, setitemProductObjActionCreator} from './../redux/Product-reducer';
 import Axios from 'axios';
 import { isOpenRegistrationModalAC } from './../redux/HeaderMenuReducer';
+import { addToCartAC } from './../redux/Cart-reducer';
 
 class itemProductContainer extends React.Component {
     
@@ -43,6 +44,7 @@ class itemProductContainer extends React.Component {
             
             {(this.props.product && this.props.reviews && this.props.answers) ? <ItemProduct 
                 itemProduct={this.props.product[0]}
+                addToCart={this.props.addToCart}
                 isOpenRegistrationModal={this.props.isOpenRegistrationModal}
                 // photoSmall={this.props.product.photos.small}
                 // photoLarge={this.props.product.photos.large}
@@ -118,6 +120,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         isOpenRegistrationModal: (booleanType = ' ') => {
             dispatch(isOpenRegistrationModalAC(booleanType));
+        },
+        addToCart: (product) => {
+            dispatch(addToCartAC(product));
         }
     }
 }

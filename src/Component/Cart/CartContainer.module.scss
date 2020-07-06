@@ -1,0 +1,56 @@
+@import './../Styles/shadows';
+@import './../Styles/colors';
+
+.cartModal {
+    position: fixed;
+    z-index: 5;
+    background-image: url('./../../img/opacityBlack.png');
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    .cartBox {
+      text-align: center;
+      position: fixed;
+      z-index: 6;
+      background-color: #FFF;
+      top:10%;
+      left:30%;
+      right:30%;
+      min-width: 420px;
+      padding: 0 0 20px 0;
+      .boxWrapper {
+        overflow: auto;
+        height: 163px;
+        -webkit-overflow-scrolling: touch;
+      }
+    }
+}
+
+.wrapper {
+  margin: 10px;
+  position: relative;
+  border: solid 1px $gray-border-color;
+  IMG {
+    display: block;
+    width: 150px;
+    height: 150px;
+    float:left;
+    padding: 0 10px 0 0;
+  }
+}
+
+.infoBox {
+  height: 125px;
+  text-align: left;
+  padding: 0 10px 10px 10px;
+  P {
+    text-align: left;
+    font-weight: bolder;
+  }
+  .delete {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}

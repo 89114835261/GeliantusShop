@@ -13,11 +13,11 @@ import { changeIsOpenMenuAC, isOpenRegistrationModalAC} from './Component/redux/
             this.props.setUrlAdress(this.props.location.pathname);
         }
     }
-
+    
     render() {
          return(
              
-            <App isOpenRegistrationModal={this.props.isOpenRegistrationModal} isOpenRegistration={this.props.isOpenRegistration} mainUrl={this.props.location.pathname} isOpenMenu={this.props.isOpenMenu} changeIsOpenMenu={this.props.changeIsOpenMenu}/>
+            <App isOpenCart={this.props.isOpenCart} isOpenRegistrationModal={this.props.isOpenRegistrationModal} isOpenRegistration={this.props.isOpenRegistration} mainUrl={this.props.location.pathname} isOpenMenu={this.props.isOpenMenu} changeIsOpenMenu={this.props.changeIsOpenMenu}/>
          );
      }
  }
@@ -27,7 +27,8 @@ let mapStateToProps = (state) => {
         routeList: state.AppPage.routeList,
         mainUrl: state.Project.mainUrl,
         isOpenMenu: state.HeaderMenu.isOpenMenu,
-        isOpenRegistration: state.HeaderMenu.isOpenRegistration
+        isOpenRegistration: state.HeaderMenu.isOpenRegistration,
+        isOpenCart: state.HeaderMenu.isOpenCart
     }
 }
 

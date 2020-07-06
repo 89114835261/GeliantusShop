@@ -62,7 +62,7 @@ let ItemProduct = (props) => {
                   <img src={raiting} style={{width: '200px', marginTop: '10px', padding: '0'}}></img>
                   <p>Рейтинг товара: {props.itemProduct.raiting} из 5</p>
                   <p>Голосов: {props.itemProduct.voices}</p>  
-                     <button>Заказать</button>
+                     <button onClick={() => props.addToCart(props.itemProduct)}>Добавить в корзину</button>
                   </div>
 
          </div>   
