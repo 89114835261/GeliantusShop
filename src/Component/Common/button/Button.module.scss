@@ -1,0 +1,16 @@
+@import './../../Styles/colors';
+@import './../../Styles/border-radius';
+@import './../../Styles/fonts';
+@import './../../Styles/transitions';
+
+.mainButton {
+    @include border-radius(3px);
+    border: none;
+    padding: 15px;
+    font-weight: bolder ;
+    background-color: $gray-bg-button;
+    &:hover {
+        cursor: pointer;
+        background-color: $green-link-color;
+    }
+}

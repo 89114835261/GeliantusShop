@@ -27,6 +27,9 @@
         @include flex;
         @include flex-direction-column;
         @include flex-wrap;
+        INPUT {
+          outline: none;
+        }
         BUTTON {
           padding: 10px;
           @include border-radius(3px);

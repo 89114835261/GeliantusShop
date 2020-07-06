@@ -1,0 +1,20 @@
+@import './colors';
+
+@mixin mainButton($color: #000, $r1: 4px, $r2: 4px, $r3: 4px, $r4: 4px, $p1: 15px, $p2: 15px, $p3: 15px, $p4: 15px, $bg: none) {
+    -webkit-border-radius: $r1 $r2 $r3 $r4;
+    -moz-border-radius: $r1 $r2 $r3 $r4;
+    border-radius: $r1 $r2 $r3 $r4;
+    padding: $p1 $p2 $p3 $p4;
+    font-weight: bolder;
+    border: none;
+    outline: none;
+    background-color: $bg;
+    color: $color;
+    &:hover {
+        cursor: pointer;
+        background-color: $green-link-color;
+    }
+    &:active {
+        outline: none;
+    }
+}

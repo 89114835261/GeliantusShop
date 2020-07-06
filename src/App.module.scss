@@ -1,5 +1,6 @@
 @import './Component/Styles/colors';
 @import './Component/Styles/fonts';
+@import './Component/Styles/flex';
 
 BODY {
   background-color: black;
@@ -47,10 +48,12 @@ A {
 .content {
   background-color: #f6f6f6;
   grid-area: content;
-  display: flex;
-  flex-flow: column wrap;
+  @include flex;
+  @include flex-direction-column;
+  @include flex-wrap;
+  @include justify-content-start;
   padding: 0 0 20px 0;
-  justify-content: start;
+  min-height: 1000px;
 }
 
 .footer {

@@ -6,8 +6,11 @@ import { NavLink } from 'react-router-dom';
 let ItemProduct = (props) => {
    let getAnswers = (id) => {
       props.getAnswers(id);
-
       console.log(id)
+   }
+   let openCartFunc = (product) => {
+      props.addToCart(product)
+      props.isOpenCartModal();
    }
    let visualSpecifications = props.itemProduct.specifications.map(v =>
    <div key={ v.name } className={i.specificationString}>{v.name} : {v.value}</div>
@@ -62,7 +65,7 @@ let ItemProduct = (props) => {
                   <img src={raiting} style={{width: '200px', marginTop: '10px', padding: '0'}}></img>
                   <p>Рейтинг товара: {props.itemProduct.raiting} из 5</p>
                   <p>Голосов: {props.itemProduct.voices}</p>  
-                     <button onClick={() => props.addToCart(props.itemProduct)}>Добавить в корзину</button>
+                     <button onClick={() => openCartFunc(props.itemProduct)}>Добавить в корзину</button>
                   </div>
 
          </div>   

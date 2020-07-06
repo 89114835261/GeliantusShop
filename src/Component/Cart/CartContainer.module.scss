@@ -1,5 +1,7 @@
 @import './../Styles/shadows';
 @import './../Styles/colors';
+@import './../Styles/buttons';
+@import './../Styles/border-radius';
 
 .cartModal {
     position: fixed;
@@ -10,47 +12,77 @@
     left:0;
     right:0;
     .cartBox {
+      @include border-radius(5px);
       text-align: center;
       position: fixed;
       z-index: 6;
       background-color: #FFF;
-      top:10%;
-      left:30%;
-      right:30%;
+      top: 10%;
+      left: 30%;
+      right: 30%;
       min-width: 420px;
-      padding: 0 0 20px 0;
+      padding: 20px;
+      .closeWindow {
+        position: absolute;
+        right: 0;
+        top:0;
+        @include mainButton($r1: 0, $r3: 0, $bg: red, $color: #fff, $p1: 10px, $p3: 10px)
+      }
       .boxWrapper {
         overflow: auto;
-        height: 163px;
+        max-height: 500px;
         -webkit-overflow-scrolling: touch;
+        margin: 0 0 20px 0;
       }
     }
 }
 
 .wrapper {
-  margin: 10px;
   position: relative;
-  border: solid 1px $gray-border-color;
-  IMG {
-    display: block;
-    width: 150px;
-    height: 150px;
-    float:left;
-    padding: 0 10px 0 0;
-  }
+  float: left;
+  padding: 0 0 20px 0;
+  width: 100%;
+  overflow: hidden;
+    BUTTON {
+      border: none;
+      outline: none;
+    }
+    .delete {
+      float: left;
+      display: block;
+      margin-top: 60px;
+      @include mainButton($bg: red, $p1: 1px, $p2: 5px, $p3: 1px, $p4: 5px, $color: #fff, $r2: 0, $r3: 0);
+    }
+    IMG {
+      display: block;
+      width: 150px;
+      height: 150px;
+      float:left;
+    }
+    .infoBox {
+      float: left;
+      border-top: solid 1px $gray-border-color;
+      height: 125px;
+      text-align: left;
+      padding: 0 10px 10px 10px;
+        UL, LI {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+        P {
+          text-align: left;
+          font-weight: bolder;
+        }
+    }
 }
 
-.infoBox {
-  height: 125px;
-  text-align: left;
-  padding: 0 10px 10px 10px;
-  P {
-    text-align: left;
-    font-weight: bolder;
-  }
-  .delete {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-  }
+.nextButton {
+  float: left;
+  @include mainButton;
+}
+
+.buyButton {
+  float: right;
+  @include mainButton;
 }

@@ -4,7 +4,7 @@ import { withRouter, NavLink } from 'react-router-dom';
 import ItemProduct from './itemProduct';
 import {setProductActionCreator, setQuestionsAC, isOpenFullImageAC,setIsVisibleAC, setReviewsAnswerAC, setReviewsAC, setItemProductCoverAC, setSpecificationsItemProductAC, setLongUrlActionCreator, setitemProductObjActionCreator} from './../redux/Product-reducer';
 import Axios from 'axios';
-import { isOpenRegistrationModalAC } from './../redux/HeaderMenuReducer';
+import { isOpenRegistrationModalAC, isOpenCartModalAC } from './../redux/HeaderMenuReducer';
 import { addToCartAC } from './../redux/Cart-reducer';
 
 class itemProductContainer extends React.Component {
@@ -45,6 +45,7 @@ class itemProductContainer extends React.Component {
             {(this.props.product && this.props.reviews && this.props.answers) ? <ItemProduct 
                 itemProduct={this.props.product[0]}
                 addToCart={this.props.addToCart}
+                isOpenCartModal={this.props.isOpenCartModal}
                 isOpenRegistrationModal={this.props.isOpenRegistrationModal}
                 // photoSmall={this.props.product.photos.small}
                 // photoLarge={this.props.product.photos.large}
@@ -123,6 +124,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         addToCart: (product) => {
             dispatch(addToCartAC(product));
+        },
+        isOpenCartModal: (booleanType = ' ') => {
+            dispatch(isOpenCartModalAC(booleanType));
         }
     }
 }
