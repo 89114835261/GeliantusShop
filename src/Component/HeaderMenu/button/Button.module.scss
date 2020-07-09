@@ -11,9 +11,7 @@
     &:hover {
         background-color: $green-link-color;
     }
-    &:last-child {
-        @include border-radius(0, 0, 10px, 10px);
-    }
+   
 }
 
 .activeLink {

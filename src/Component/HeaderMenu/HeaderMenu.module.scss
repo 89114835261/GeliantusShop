@@ -82,11 +82,13 @@
     UL {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
     @include border-radius(0, 0, 10px, 10px);
     width:200px;
     @include _600 {
       margin: 0;
+      padding: 0;
       position: fixed;
       overflow-x: hidden;
       overflow-y: auto;
@@ -96,6 +98,7 @@
       bottom: 30px;
       width: auto;
       z-index: 9;
+      @include border-radius(0);
     }
 }
 

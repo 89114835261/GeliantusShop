@@ -2,11 +2,11 @@
 @import './../Styles/media';
 @import './../Styles/flex';
 
-@mixin menuLink($width: 20px) {
+@mixin menuLink($width: 25px) {
     display: block;
     width: $width;
-    height: 20px;
-    background-size: 20px;
+    height: 25px;
+    background-size: 25px;
     background-repeat: no-repeat;
     float: left;
 }
@@ -17,7 +17,7 @@
         bottom: 0;
         right: 0;
         left: 0;
-        padding: 5px;
+        padding: 10px;
         z-index: 10;
         background-color: #f7f7f7;
         IMG {
@@ -52,7 +52,7 @@
 }
 
 .cart {
-    @include menuLink($width: 25px);
+    @include menuLink($width: 32px);
     background-image: url('./../../img/mobile/icons/Cart.png');
     position: relative;
     SPAN {
