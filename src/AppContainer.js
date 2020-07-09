@@ -4,7 +4,7 @@ import App from './App';
 import { setRouteActionCreator } from './Component/redux/App-reducer';
 import {setMainUrlAC} from './Component/redux/Project-reducer';
 import { withRouter } from 'react-router-dom';
-import { changeIsOpenMenuAC, isOpenRegistrationModalAC} from './Component/redux/HeaderMenuReducer';
+import { changeIsOpenMenuAC, isOpenRegistrationModalAC, isOpenCartModalAC} from './Component/redux/HeaderMenuReducer';
 
  class AppContainer extends React.Component {
 
@@ -17,7 +17,7 @@ import { changeIsOpenMenuAC, isOpenRegistrationModalAC} from './Component/redux/
     render() {
          return(
              
-            <App isOpenCart={this.props.isOpenCart} isOpenRegistrationModal={this.props.isOpenRegistrationModal} isOpenRegistration={this.props.isOpenRegistration} mainUrl={this.props.location.pathname} isOpenMenu={this.props.isOpenMenu} changeIsOpenMenu={this.props.changeIsOpenMenu}/>
+            <App productsCount={this.props.productsCount} isOpenCartModal={this.props.isOpenCartModal} isOpenCart={this.props.isOpenCart} isOpenRegistrationModal={this.props.isOpenRegistrationModal} isOpenRegistration={this.props.isOpenRegistration} mainUrl={this.props.location.pathname} isOpenMenu={this.props.isOpenMenu} changeIsOpenMenu={this.props.changeIsOpenMenu}/>
          );
      }
  }
@@ -28,7 +28,8 @@ let mapStateToProps = (state) => {
         mainUrl: state.Project.mainUrl,
         isOpenMenu: state.HeaderMenu.isOpenMenu,
         isOpenRegistration: state.HeaderMenu.isOpenRegistration,
-        isOpenCart: state.HeaderMenu.isOpenCart
+        isOpenCart: state.HeaderMenu.isOpenCart,
+        productsCount: state.CartReducer.productsCount
     }
 }
 
@@ -45,6 +46,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         isOpenRegistrationModal: (booleanType = ' ') => {
             dispatch(isOpenRegistrationModalAC(booleanType));
+        },
+        isOpenCartModal: (booleanType = ' ') => {
+            dispatch(isOpenCartModalAC(booleanType));
         }
     }
 }

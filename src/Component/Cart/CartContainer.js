@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import C from './CartContainer.module.scss';
 import {isOpenCartModalAC} from './../redux/HeaderMenuReducer';
 import { deleteProductAC, changeCountAC } from './../redux/Cart-reducer';
-import Button from '../Common/button/Button';
 
 class CartContainer extends React.Component {
     render() {

@@ -36,8 +36,8 @@ class HeaderMenu extends React.Component {
                 <div className={H.headerNav}>
                     <p><span><NavLink to='/Main'>Geliantus Shop</NavLink></span></p>
                     {/* {setMainMenu} Это кнопки по типу 'Главная'*/}
-                    <NavLink className={H.menuLink} to onClick={() => this.props.changeIsOpenMenu()}><span>Каталог товаров</span></NavLink>
-                    <NavLink className={H.menuLink} to onClick={() => this.props.isOpenRegistrationModal()}><span>Регистрация</span></NavLink>
+                    <NavLink className={H.menuLink} to='#' onClick={() => this.props.changeIsOpenMenu()}><span>Каталог товаров</span></NavLink>
+                    <NavLink className={H.menuLink} to='#' onClick={() => this.props.isOpenRegistrationModal()}><span>Регистрация</span></NavLink>
                     <NavLink className={H.menuLink} to='/Autorisation'><span>Вход</span></NavLink>
                 </div>
         
