@@ -1,6 +1,7 @@
 @import "./../Styles/fonts";
 @import "./../Styles/flex";
 @import "./../Styles/border-radius";
+@import "./../Styles/media";
 
 .headerMenu {
     background-color: #242424;  
@@ -11,6 +12,11 @@
     left: 0;
     padding: 5px;
     z-index: 3;
+    @include _600 {
+      position: absolute;
+      top: 0;
+      height: 30px;
+    }
     P {
       margin: 0;
       width: 220px;
@@ -23,6 +29,18 @@
       text-align: center;
       vertical-align: middle;
       border-right: solid 1px #5c5c5c;
+      @include _600 {
+        width: 100%;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 50px;
+        text-align: center;
+        border: none;
+        padding: 0;
+      }
       SPAN {
         position: absolute;
         height: 25pt;
@@ -30,13 +48,23 @@
         left:0;
         top: 50%;
         margin-top: -17pt;
+        @include _600 {
+          margin: 0;
+          padding: 2px 0 0 0;
+          top: 0;
+          left: 0;
+          right: 0;
+          text-align: center;
+        }
         A {
           font-family: $logo-font;
           font-size: $logo-font-size;
           &:hover {
             color: #06cd01;
-            
-        }
+          }
+          @include _600 {
+            font-size: $logo-font-size_600
+          }
         }
         
       }
@@ -51,12 +79,24 @@
     left: 225px;
     background-color: #1e1e1e;
     z-index: 2;
-    @include flex;
-    @include flex-direction-column;
-    @include flex-wrap;
-    @include justify-content-start;
+    UL {
+      list-style: none;
+      padding: 0;
+    }
     @include border-radius(0, 0, 10px, 10px);
     width:200px;
+    @include _600 {
+      margin: 0;
+      position: fixed;
+      overflow-x: hidden;
+      overflow-y: auto;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 30px;
+      width: auto;
+      z-index: 9;
+    }
 }
 
 .headerNav {
@@ -83,6 +123,9 @@ A.menuLink {
     display: block;
     position: relative;
     padding: 15px 0 0 20px;
+    @include _600 {
+      display: none;
+    }
     &:hover {
       color: #06cd01;
     }
@@ -139,6 +182,9 @@ A.menuLink {
       padding: 10px;
       outline: none;
       box-shadow: 0 1px 2px rgba(0,0,0,.2) inset, 0 -1px 0 rgba(0,0,0,.05) inset;
+  }
+  @include _600 {
+    display: none;
   }
 }
 

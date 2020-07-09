@@ -1,9 +1,13 @@
 @import "./../../Styles/colors";
 @import "./../../Styles/border-radius";
+@import "./../../Styles/media";
 
 .headerLink {
     background-color: #333333;
     padding:  20px;
+    @include _600 {
+        width: auto;
+    }
     &:hover {
         background-color: $green-link-color;
     }

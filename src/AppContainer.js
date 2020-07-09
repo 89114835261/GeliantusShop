@@ -5,6 +5,7 @@ import { setRouteActionCreator } from './Component/redux/App-reducer';
 import {setMainUrlAC} from './Component/redux/Project-reducer';
 import { withRouter } from 'react-router-dom';
 import { changeIsOpenMenuAC, isOpenRegistrationModalAC, isOpenCartModalAC} from './Component/redux/HeaderMenuReducer';
+import { isOpenFindAC } from './Component/redux/Mobile-reducer';
 
  class AppContainer extends React.Component {
 
@@ -17,7 +18,19 @@ import { changeIsOpenMenuAC, isOpenRegistrationModalAC, isOpenCartModalAC} from 
     render() {
          return(
              
-            <App productsCount={this.props.productsCount} isOpenCartModal={this.props.isOpenCartModal} isOpenCart={this.props.isOpenCart} isOpenRegistrationModal={this.props.isOpenRegistrationModal} isOpenRegistration={this.props.isOpenRegistration} mainUrl={this.props.location.pathname} isOpenMenu={this.props.isOpenMenu} changeIsOpenMenu={this.props.changeIsOpenMenu}/>
+            <App 
+            isOpenFind={this.props.isOpenFind} 
+            isOpenFindModal={this.props.isOpenFindModal} 
+            productsCount={this.props.productsCount} 
+            isOpenCartModal={this.props.isOpenCartModal} 
+            isOpenCart={this.props.isOpenCart} 
+            isOpenRegistrationModal={this.props.isOpenRegistrationModal} 
+            isOpenRegistration={this.props.isOpenRegistration} 
+            mainUrl={this.props.location.pathname} 
+            isOpenMenu={this.props.isOpenMenu} 
+            changeIsOpenMenu={this.props.changeIsOpenMenu}
+            />
+            
          );
      }
  }
@@ -29,7 +42,8 @@ let mapStateToProps = (state) => {
         isOpenMenu: state.HeaderMenu.isOpenMenu,
         isOpenRegistration: state.HeaderMenu.isOpenRegistration,
         isOpenCart: state.HeaderMenu.isOpenCart,
-        productsCount: state.CartReducer.productsCount
+        productsCount: state.CartReducer.productsCount,
+        isOpenFind: state.MobileReducer.isOpenFind
     }
 }
 
@@ -49,6 +63,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         isOpenCartModal: (booleanType = ' ') => {
             dispatch(isOpenCartModalAC(booleanType));
+        },
+        isOpenFindModal: (booleanType = ' ') => {
+            dispatch(isOpenFindAC(booleanType));
         }
     }
 }

@@ -1,4 +1,5 @@
 @import './../Styles/colors';
+@import './../Styles/media';
 
 .NavBox {
     display: flex;
@@ -6,6 +7,10 @@
     align-items: center;
     height: 30px;
     padding: 10px;
+    @include _600 {
+        padding: 0;
+        z-index: 7;
+    }
 }
 
 .NavBox A:hover {

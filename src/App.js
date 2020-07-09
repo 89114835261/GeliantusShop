@@ -14,6 +14,7 @@ import {isCategory} from './Component/redux/Project-reducer'
 import Registration from './Component/Registration/Registration';
 import CartContainer from './Component/Cart/CartContainer';
 import MobileMenu from './Component/MobileMenu/MobileMenu';
+import FindContainer from './Component/Find/FindContainer';
 
 
 
@@ -52,7 +53,8 @@ let App = (props) => {
                         <Route exact path=' '><Redirect to='/Main'></Redirect></Route>
                         <Route exact path='/'><Redirect to='/Main'></Redirect></Route>
                    </div>
-                        <MobileMenu productsCount={props.productsCount} isOpenCartModal={props.isOpenCartModal} changeIsOpenMenu={props.changeIsOpenMenu}/>
+                        {props.isOpenFind && <FindContainer isOpenFindModal={props.isOpenFindModal} /> }
+                        <MobileMenu isOpenFindModal={props.isOpenFindModal} productsCount={props.productsCount} isOpenCartModal={props.isOpenCartModal} changeIsOpenMenu={props.changeIsOpenMenu}/>
                         <Footer />
                     </div>
                 </div>

@@ -7,7 +7,7 @@ let MobileMenu = (props) => {
         <div className={style.mobileMenu}>
             <div className={style.wrapper}>
                 <NavLink to="/Main" className={style.home}></NavLink>
-                <NavLink to="#" className={style.find}></NavLink>
+                <NavLink to="#" onClick={() => props.isOpenFindModal()} className={style.find}></NavLink>
                 <NavLink to="#" className={style.menu} onClick={() => props.changeIsOpenMenu()}></NavLink>
                 <NavLink to="/Profile" className={style.profile}></NavLink>
                 <NavLink to="#" className={style.cart} onClick={() => props.isOpenCartModal()}><span>{props.productsCount}</span></NavLink>

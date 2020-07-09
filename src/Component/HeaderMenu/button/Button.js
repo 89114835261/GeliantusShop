@@ -9,7 +9,7 @@ let Button = (props) => {
        
     }
     return(
-            <NavLink className={B.headerLink} activeClassName={B.activeLink} to={props.url} onClick={() => activeClick()}><span>{props.name}</span></NavLink>
+            <li className={B.headerLink}><NavLink activeClassName={B.activeLink} to={props.url} onClick={() => activeClick()}><span>{props.name}</span></NavLink></li>
     );
     
 }

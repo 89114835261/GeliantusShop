@@ -31,7 +31,7 @@ class HeaderMenu extends React.Component {
             );
         return (
             <>
-            {this.props.isOpenMenu && <div className={H.menuOpenList}>{arrMenu}</div>}
+            {this.props.isOpenMenu && <div className={H.menuOpenList}><ul>{arrMenu}</ul></div>}
             <div className={H.headerMenu}>
                 <div className={H.headerNav}>
                     <p><span><NavLink to='/Main'>Geliantus Shop</NavLink></span></p>

@@ -12,6 +12,9 @@ import { reducer as formReducer } from 'redux-form';
 import Main from './Main-reducer';
 import NavBar from './NavBar-reducer';
 import CartReducer from './Cart-reducer';
+import FindReducer from './Find-reducer';
+import MobileReducer from './Mobile-reducer';
+
 let bunchReducers = combineReducers(
     {
         Project: ProjectReducer,
@@ -26,6 +29,8 @@ let bunchReducers = combineReducers(
         Main,
         NavBar,
         CartReducer,
+        FindReducer,
+        MobileReducer,
         form: formReducer
     }
 
