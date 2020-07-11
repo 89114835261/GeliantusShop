@@ -9,12 +9,12 @@ import KingAutorisation from './Component/KingAutorisation/KingAutorisation';
 import HeaderMenuContainer from './Component/HeaderMenu/HeaderMenuContainer';
 import CategoryPageContainer from './Component/CategoryPage/CategoryPageContainer';
 import ItemProductContainer from './Component/itemProduct/itemProductContainer';
-import WayLineContainer from './Component/NavBar/NavBarContainer';
 import {isCategory} from './Component/redux/Project-reducer'
 import Registration from './Component/Registration/Registration';
 import CartContainer from './Component/Cart/CartContainer';
 import MobileMenu from './Component/MobileMenu/MobileMenu';
 import FindContainer from './Component/Find/FindContainer';
+import NavBarContainer from './Component/NavBar/NavBarContainer';
 
 
 
@@ -31,7 +31,7 @@ let App = (props) => {
                         <Header/> 
                         <LeftSide/>
                         <div className={ap.wayLine}>
-                            <WayLineContainer/>
+                            <NavBarContainer />
                         </div>
                     <div className={ap.content} >
                         <Route exact path='/:catName/:catId/Product/:productId' render={() => <ItemProductContainer />} />
