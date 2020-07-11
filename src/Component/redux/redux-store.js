@@ -3,8 +3,6 @@ import HeaderMenuReducer from './HeaderMenuReducer';
 import TopProducts from './TopProducts-reducer';
 import apps from './App-reducer';
 import Product from './Product-reducer';
-import TopFlowers from './TopFlowers-reducer';
-import TopDecors from './TopDecors-reduser';
 import Flowers from './Flowers-reducer';
 import ProjectReducer from './Project-reducer';
 import FiltersForm from './FiltersForm-reducer';
@@ -21,8 +19,6 @@ let bunchReducers = combineReducers(
         HeaderMenu: HeaderMenuReducer,
         AppPage: apps,
         TopProducts,
-        TopFlowers,
-        TopDecors,
         Flowers,
         Product,
         FiltersForm,

@@ -1,7 +1,5 @@
 import React from 'react';
 import TopProductsContainer from './TopProducrs/TopProductsContainer';
-import TopFlowers from './TopFlowers/TopFlowers';
-import TopDecors from './TopDecors/TopDecors';
 import { connect } from 'react-redux';
 import {setMainLongUrlAC} from './../redux/Main-reducer';
 import { withRouter } from 'react-router-dom';
@@ -13,8 +11,6 @@ let Main = (props) => {
     return(
         <div>
         <TopProductsContainer itemUrl={props.location.pathname.slice(5, props.longUrlMain)}/>
-        <TopFlowers itemUrl={props.location.pathname.slice(5, props.longUrlMain)}/>
-        <TopDecors itemUrl={props.location.pathname.slice(5, props.longUrlMain)}/>
         </div>
     );
 }

@@ -2,7 +2,7 @@ const SET_PRODUCTS = 'SET_PRODUCTS';
 const SET_COUNT_PRODUCTS = 'SET_COUNT_PRODUCTS';
 
 let initialState = {
-    products: [],
+    products: null,
     countProducts: null
 }
 

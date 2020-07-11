@@ -188,7 +188,7 @@ export let changeProducts = (array, param, ourArr = []) => {  //Функция �
   } return ourArr;
 }
 
-export const quickSort = (array, prop) => { //Функция сортировки массива по параметру prop
+export const quickSort = (array, prop, boolean = false) => { //Функция сортировки массива по параметру prop
     if (array.length <= 1) { // так понятнее
       return array;
     } else {
@@ -208,7 +208,8 @@ export const quickSort = (array, prop) => { //Функция сортировк�
       }
       let result = [];
       
-      return result.concat(quickSort(less, prop), pivot, quickSort(greater, prop));
+      return !boolean ? result.concat(quickSort(less, prop), pivot, quickSort(greater, prop))
+      : result.concat(quickSort(less, prop), pivot, quickSort(greater, prop)).reverse();
     }
 }
 
