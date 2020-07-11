@@ -8,9 +8,11 @@ const SET_REVIEWS = 'SET_REVIEWS';
 const SET_ANSWERS = 'SET_ANSWERS';
 const SET_IS_VISIBLE_ANSWER = 'SET_IS_VISIBLE_ANSWER';
 const SET_QUESTIONS = 'SET_QUESTIONS';
+const IS_SCROLL_IMAGE = 'IS_SCROLL_IMAGE';
 
 let initialState = {
     product: null,
+    fullPhoto: null,
     specificationItemProduct: null,
     longUrl: null,
     itemProductObj: {},
@@ -19,7 +21,8 @@ let initialState = {
     reviews: null,
     answers: [],
     isLoadAnswer: false,
-    questions: null
+    questions: null,
+    scrollPosition: 1
 }
 
 let productReduser = (state = initialState, action) => {
@@ -29,6 +32,16 @@ let productReduser = (state = initialState, action) => {
                 ...state,
                 productCover: action.url
             }
+        case IS_SCROLL_IMAGE: 
+        if(action.defNum === 1) {
+            return {...state,
+                scrollPosition: 1
+            }
+        }
+            return (action.boolean === true && state.product[0].photo.length !== state.scrollPosition) ? {
+                ...state,
+                scrollPosition: state.scrollPosition + 1
+            } : (action.boolean === false && state.scrollPosition > 1) ? {...state, scrollPosition: state.scrollPosition - 1} : {...state}
         case SET_IS_VISIBLE_ANSWER: 
             let newState = {...state};
             newState.answers = state.answers.map(item => {if(item.reviewsId == action.id) {return {id: item.id, userId: item.userId, userName: item.userName, userAvatar: item.userAvatar, reviewsId: item.reviewsId, productId: item.productId, text: item.text, isVisible: item.isVisible ? false : true, isIncognito: item.isIncognito, likes: item.likes, dislikes: item.dislikes}} else return item})
@@ -50,7 +63,7 @@ let productReduser = (state = initialState, action) => {
                 reviews: action.reviews
             }
         case IS_OPEN_FULL_IMAGE:
-           return state.isOpenFullImage ? {...state, isOpenFullImage: false} : {...state, isOpenFullImage: true}
+           return state.isOpenFullImage ? {...state, isOpenFullImage: false} : {...state, isOpenFullImage: true, fullPhoto: action.fullPhoto}
         case SET_ITEM_PRODUCT: 
                 return action.product ? {...state, product: [action.product[action.itemId - 1]]} : {...state, product: null}
             case  SET_ITEM_OBJ: 
@@ -69,6 +82,14 @@ let productReduser = (state = initialState, action) => {
             specificationItemProduct: action.speccifications
         }
         default: return state;
+    }
+}
+
+export let isScrollImageAC = (boolean, defNum) => {
+    return {
+        type: IS_SCROLL_IMAGE,
+        boolean,
+        defNum
     }
 }
 
@@ -100,9 +121,10 @@ export let setReviewsAC = (reviews) => {
     }
 }
 
-export let isOpenFullImageAC = () => {
+export let isOpenFullImageAC = (fullPhoto) => {
     return {
-        type: IS_OPEN_FULL_IMAGE
+        type: IS_OPEN_FULL_IMAGE,
+        fullPhoto
     }
 }
 

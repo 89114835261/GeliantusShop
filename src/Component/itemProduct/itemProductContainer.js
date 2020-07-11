@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter, NavLink } from 'react-router-dom';
 import ItemProduct from './itemProduct';
-import {setProductActionCreator, setQuestionsAC, isOpenFullImageAC,setIsVisibleAC, setReviewsAnswerAC, setReviewsAC, setItemProductCoverAC, setSpecificationsItemProductAC, setLongUrlActionCreator, setitemProductObjActionCreator} from './../redux/Product-reducer';
+import {setProductActionCreator, setQuestionsAC, isScrollImageAC, isOpenFullImageAC,setIsVisibleAC, setReviewsAnswerAC, setReviewsAC, setItemProductCoverAC, setSpecificationsItemProductAC, setLongUrlActionCreator, setitemProductObjActionCreator} from './../redux/Product-reducer';
 import Axios from 'axios';
 import { isOpenRegistrationModalAC, isOpenCartModalAC } from './../redux/HeaderMenuReducer';
 import { addToCartAC } from './../redux/Cart-reducer';
@@ -11,7 +11,10 @@ class itemProductContainer extends React.Component {
     constructor(props) {
         super(props)
         this.myRef = React.createRef();
+        this.myRefIMG = React.createRef();
         this.scrollToMyRef = () => {window.scrollTo(0, this.myRef.current.scrollHeight - 55)}
+        this.scrollToImgBoxRight = () => {this.myRefIMG.current.scrollTo(this.myRefIMG.current.scrollLeft + 300, 0); this.props.isScrollImage(true)}
+        this.scrollToImgBoxLeft = () => {this.myRefIMG.current.scrollTo(this.myRefIMG.current.scrollLeft - 300, 0); this.props.isScrollImage(false)}
     }
     componentDidMount() {
         Axios.get('/Products.json').then(response => {this.props.setProduct(response.data.items, this.props.match.params.productId)});
@@ -37,6 +40,7 @@ class itemProductContainer extends React.Component {
         this.props.setProduct(null);
         this.props.setProductCover(null);
         this.props.setQuestions([]);
+        this.props.isScrollImage(false, 1)
     }
     render() {     
         // Ниже условие формирующее длину URL к которой мы будем прибавлять 
@@ -46,7 +50,7 @@ class itemProductContainer extends React.Component {
             let num = this.props.location.pathname.lastIndexOf('/'); // -12, что убрать слово Description из основного URL
             this.props.setLongUrl(num); // Устанавливаем это число в редьюсер
         }
-        {(this.props.product && !this.props.productCover) && this.props.setProductCover(this.props.product[0].photo[0].small)}
+        {(this.props.product && !this.props.productCover) && this.props.setProductCover(this.props.product[0].photo)}
         return(
             <div>
             
@@ -72,6 +76,12 @@ class itemProductContainer extends React.Component {
                 questions={this.props.questions}
                 myRef={this.myRef}
                 scrollToMyRef={this.scrollToMyRef}
+                fullPhoto={this.props.fullPhoto}
+                isScrollImage={this.props.isScrollImage}
+                myRefIMG={this.myRefIMG}
+                scrollToImgBoxRight={this.scrollToImgBoxRight}
+                scrollToImgBoxLeft={this.scrollToImgBoxLeft}
+                scrollPosition={this.props.scrollPosition}
             /> : 's'}
            
             </div>
@@ -93,7 +103,9 @@ let mapStateToProps = (state) => {
         reviews: state.Product.reviews,
         answers: state.Product.answers,
         isLoadAnswer: state.Product.isLoadAnswer,
-        questions: state.Product.questions
+        questions: state.Product.questions,
+        fullPhoto: state.Product.fullPhoto,
+        scrollPosition: state.Product.scrollPosition
     }
 }
 
@@ -114,8 +126,8 @@ let mapDispatchToProps = (dispatch) => {
         setProductCover: (url) => {
             dispatch(setItemProductCoverAC(url));
         },
-        setIsOpenFullImage: () => {
-            dispatch(isOpenFullImageAC());
+        setIsOpenFullImage: (fullPhoto = ' ') => {
+            dispatch(isOpenFullImageAC(fullPhoto));
         },
         setReviews: (reviews) => {
             dispatch(setReviewsAC(reviews));
@@ -137,6 +149,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         isOpenCartModal: (booleanType = ' ') => {
             dispatch(isOpenCartModalAC(booleanType));
+        },
+        isScrollImage: (boolean = null, defNum = 0) => {
+            dispatch(isScrollImageAC(boolean, defNum));
         }
     }
 }

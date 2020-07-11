@@ -16,6 +16,10 @@ let ItemProduct = (props) => {
    <div key={ v.name } className={style.specificationString}>{v.name} : {v.value}</div>
       );
 
+   let mapPhoto =props.productCover && props.productCover.map( item => 
+      <img key={item.id} src={item.small} onClick={() => props.setIsOpenFullImage(item.small)}/>
+   )
+
    let mapReviews = props.reviews.filter(item => item.productId === props.itemProduct.id);
    let visualReviews = mapReviews.length > 0 ? mapReviews.map(item =>
    <div key={item.id} className={style.reviewWrapper}>
@@ -47,20 +51,19 @@ let ItemProduct = (props) => {
       );
    return (
       <div ref={props.myRef} className={style.wrapper}>
-         {props.isOpenFullImage && <div className={style.fullImage}><div className={style.imgWrapper}><img src={props.productCover}></img><button onClick={() => props.setIsOpenFullImage()}>Закрыть</button></div></div>}
+         {props.isOpenFullImage && <div className={style.fullImage}><div className={style.imgWrapper}><img src={props.fullPhoto}></img><button onClick={() => props.setIsOpenFullImage()}>Закрыть</button></div></div>}
          <div className={style.wrapperTopBox}>
-         
-               <div className={style.leftBox}>
-                  <img src={props.productCover} onClick={() => props.setIsOpenFullImage()}></img>
+            {console.log(props.myRefIMG)}
                
-              </div>
-
-               <div className={style.changePhoto}>
-                  <img src={props.itemProduct.photo[0].small} onClick={(e) => props.setProductCover(props.itemProduct.photo[0].small)} />
-                  {props.itemProduct.photo[1] && <img src={props.itemProduct.photo[1].small} onClick={(e) => props.setProductCover(props.itemProduct.photo[1].small)} /> }
-                  {props.itemProduct.photo[2] && <img src={props.itemProduct.photo[2].small} onClick={(e) => props.setProductCover(props.itemProduct.photo[2].small)} /> }
-               </div>
-               
+                  <div className={style.leftBoxWrapper}>
+                  <button onClick={ () => props.scrollToImgBoxLeft()}>&#60;   </button>
+                  <span>{props.scrollPosition + '/' + props.itemProduct.photo.length}</span>
+                     <div ref={props.myRefIMG} className={style.leftBox}>
+                        {mapPhoto}
+                     </div>
+                  <button onClick={ () => props.scrollToImgBoxRight()}>&#62;</button>
+                  </div>
+              
                <div className={style.infoWrapper}>
                   <h2>{props.itemProduct.name} ID: {props.itemProduct.id} </h2>
                   <img src={raiting} style={{width: '200px', marginTop: '10px', padding: '0'}}></img>

@@ -25,6 +25,7 @@
         width: auto;
         @include flex-direction-column
     }
+ 
 }
 
 .question {
@@ -66,19 +67,54 @@
     }
 }
 
+.leftBoxWrapper {
+    width: 340px;
+    height: 300px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    SPAN {
+        position: absolute;
+        display: block;
+        background-image: url('./../../img/opacityBlack.png');
+        padding: 3px 0 3px 0;
+        bottom: 10px;
+        width: 50px;
+        left: 125px;
+        color: #efefef;
+        text-align: center;
+        @include border-radius(3px)
+    }
+    BUTTON {
+        display: block;
+        float:left;
+        border: none;
+        outline: none;
+        height: 300px;
+        &:hover {
+            cursor: pointer;
+            background-color: #f7f7f7;
+        }
+    }
+}
+
 .leftBox {
     width: 300px;
-    padding: 10px 4px 10px 10px;
+    height: 300px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    float: left;
     IMG {
-        width: 294px;
-        height: 294px;
+        display: inline;
+        width: 300px;
+        height: 300px;
         @include _600 {
             width: 100px;
             height: auto;
         }
-        border: $white-border-img-color solid 6px;
-        @include box-shadow(0, 2px, 5px, 0px, rgba(0, 0, 0, 0.2));
-        @include transition-block(all, .2s, linear);
+        
         cursor: zoom-in;
         &:hover {
             @include box-shadow(0, 3px, 5px, 0px, rgba(0, 0, 0, 0.6));
