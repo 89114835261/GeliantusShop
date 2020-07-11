@@ -8,14 +8,22 @@ import { isOpenRegistrationModalAC, isOpenCartModalAC } from './../redux/HeaderM
 import { addToCartAC } from './../redux/Cart-reducer';
 
 class itemProductContainer extends React.Component {
-    
+    constructor(props) {
+        super(props)
+        this.myRef = React.createRef();
+        this.scrollToMyRef = () => {window.scrollTo(0, this.myRef.current.scrollHeight - 55)}
+    }
     componentDidMount() {
         Axios.get('/Products.json').then(response => {this.props.setProduct(response.data.items, this.props.match.params.productId)});
         // let requestSetSpecification = this.props.product[1].specId.join('_');//Строка вида 1_2_5
         // //Далее делаем "типа" запрос вида /Specifications?id=2_5_8
         //И получаем характеристики с id 2, 5, 8
         Axios.get('/Reviews.json').then(response => {this.props.setReviews(response.data)});
-        Axios.get('/Questions.json').then(response => {this.props.setQuestions(response.data)});
+        Axios.get('/Questions.json').then(response => {
+            this.props.setQuestions(response.data)
+            setTimeout(this.scrollToMyRef, 0.5);
+        });
+        
     }
     // При реальных запросах, мы не будем использовать DidUpdate, а запустим получение
     // айдишников спецификаций при получении ответа в DidMount (response => наша функция)
@@ -62,6 +70,8 @@ class itemProductContainer extends React.Component {
                 answers={this.props.answers}
                 getAnswers={this.getAnswers}
                 questions={this.props.questions}
+                myRef={this.myRef}
+                scrollToMyRef={this.scrollToMyRef}
             /> : 's'}
            
             </div>

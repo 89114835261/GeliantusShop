@@ -1,12 +1,16 @@
-@import "./../Styles/colors";
-@import "./../Styles/shadows";
-@import "./../Styles/transitions";
-@import "./../Styles/border-radius";
-@import "./../Styles/flex";
+@import './../Styles/colors';
+@import './../Styles/shadows';
+@import './../Styles/transitions';
+@import './../Styles/border-radius';
+@import './../Styles/flex';
+@import './../Styles/media';
 
 .wrapper {
     width: 1200px;
     margin: 0 auto;
+    @include _600 {
+        width: auto;
+    }
 }
 
 .wrapperTopBox {
@@ -17,6 +21,10 @@
     margin: 10px 0 0 0;
     width: 100%;
     background-color: $white-bg-block-color;
+    @include _600 { 
+        width: auto;
+        @include flex-direction-column
+    }
 }
 
 .question {
@@ -64,6 +72,10 @@
     IMG {
         width: 294px;
         height: 294px;
+        @include _600 {
+            width: 100px;
+            height: auto;
+        }
         border: $white-border-img-color solid 6px;
         @include box-shadow(0, 2px, 5px, 0px, rgba(0, 0, 0, 0.2));
         @include transition-block(all, .2s, linear);
@@ -151,6 +163,11 @@
     width: 80px;
     padding: 0;
     border-right: solid 1px black;
+    @include _600 {
+        @include flex-direction-row;
+        @include flex-nowrap;
+        width: auto;
+    }
     IMG {
         width: 50px;
         height: 50px;
