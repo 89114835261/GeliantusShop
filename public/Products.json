@@ -21,7 +21,7 @@
         "views": 23, 
         "raiting": 4.4,
         "homePaymant":  true, 
-        "catId": [0,1,2], 
+        "catId": [0,1,2,3], 
         "specId": [2, 4, 9], 
         "specifications": [
             {

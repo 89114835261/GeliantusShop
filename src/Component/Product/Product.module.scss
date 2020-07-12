@@ -1,6 +1,7 @@
 @import './../Styles/shadows';
 @import './../Styles/flex';
 @import './../Styles/border-radius';
+@import './../Styles/media';
 
 .itemProduct {
     display: block;
@@ -13,9 +14,12 @@
     margin: 20px;
     position: relative;
     z-index: 1;
+    @include _1170 {
+        margin: 20px 20px 0 0;
+    }   
     &:hover {
         opacity: 1;
-        @include box-shadow(0, 5px, 5px, 1px, rgba(0, 0, 0, .2));
+        @include box-shadow(0 ,5px, 5px, 1px, rgba(0, 0, 0, .1));
     }
     h5 {
         width: auto;
@@ -28,9 +32,32 @@
     }
 }
 
+.itemProduct._additionalClass {
+    width: 180px;
+    min-height: 230px;
+    margin: 0;
+    h5 {
+        text-align: center;
+    }
+    &:hover {
+        box-shadow: none;
+    }
+}
+
+SPAN.price {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+}
+
 .wrapper {
-    @include box-shadow(0, 2px, 4px, 1px, rgba(0, 0, 0, .3));
-    min-height: 350px;
+    @include box-shadow(0 ,5px, 5px, -1px, rgba(0, 0, 0, .1));
+    min-height: 250px;
+}
+
+.wrapper._additionalClass {
+    box-shadow: none;
+    min-height: 230px;
 }
 
 .ProductCover {
@@ -43,6 +70,13 @@
     IMG {
         width: 230px;
         height: 230px;
+    }
+}
+
+.ProductCover._additionalClass {
+    IMG {
+        width: 130px;
+        height: 130px;
     }
 }
 

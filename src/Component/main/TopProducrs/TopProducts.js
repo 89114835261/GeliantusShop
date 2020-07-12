@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './../Main.module.scss';
+import style from './TopProducts.module.scss';
 import Product from '../../Product/Product';
 import { quickSort } from '../../redux/Project-reducer';
 
@@ -17,6 +17,8 @@ let TopProducts = (props) => {
             img={s.photo}
             orders={s.orders}
             id={s.id}
+            additionalClass={true}
+            isHiddenInfo={true}
         />
     );
     return(

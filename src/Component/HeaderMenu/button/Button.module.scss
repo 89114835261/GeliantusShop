@@ -3,15 +3,29 @@
 @import "./../../Styles/media";
 
 .headerLink {
-    background-color: #333333;
+    list-style: none;
     padding:  20px;
-    @include _600 {
+    position: relative;
+    height: 10px;
+    @include _979 {
         width: auto;
     }
     &:hover {
         background-color: $green-link-color;
     }
    
+}
+
+.menuLink {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 20px 0 20px 0;
+    text-align: center;
+
 }
 
 .activeLink {

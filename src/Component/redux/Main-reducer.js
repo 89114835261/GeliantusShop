@@ -8,9 +8,9 @@ let initialState = {
     topProductsBoxOne: null,
     topProductsBoxTwo: null,
     topProductsBoxThree: null,
-    boxNameOne: 'name1',
-    boxNameTwo: 'name2',
-    boxNameThree: 'name3'
+    boxNameOne: 'Самое популярное среди покупателей',
+    boxNameTwo: 'Самое качественное',
+    boxNameThree: 'Лучшая оценка покупателей'
 }
 
 let MainReducer = (state = initialState, action) => {

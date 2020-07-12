@@ -9,7 +9,7 @@ BODY {
   margin: 0;
   font-family: $main-font;
   font-size: 14px;
-  @include _600 {
+  @include _979 {
     font-size: 10px;
   }
 }
@@ -35,7 +35,7 @@ A {
   grid-template-rows: 600px 50px 13fr 100px;
   grid-template-columns: 0 1fr;
   margin: 50px auto 0 auto;
-  @include _600 {
+  @include _979 {
     grid-template-rows: 35px 25px 13fr 100px;
     margin: 0 auto;
   }
@@ -60,7 +60,7 @@ A {
   @include flex-direction-column;
   @include flex-wrap;
   @include justify-content-start;
-  padding: 0 0 20px 0;
+  padding: 20px;
   min-height: 1000px;
 }
 

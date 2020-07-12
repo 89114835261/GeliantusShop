@@ -8,7 +8,10 @@
 .wrapper {
     width: 1200px;
     margin: 0 auto;
-    @include _600 {
+    @include _1170 {
+        width: 980px;
+    }
+    @include _979 {
         width: auto;
     }
 }
@@ -18,10 +21,9 @@
     @include flex-direction-row;
     @include box-shadow(0, 0, 5px, 0px, rgba(0, 0, 0, 0.2));
     @include border-radius($border-radius-big-block);
-    margin: 10px 0 0 0;
     width: 100%;
     background-color: $white-bg-block-color;
-    @include _600 { 
+    @include _979 { 
         width: auto;
         @include flex-direction-column
     }
@@ -110,7 +112,7 @@
         display: inline;
         width: 300px;
         height: 300px;
-        @include _600 {
+        @include _979 {
             width: 100px;
             height: auto;
         }
@@ -199,7 +201,7 @@
     width: 80px;
     padding: 0;
     border-right: solid 1px black;
-    @include _600 {
+    @include _979 {
         @include flex-direction-row;
         @include flex-nowrap;
         width: auto;

@@ -51,17 +51,18 @@ class Flowers extends React.Component {
                 <div className={F.topBoxWrapper}>
                     <div className={F.nameBox}>
                         <div className={F.cover}>
+                        
                             <h1>{this.props.itemCategory.name}</h1>
-                            <img src={this.props.itemCategory.cover}></img>
+                            
                         </div>
                     </div>
-                    {this.props.childCategory.length != 0 && this.props.mainUrl ? <ChildCategoryBlockContainer mainUrl={this.props.mainUrl} childCategory={this.props.childCategory} /> : null}
+                    {(this.props.childCategory.length != 0 && this.props.mainUrl && this.props.itemCategory.isEndPoint === 'false') ? <ChildCategoryBlockContainer mainUrl={this.props.mainUrl} childCategory={this.props.childCategory} /> : null}
                 </div>
                 <div className={F.filtersBox}>
-                    <FiltersForm/>
+                    {this.props.itemCategory.isEndPoint === 'true' && <FiltersForm/>}
                 </div>
                 <div className={F.productsLits}>
-                    {endProductList}
+                    {(this.props.itemCategory.isEndPoint === 'true' || this.props.itemCategory.isVisibleProducts === 'true') && endProductList}
                 </div>
         </div>
         );} else return <div></div>

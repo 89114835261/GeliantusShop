@@ -16,7 +16,7 @@ class TopProductsContainer extends React.Component {
                 this.props.setTopProducts(response.data.items, this.props.TopProductsCatId[1], 2)
                 this.props.setTopProducts(response.data.items, this.props.TopProductsCatId[2], 3)
                 this.props.setProducts(response.data.items)
-                this.props.setCountProducts(5) //Сэтаем кол-во товаров на странице
+                this.props.setCountProducts(4) //Сэтаем кол-во товаров на странице
             })
         });
       

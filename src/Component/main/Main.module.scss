@@ -1,26 +1,33 @@
 @import "./../Styles/_shadows.scss";
 @import "./../Styles/_border-radius.scss";
 @import "./../Styles/_flex.scss";
+@import './../Styles/colors';
+@import './../Styles/media';
 
-.popular {
-    @include box-shadow(0, 0, 5px, 0px, rgba(0, 0, 0, 0.2));
-    @include border-radius(0, 0, 4px, 4px);
-    background-color: #FFF;
-    margin: 20px auto 0;
-    padding: 20px;
-    max-width: 1200px;
-    H1 {
-        font-size: 20pt;
-        padding:0;
-        text-align: center;
+.contentBox {
+    float: left;
+    margin: 0 20px 0 0;
+}
+
+.rightSide {
+    width: 250px;
+    float: right;
+    background-color: #fff;
+    @include box-shadow(0, 3px, 5px, -1px, rgba(0, 0, 0, .1));
+    @include border-radius(5px);
+    A {
+        &:link { text-decoration: none; color: #000 }
+        &:visited { text-decoration: none; color: #000 } 
+        &:hover { text-decoration: none; color: #000 }
+        &:active { text-decoration: none; color: #000 }
+      }
+    UL {
+        padding: 0;
+        margin: 0;
+        LI {
+            &:first-child {
+                @include border-radius(5px, 5px, 0, 0)
+            }
+        }
     }
 }
-
-.productsLits {
-    @include flex;
-    @include flex-direction-row;
-    @include flex-wrap;
-    @include justify-content-space-between;
-    @include align-item-stretch;
-}
-

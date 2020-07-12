@@ -5,7 +5,7 @@ import {wayLinkActionCreator, mutateStateActionCreator} from './../redux/Project
 import H from './HeaderMenu.module.scss';
 import Button from './button/Button';
 import MainButton from './MainButton/MainButton';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import Axios from 'axios';
 
 class HeaderMenu extends React.Component {
@@ -31,7 +31,8 @@ class HeaderMenu extends React.Component {
             );
         return (
             <>
-            {this.props.isOpenMenu && <div className={H.menuOpenList}><ul>{arrMenu}</ul></div>}
+            {(this.props.isOpenMenu) && <div className={H.menuOpenList}><ul>{arrMenu}</ul></div>}
+            
             <div className={H.headerMenu}>
                 <div className={H.headerNav}>
                     <p><span><NavLink to='/Main'>Geliantus Shop</NavLink></span></p>
@@ -91,6 +92,7 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-let HeaderMenuContainer = connect(mapStateToProps, mapDispatchToProps) (HeaderMenu);
+let withRouteHeaderMenu = withRouter(HeaderMenu)
 
-export default HeaderMenuContainer;
+export default connect(mapStateToProps, mapDispatchToProps) (withRouteHeaderMenu);
+
