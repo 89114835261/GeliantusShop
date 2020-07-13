@@ -1,5 +1,5 @@
 import React from 'react';
-import TopProductsContainer from './TopProducrs/TopProductsContainer';
+import TopProductsContainer from '../TopProducts/TopProductsContainer';
 import { connect } from 'react-redux';
 import {setMainLongUrlAC} from './../redux/Main-reducer';
 import { withRouter } from 'react-router-dom';
@@ -15,7 +15,7 @@ let Main = (props) => {
         m => m.catId != 0 && <Button key={m.catId} changeIsOpenMenu={props.changeIsOpenMenu} name={m.name} url={m.url} mutateStateFunc={props.mutateStateFunc} />
     ) : ' ';
     return(
-        <div>
+        <div className={style.wrapper}>
             <div className={style.contentBox}>
             <TopProductsContainer itemUrl={props.location.pathname.slice(5, props.longUrlMain)}/>
             </div>

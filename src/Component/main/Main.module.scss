@@ -4,6 +4,11 @@
 @import './../Styles/colors';
 @import './../Styles/media';
 
+.wrapper {
+    margin: 0 auto;
+    width: 1220px;
+}
+
 .contentBox {
     float: left;
     margin: 0 20px 0 0;

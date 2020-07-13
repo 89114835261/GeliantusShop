@@ -1,3 +1,6 @@
-[
-    1,2,3
-]
+{
+    "title": "Самые популярные среди пользователей",
+    "productsCount": 5,
+    "sortParameter": "price",
+    "catId": [ 1,2,3]
+}

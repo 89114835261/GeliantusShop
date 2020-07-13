@@ -1,11 +1,11 @@
 import React from 'react';
 import style from './TopProducts.module.scss';
-import Product from '../../Product/Product';
-import { quickSort } from '../../redux/Project-reducer';
+import Product from '../Product/Product';
+import { quickSort } from '../redux/Project-reducer';
 
 let TopProducts = (props) => {
 
-    let sortProducts = props.TopProductsList ? quickSort(props.TopProductsList, 'id') : null; // алерт?
+    let sortProducts = props.TopProductsList ? quickSort(props.TopProductsList, props.sortParameter) : null; // алерт?
     let endArrProducts = sortProducts && sortProducts.slice(0, props.countProducts);
     let endProductList = endArrProducts && endArrProducts.map( s =>
         <Product key={s.id}
@@ -23,11 +23,9 @@ let TopProducts = (props) => {
     );
     return(
         <div className={style.popular}>
-            <h1>
-                {props.boxNameOne && props.boxNameOne}
-                {props.boxNameTwo && props.boxNameTwo}
-                {props.boxNameThree && props.boxNameThree}
-            </h1>
+            <h2>
+                {props.topProductsName && props.topProductsName}
+            </h2>
             <div className={style.productsLits}>
                 {endProductList}
             </div>
