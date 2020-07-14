@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TopProductsContainer from '../TopProducts/TopProductsContainer';
 import { connect } from 'react-redux';
 import {setMainLongUrlAC} from './../redux/Main-reducer';
@@ -6,22 +6,24 @@ import { withRouter } from 'react-router-dom';
 import { changeIsOpenMenuAC } from './../redux/HeaderMenuReducer';
 import Button from '../HeaderMenu/button/Button';
 import style from './Main.module.scss';
+import { mutateStateActionCreator } from './../redux/Project-reducer';
+import Menu from '../Menu/Menu';
 
 let Main = (props) => {
     if(props.longUrlMain === null ) {
     props.setUrlLong(props.location.pathname.length)
     }
     let arrMenu = props.menu ? props.menu.map(
-        m => m.catId != 0 && <Button key={m.catId} changeIsOpenMenu={props.changeIsOpenMenu} name={m.name} url={m.url} mutateStateFunc={props.mutateStateFunc} />
-    ) : ' ';
+        m => m.catId != 0 && <Button key={m.catId} bodyLocation={true} changeIsOpenMenu={props.changeIsOpenMenu} name={m.name} url={m.url} mutateStateFuncBodyLocation={props.mutateStateFunc} />
+    ): ' ';
     return(
         <div className={style.wrapper}>
             <div className={style.contentBox}>
             <TopProductsContainer itemUrl={props.location.pathname.slice(5, props.longUrlMain)}/>
             </div>
-
+           
             <div className={style.rightSide}>
-            <ul>{arrMenu}</ul>
+                <Menu />
             </div>
         </div>
     );
@@ -42,6 +44,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         changeIsOpenMenu: (booleanType = ' ') => {
             dispatch(changeIsOpenMenuAC(booleanType))
+        },
+        mutateStateFunc: () => {
+            dispatch(mutateStateActionCreator())
         }
     }
 }

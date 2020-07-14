@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {SetMenuActionCreator, changeIsOpenMenuAC, isOpenCartModalAC, SetMainMenuActionCreator, isOpenRegistrationModalAC} from '../redux/HeaderMenuReducer';
 import {wayLinkActionCreator, mutateStateActionCreator} from './../redux/Project-reducer';
-import H from './HeaderMenu.module.scss';
-import Button from './button/Button';
+import style from './HeaderMenu.module.scss';
 import MainButton from './MainButton/MainButton';
 import { NavLink, withRouter } from 'react-router-dom';
 import Axios from 'axios';
+import Menu from '../Menu/Menu';
 
 class HeaderMenu extends React.Component {
     constructor(props) {
@@ -26,26 +26,23 @@ class HeaderMenu extends React.Component {
                 d => <MainButton changeIsOpenMenu={this.props.changeIsOpenMenu} name={d.name} url={d.url} mutateStateFunc={this.props.mutateStateFunc} />
             );
      
-            let arrMenu = this.props.menu.map(
-                m => m.catId != 0 && <Button key={m.catId} changeIsOpenMenu={this.props.changeIsOpenMenu} name={m.name} url={m.url} mutateStateFunc={this.props.mutateStateFunc} />
-            );
         return (
             <>
-            {(this.props.isOpenMenu) && <div className={H.menuOpenList}><ul>{arrMenu}</ul></div>}
+            {(this.props.isOpenMenu) && <div className={style.menuOpenList}><Menu /></div>}
             
-            <div className={H.headerMenu}>
-                <div className={H.headerNav}>
+            <div className={style.headerMenu}>
+                <div className={style.headerNav}>
                     <p><span><NavLink to='/Main'>Geliantus Shop</NavLink></span></p>
                     {/* {setMainMenu} Это кнопки по типу 'Главная'*/}
-                    <NavLink className={H.menuLink} to='#' onClick={() => this.props.changeIsOpenMenu()}><span>Каталог товаров</span></NavLink>
-                    <NavLink className={H.menuLink} to='#' onClick={() => this.props.isOpenRegistrationModal()}><span>Регистрация</span></NavLink>
-                    <NavLink className={H.menuLink} to='/Autorisation'><span>Вход</span></NavLink>
+                    <NavLink className={style.menuLink} to='#' onClick={() => this.props.changeIsOpenMenu()}><span>Каталог товаров</span></NavLink>
+                    <NavLink className={style.menuLink} to='#' onClick={() => this.props.isOpenRegistrationModal()}><span>Регистрация</span></NavLink>
+                    <NavLink className={style.menuLink} to='/Autorisation'><span>Вход</span></NavLink>
                 </div>
         
-                <div className={H.headerRightBox}>
+                <div className={style.headerRightBox}>
                     <input type="text" placeholder='Поиск...'></input>
                     <button></button>
-                    <div className={H.cart} onClick={() => this.props.isOpenCartModal()}>корзина {this.props.productsCount}</div>
+                    <div className={style.cart} onClick={() => this.props.isOpenCartModal()}>корзина {this.props.productsCount}</div>
                 </div>
     
              </div>

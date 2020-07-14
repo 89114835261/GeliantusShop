@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './TopProducts.module.scss';
 import Product from '../Product/Product';
 import { quickSort } from '../redux/Project-reducer';
