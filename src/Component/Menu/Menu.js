@@ -7,7 +7,7 @@ import style from './Menu.module.scss';
 
 let Menu = (props) => {
     let arrMenu = props.menu ? props.menu.map(
-        m => m.catId != 0 && <Button key={m.catId} changeIsOpenMenu={props.changeIsOpenMenu} name={m.name} url={m.url} mutateStateFunc={props.mutateStateFunc} />
+        m => (m.catId != 0 && m.main) && <Button key={m.catId} changeIsOpenMenu={props.changeIsOpenMenu} name={m.name} url={m.url} mutateStateFunc={props.mutateStateFunc} />
     ) : ' ';
     
     return(

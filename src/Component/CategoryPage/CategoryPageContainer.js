@@ -2,7 +2,7 @@ import React from 'react';
 import F from './CategoryPageContainer.module.scss';
 import { connect } from 'react-redux';
 import Product from '../Product/Product';
-import {quickSort, changeProducts, setChildsCat} from '../redux/Project-reducer';
+import {changeProducts, setChildsCat} from '../redux/Project-reducer';
 import {setFlowersActionCreator, setCountFlowersActionCreator, changeCurrentValueActionCreator, setPageNameActionCreator, setCoverPageActionCreator, setSpecificationlistActionCreator, setItemCategoryAC, setChildCategoryAC} from '../redux/Flowers-reducer';
 import { withRouter } from 'react-router-dom';
 import FiltersForm from './FiltersForm/FiltersForm';
@@ -56,13 +56,13 @@ class Flowers extends React.Component {
                             
                         </div>
                     </div>
-                    {(this.props.childCategory.length != 0 && this.props.mainUrl && this.props.itemCategory.isEndPoint === 'false') ? <ChildCategoryBlockContainer mainUrl={this.props.mainUrl} childCategory={this.props.childCategory} /> : null}
+                    {(this.props.childCategory.length != 0 && this.props.mainUrl && this.props.itemCategory.isEndPoint === false) ? <ChildCategoryBlockContainer mainUrl={this.props.mainUrl} childCategory={this.props.childCategory} /> : null}
                 </div>
                 <div className={F.filtersBox}>
-                    {this.props.itemCategory.isEndPoint === 'true' && <FiltersForm/>}
+                    {this.props.itemCategory.isEndPoint === true && <FiltersForm/>}
                 </div>
                 <div className={F.productsLits}>
-                    {(this.props.itemCategory.isEndPoint === 'true' || this.props.itemCategory.isVisibleProducts === 'true') && endProductList}
+                    {(this.props.itemCategory.isEndPoint === true || this.props.itemCategory.isVisibleProducts === true) && endProductList}
                 </div>
         </div>
         );} else return <div></div>

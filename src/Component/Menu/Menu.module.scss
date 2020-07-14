@@ -10,5 +10,13 @@
     UL {
         margin: 0;
         padding: 0;
+        LI {
+            &:first-child {
+                @include border-radius(5px, 5px, 0, 0); 
+            }
+            &:last-child {
+                @include border-radius(0, 0, 5px, 5px); 
+            }
+        }
     }
 }

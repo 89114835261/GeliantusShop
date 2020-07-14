@@ -9,10 +9,6 @@ let NavBar = (props) => {
         //Что бы не было Каталог > Каталог, выводится если ссылка начинается с /Kategoriya или /Product
         <div className={style.NavBox}>
             <NavLink className={style.navBar} to="/Main">Главная</NavLink>
-            {(props.mainUrl && props.mainUrl.slice(0, 11) == '/Kategoriya'
-             && props.mainUrl.slice(12, 19) != 'Katalog' 
-             || (props.mainUrl && props.mainUrl.slice(0, 8) == '/Product')) 
-             && <NavLink className={style.navBar} to="/Kategoriya-Katalog/0" onClick={() => props.mutateStateFunc()}>Каталог</NavLink>}
              {props.setLinks(props.visualElementsUrlArr)}
         </div>
     );

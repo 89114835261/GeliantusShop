@@ -261,7 +261,7 @@
         "views": 23, 
         "raiting": 3.2,
         "homePaymant":  true, 
-        "catId": [0,3,1], 
+        "catId": [0,3,1,13,14], 
         "specId": [2, 4, 9], 
         "specifications": [
             {
@@ -284,7 +284,7 @@
         "views": 23, 
         "raiting": 2.8,
         "homePaymant":  true, 
-        "catId": [0,3,1], 
+        "catId": [0,3,1,14], 
         "specId": [2, 4, 9], 
         "specifications": [
             {
@@ -307,7 +307,8 @@
         "views": 23,
         "raiting": 4.1, 
         "homePaymant":  true, 
-        "catId": [0,3,1], 
+        "mainCategory": [8],
+        "catId": [0,3,1,8], 
         "specId": [2, 4, 9], 
         "specifications": [
             {
@@ -330,7 +331,7 @@
         "views": 23, 
         "raiting": 4.8,
         "homePaymant":  true, 
-        "catId": [0,3,1], 
+        "catId": [0,3,1,8], 
         "specifications": [
             {
             "id": 2, 
@@ -352,7 +353,7 @@
         "views": 23, 
         "raiting": 4.9,
         "homePaymant":  true, 
-        "catId": [0,3,1], 
+        "catId": [5], 
         "specId": [2, 4, 9], 
         "specifications": [
             {

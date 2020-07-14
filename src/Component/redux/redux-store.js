@@ -12,6 +12,7 @@ import NavBar from './NavBar-reducer';
 import CartReducer from './Cart-reducer';
 import FindReducer from './Find-reducer';
 import MobileReducer from './Mobile-reducer';
+import CurrentOffersReducer from './CurrentOffers-reducer';
 
 let bunchReducers = combineReducers(
     {
@@ -27,6 +28,7 @@ let bunchReducers = combineReducers(
         CartReducer,
         FindReducer,
         MobileReducer,
+        CurrentOffersReducer,
         form: formReducer
     }
 

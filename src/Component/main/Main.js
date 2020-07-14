@@ -1,24 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TopProductsContainer from '../TopProducts/TopProductsContainer';
 import { connect } from 'react-redux';
 import {setMainLongUrlAC} from './../redux/Main-reducer';
 import { withRouter } from 'react-router-dom';
 import { changeIsOpenMenuAC } from './../redux/HeaderMenuReducer';
-import Button from '../HeaderMenu/button/Button';
 import style from './Main.module.scss';
 import { mutateStateActionCreator } from './../redux/Project-reducer';
 import Menu from '../Menu/Menu';
+import CurrentOfferContainer from '../currentOffer/currentOfferContainer';
 
 let Main = (props) => {
     if(props.longUrlMain === null ) {
     props.setUrlLong(props.location.pathname.length)
     }
-    let arrMenu = props.menu ? props.menu.map(
-        m => m.catId != 0 && <Button key={m.catId} bodyLocation={true} changeIsOpenMenu={props.changeIsOpenMenu} name={m.name} url={m.url} mutateStateFuncBodyLocation={props.mutateStateFunc} />
-    ): ' ';
     return(
         <div className={style.wrapper}>
             <div className={style.contentBox}>
+            <CurrentOfferContainer />
             <TopProductsContainer itemUrl={props.location.pathname.slice(5, props.longUrlMain)}/>
             </div>
            

@@ -41,17 +41,17 @@ class NavBarContainer extends React.Component {
                 let visualElementsUrlArrZ = arr.map((s, i) => {
                     if(s == 'Main') {
                         return;
-                    } else if(s == 'Products') {
+                    } else if(s === 'Products') {
                         return <NavLink className={style.navBar} to='/Main/Products'>Товары</NavLink>
-                    } else if(s == 'Category') {
+                    } else if(s === 'Category') {
                         return;
-                    } else if(s.slice(0, 11) == 'Kategoriya-') {
+                    } else if(s.slice(0, 11) === 'Kategoriya-') {
                     return <div ><NavLink className={style.navBar} to={changeUrl(s)}>
-                   {this.props.catigories[changeUrl(s).slice(-1)].name}
+                    {this.props.catigories[changeUrl(s).slice(-(changeUrl(s).length - (changeUrl(s).lastIndexOf('/') + 1)))].name}
                     </NavLink></div>
-                    } else if(s.slice(0, 8) == 'Product-') {
+                    } else if(s.slice(0, 8) === 'Product-') {
                         return <NavLink className={style.navBar} to={changeUrl(s) + '/Description'}>{this.props.product && this.props.product[0].name}</NavLink>
-                    } else if(s == Number) {
+                    } else if(s === Number) {
                         return;
                     } else return });
                     return visualElementsUrlArrZ;

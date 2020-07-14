@@ -10,7 +10,7 @@ let ChildCategoryBlockContainer = (props) => {
         return URL + catUrl;
     }
     let categoryList = props.childCategory.map( item => 
-            <NavLink key={ item.name }className={C.catBlock} to={setUrl(props.mainUrl, item.url)}>
+            <NavLink key={ item.name }className={C.catBlock} to={item.url}>
                 <img src={item.cover} />
                 <span>{item.name}</span>
             </NavLink>
