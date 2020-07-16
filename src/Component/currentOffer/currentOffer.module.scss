@@ -1,6 +1,7 @@
 @import './../Styles/colors';
 @import './../Styles/border-radius';
 @import './../Styles/shadows';
+@import './../Styles/flex';
 
 .activeOffer {
     background-color: red;
@@ -11,8 +12,16 @@
     padding: 20px;
     @include box-shadow(0, 3px, 5px, -1px, rgba(0, 0, 0, .1));
     @include border-radius(5px);
+    height: 200px;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    .catWrapper {
+        @include flex;
+        @include flex-direction-row;
+        @include flex-nowrap;
+    }
     A {
-
         &:link { text-decoration: none; color: #000 }
         &:visited { text-decoration: none; color: #000 } 
         &:hover { text-decoration: none; color: #000 }

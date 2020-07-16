@@ -12,7 +12,7 @@ class itemProductContainer extends React.Component {
         super(props)
         this.myRef = React.createRef();
         this.myRefIMG = React.createRef();
-        this.scrollToMyRef = () => {window.scrollTo(0, this.myRef.current.scrollHeight - 55)}
+        // this.scrollToMyRef = () => {this.myRef.current && window.scrollTo(0, this.myRef.current.scrollHeight - 25)}
         this.scrollToImgBoxRight = () => {this.myRefIMG.current.scrollTo(this.myRefIMG.current.scrollLeft + 300, 0); this.props.isScrollImage(true)}
         this.scrollToImgBoxLeft = () => {this.myRefIMG.current.scrollTo(this.myRefIMG.current.scrollLeft - 300, 0); this.props.isScrollImage(false)}
     }

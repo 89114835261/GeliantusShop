@@ -1,0 +1,17 @@
+@import './../../Styles/transitions';
+@import './../../Styles/colors';
+@import './../../Styles/shadows';
+@import './../../Styles/flex';
+@import './../../Styles/border-radius';
+
+.wrapper {
+    @include flex;
+    @include flex-direction-row;
+    @include flex-wrap;
+    @include justify-content-start;
+    padding: 0 0 0 20px;
+}
+
+A.catBlock {
+    color: $black-content-link-color;
+}

@@ -11,7 +11,8 @@ let TopProducts = (props) => {
         <Product key={s.id}
             name={s.name}
             mainCategory={s.mainCategory}
-            url={props.itemUrl}
+            parentCatURL={s.parentCatURL}
+            productURL={s.productURL}
             price={s.price}
             raiting={s.raiting}
             img={s.photo}

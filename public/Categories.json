@@ -1,5 +1,5 @@
 [
-    {"catId": 0, "isEndPoint": false, "isVisibleProducts": false, "name": "Каталог", "cover": "#", "url": "/Kategoriya-Katalog/0", "specification": [1, 2, 4], "childs": [1, 2, 3]}, 
+    {"catId": 0, "isEndPoint": false, "isVisibleProducts": true , "name": "Каталог", "cover": "#", "url": "/Kategoriya-Katalog/0", "specification": [1, 2, 4], "childs": [1, 2, 3]}, 
     {"catId": 1, "main": true, "isEndPoint": false, "isVisibleProducts": false, "name": "Цветы", "cover": "#", "url": "/Kategoriya-Katalog/0/Kategoriya-Cvety/1", "specification": [1, 2, 4], "childs": [14,15,16]}, 
     {"catId": 2, "main": true, "isEndPoint": false, "isVisibleProducts": false, "name": "Товары для дома", "cover": "#", "url": "/Kategoriya-Katalog/0/Kategoriya-Tovary-Dlya-Doma/2", "specification": [1, 2, 4], "childs": [4,10,11,12,13]},
     {"catId": 3, "main": true, "isEndPoint": false, "isVisibleProducts": false, "name": "Декор", "cover": "#", "url" : "/Kategoriya-Katalog/0/Kategoriya-Dekor/3", "specification": [1, 2, 4], "childs": [5,6,7]},

@@ -6,7 +6,7 @@ import {changeProducts, setChildsCat} from '../redux/Project-reducer';
 import {setFlowersActionCreator, setCountFlowersActionCreator, changeCurrentValueActionCreator, setPageNameActionCreator, setCoverPageActionCreator, setSpecificationlistActionCreator, setItemCategoryAC, setChildCategoryAC} from '../redux/Flowers-reducer';
 import { withRouter } from 'react-router-dom';
 import FiltersForm from './FiltersForm/FiltersForm';
-import ChildCategoryBlockContainer from './ChildCategory/ChildCategoryBlock';
+import ChildCategoryBlockContainer from './CategoryChilds/CategoryChilds';
 import Axios from 'axios';
 
 
@@ -40,7 +40,8 @@ class Flowers extends React.Component {
                 id={s.id} 
                 raiting={s.raiting}
                 img={s.photo}
-                url={this.props.location.pathname}
+                productURL={s.productURL}
+                parentCatURL={s.parentCatURL}
                 
             />
           );   
@@ -56,7 +57,7 @@ class Flowers extends React.Component {
                             
                         </div>
                     </div>
-                    {(this.props.childCategory.length != 0 && this.props.mainUrl && this.props.itemCategory.isEndPoint === false) ? <ChildCategoryBlockContainer mainUrl={this.props.mainUrl} childCategory={this.props.childCategory} /> : null}
+                    {(this.props.childCategory.length !== 0 && this.props.mainUrl && this.props.itemCategory.isEndPoint === false) ? <ChildCategoryBlockContainer mainUrl={this.props.mainUrl} childCategory={this.props.childCategory} /> : null}
                 </div>
                 <div className={F.filtersBox}>
                     {this.props.itemCategory.isEndPoint === true && <FiltersForm/>}

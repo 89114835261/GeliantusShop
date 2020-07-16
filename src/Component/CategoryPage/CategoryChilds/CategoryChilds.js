@@ -1,6 +1,7 @@
 import React from 'react';
-import C from './ChildCategoryBlock.module.scss';
+import C from './CategoryChilds.module.scss';
 import { withRouter, NavLink } from 'react-router-dom';
+import CategoryCard from '../../CategoryCard/CategoryCard';
 
 let ChildCategoryBlockContainer = (props) => {
 
@@ -10,10 +11,7 @@ let ChildCategoryBlockContainer = (props) => {
         return URL + catUrl;
     }
     let categoryList = props.childCategory.map( item => 
-            <NavLink key={ item.name }className={C.catBlock} to={item.url}>
-                <img src={item.cover} />
-                <span>{item.name}</span>
-            </NavLink>
+            <CategoryCard key={ item.name } url={item.url} cover={item.cover} name={item.name}/>
         );
         return(
             <div className={C.wrapper}>{categoryList}</div>

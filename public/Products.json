@@ -1,6 +1,9 @@
 {
     "items": [{
         "id": 1, 
+        "parentCatId": 1,
+        "parentCatURL": "/Kategoriya-Katalog/0/Kategoriya-Cvety/1",
+        "productURL": "/Product/Product-Eritrema/1/Description",
         "name": "Эритрема", 
         "price": 2380, 
         "photo": [{
@@ -43,6 +46,9 @@
     },
     {
         "id": 2, 
+        "parentCatId": 1,
+        "parentCatURL": "/Kategoriya-Katalog/0/Kategoriya-Cvety/1",
+        "productURL": "/Product/Product-Sekvoja-mini/2/Description",
         "name": "Секвойа-мини", 
         "price": 564, 
         "photo": [{
@@ -66,6 +72,9 @@
     },
     {
         "id": 3, 
+        "parentCatId": 1,
+        "parentCatURL": "/Kategoriya-Katalog/0/Kategoriya-Cvety/1",
+        "productURL": "/Product/Product-Zheltyj-fikus/3/Description",
         "name": "Желтый фикус", 
         "price": 23123, 
         "photo": [{
@@ -89,6 +98,9 @@
     },
     {
         "id": 4, 
+        "parentCatId": 2,
+        "parentCatURL": "/Kategoriya-Katalog/0/Kategoriya-Tovary-Dlya-Doma/2",
+        "productURL": "/Product/Product-Zelenyj-fikus/4/Description",
         "name": "Зелёный фикус", 
         "price": 1200, 
         "photo": [{
@@ -112,6 +124,9 @@
     },
     {
         "id": 5, 
+        "parentCatId": 2,
+        "parentCatURL": "/Kategoriya-Katalog/0/Kategoriya-Tovary-Dlya-Doma/2",
+        "productURL": "/Product/Product-Partaz/5/Description",
         "name": "Партаз", 
         "price": 1300, 
         "photo": [{
@@ -135,6 +150,9 @@
     },
     {
         "id": 6, 
+        "parentCatId": 2,
+        "parentCatURL": "/Kategoriya-Katalog/0/Kategoriya-Tovary-Dlya-Doma/2",
+        "productURL": "/Product/Product-Khvoya/6/Description",  
         "name": "Хвоя", 
         "price": 320, 
         "photo": [{
@@ -158,6 +176,9 @@
     },
     {
         "id": 7, 
+        "parentCatId": 3,
+        "parentCatURL": "/Kategoriya-Katalog/0/Kategoriya-Dekor/3",
+        "productURL": "/Product/Product-Rozno/7/Description",
         "name": "Розно", 
         "price": 980, 
         "photo": [{
@@ -181,6 +202,9 @@
     },
     {
         "id": 8, 
+        "parentCatId": 3,
+        "parentCatURL": "/Kategoriya-Katalog/0/Kategoriya-Dekor/3",
+        "productURL": "/Product/Product-Farstatya/8/Description",
         "name": "Фарстатья", 
         "price": 1760, 
         "photo": [{
@@ -192,7 +216,7 @@
         "views": 23, 
         "raiting": 4.6,
         "homePaymant":  true, 
-        "catId": [2,3], 
+        "catId": [0, 2,3], 
         "specId": [2, 4, 9], 
         "specifications": [
             {
@@ -203,8 +227,11 @@
         ]
     },
     {
-        "id": 9, 
-        "name": "Поркас", 
+        "id": 9,
+        "parentCatId": 3,
+        "parentCatURL": "/Kategoriya-Katalog/0/Kategoriya-Dekor/3",
+        "productURL": "/Product/Product-Porkas/9/Description",
+        "name": "Поркас",
         "price": 1242, 
         "photo": [{
             "small": "https://sun9-39.userapi.com/c639619/v639619441/31cec/lV40D5MzI-I.jpg",
@@ -227,6 +254,9 @@
     },
     {
         "id": 10, 
+        "parentCatId": 3,
+        "parentCatURL": "/Kategoriya-Katalog/0/Kategoriya-Dekor/3",
+        "productURL": "/Product/Product-Zhlok/10/Description",
         "name": "Жлок", 
         "price": 6574, 
         "photo": [{
@@ -250,6 +280,9 @@
     },
     {
         "id": 11, 
+        "parentCatId": 6,
+        "parentCatURL": "/Kategoriya-Katalog/0/Kategoriya-Dekor/3/Kategoriya-dlya-prihozhej/6",
+        "productURL": "/Product/Product-Parcissema/11/Description",
         "name": "Парциссема", 
         "price": 4367, 
         "photo": [{
@@ -273,6 +306,9 @@
     },
     {
         "id": 12, 
+        "parentCatId": 6,
+        "parentCatURL": "/Kategoriya-Katalog/0/Kategoriya-Dekor/3/Kategoriya-dlya-prihozhej/6",
+        "productURL": "/Product/Product-Roza-sekvojnaya/12/Description",
         "name": "Роза секвойная", 
         "price": 3342, 
         "photo": [{
@@ -296,6 +332,9 @@
     },
     {
         "id": 13, 
+        "parentCatId": 6,
+        "parentCatURL": "/Kategoriya-Katalog/0/Kategoriya-Dekor/3/Kategoriya-dlya-prihozhej/6",
+        "productURL": "/Product/Product-Listvennica/13/Description",
         "name": "Лиственница", 
         "price": 6400, 
         "photo": [{
@@ -320,6 +359,9 @@
     },
     {
         "id": 14, 
+        "parentCatId": 6,
+        "parentCatURL": "/Kategoriya-Katalog/0/Kategoriya-Dekor/3/Kategoriya-dlya-prihozhej/6",
+        "productURL": "/Product/Product-Berezka-mini/14/Description",
         "name": "Берёзка-мини", 
         "price": 3580, 
         "photo": [{
@@ -342,6 +384,9 @@
     },
     {
         "id": 15, 
+        "parentCatId": 6,
+        "parentCatURL": "/Kategoriya-Katalog/0/Kategoriya-Dekor/3/Kategoriya-dlya-prihozhej/6",
+        "productURL": "/Product/Product-Parvan/15/Description",
         "name": "Парван", 
         "price": 2333, 
         "photo": [{
@@ -353,7 +398,7 @@
         "views": 23, 
         "raiting": 4.9,
         "homePaymant":  true, 
-        "catId": [5], 
+        "catId": [0,5], 
         "specId": [2, 4, 9], 
         "specifications": [
             {

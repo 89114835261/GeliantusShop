@@ -1,7 +1,9 @@
 const SET_CURRENT_OFFERS = 'SET_CURRENT_OFFERS';
+const SET_CATEGORY_OFFERS = 'SET_CATEGORY_OFFERS';
 
 let initialState = {
-    currentOffers: null
+    currentOffers: null,
+    cateforyOffers: null
 }
 
 const CurrentOffersReducer = (state = initialState, action) => {
@@ -11,7 +13,29 @@ const CurrentOffersReducer = (state = initialState, action) => {
                 ...state,
                 currentOffers: action.offers
             }
+        case SET_CATEGORY_OFFERS: 
+            
+            let newState = {...state};
+            let setCat = () => {
+                    let arr = [[],[],[],[]];
+                    for(let i=0; i < state.currentOffers.length; i++ ) {
+                        for(let z=0; z < state.currentOffers[i].catId.length; z++) {
+                            let index = action.categoryOffers.findIndex(item => item.catId === state.currentOffers[i].catId[z]);
+                            index && arr[i].push(action.categoryOffers[index]);
+                        }
+                }
+                return arr;
+            }
+            newState.cateforyOffers = setCat();
+            return newState;
         default: return state;
+    }
+}
+
+export const setCategoryOffersAC = (categoryOffers) => {
+    return {
+        type: SET_CATEGORY_OFFERS,
+        categoryOffers
     }
 }
 
