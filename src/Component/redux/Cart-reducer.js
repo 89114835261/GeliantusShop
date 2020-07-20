@@ -15,7 +15,7 @@ const CartReducer = (state = initialState, action) => {
     switch(action.type) {
         case CHANGE_COUNT: {
             let newState = {...state};
-            if(!action.boolean && newState.productsCart[action.id].count == 1) return newState;
+            if(!action.boolean && newState.productsCart[action.id].count === 1) return newState;
             if(action.boolean) {
                 newState.productsCart[action.id].count += 1;
                 newState.productsCart[action.id].totalPrice += +newState.productsCart[action.id].price;
@@ -39,7 +39,7 @@ const CartReducer = (state = initialState, action) => {
         case ADD_TO_CART: 
             let newState = {...state};
             let changeFunc = () => {
-                if(!newState.productsCart.find(item => item.id == action.product.id)) {
+                if(!newState.productsCart.find(item => item.id === action.product.id)) {
                     newState.productsCount++;
                     newState.productsPrice += action.product.price;
                     return [...state.productsCart, action.product]

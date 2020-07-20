@@ -9,9 +9,6 @@ import Axios from 'axios';
 import Menu from '../Menu/Menu';
 
 class HeaderMenu extends React.Component {
-    constructor(props) {
-        super(props)
-    }
     componentDidMount() {
         let buttonList = [ // Получаем созданные кнопки
             {name: 'Главная', url: '/Main'}

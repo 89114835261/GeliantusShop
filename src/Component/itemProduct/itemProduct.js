@@ -17,7 +17,7 @@ let ItemProduct = (props) => {
       );
 
    let mapPhoto =props.productCover && props.productCover.map( item => 
-      <img key={item.id} src={item.small} onClick={() => props.setIsOpenFullImage(item.small)}/>
+      <img key={item.id} alt={item.name} src={item.small} onClick={() => props.setIsOpenFullImage(item.small)}/>
    )
 
    let mapReviews = props.reviews.filter(item => item.productId === props.itemProduct.id);
@@ -32,7 +32,7 @@ let ItemProduct = (props) => {
          <div><p>Комментарий:</p> {item.comment}<div className={style.likes}>Лайков: {item.likesReviews} | Дизлайков: {item.dislikesReviews ? item.dislikesReviews : '0'}</div></div>
          <button onClick={() => getAnswers(item.id, item.productId)}>Ответы</button>
             {props.answers && props.answers.map(answersItem => 
-            {if(answersItem.reviewsId == item.id && answersItem.isVisible === true) {
+            {if(answersItem.reviewsId === item.id && answersItem.isVisible === true) {
             return   <div key={answersItem.id} className={style.answerBox}>
                         <div className={style.answerAvatar} style={{backgroundImage: `url(${answersItem.userAvatar})`}}></div>
                         <div className={style.answer}>
@@ -40,7 +40,7 @@ let ItemProduct = (props) => {
                            <span>{answersItem.text}<div className={style.likes}>Лайков: {answersItem.likes} | Дизлайков: {answersItem.dislikes ? answersItem.dislikes : '0'}</div></span>
                         </div>
                         
-                     </div>} else return})}
+                     </div>} })}
       </div>
    </div>) : null;
 
@@ -51,7 +51,7 @@ let ItemProduct = (props) => {
       );
    return (
       <div ref={props.myRef} className={style.wrapper}>
-         {props.isOpenFullImage && <div className={style.fullImage}><div className={style.imgWrapper}><img src={props.fullPhoto}></img><button onClick={() => props.setIsOpenFullImage()}>Закрыть</button></div></div>}
+         {props.isOpenFullImage && <div className={style.fullImage}><div className={style.imgWrapper}><img src={props.fullPhoto} alt=''></img><button onClick={() => props.setIsOpenFullImage()}>Закрыть</button></div></div>}
          <div className={style.wrapperTopBox}>
             {console.log(props.myRefIMG)}
                
@@ -66,7 +66,7 @@ let ItemProduct = (props) => {
               
                <div className={style.infoWrapper}>
                   <h2>{props.itemProduct.name} ID: {props.itemProduct.id} </h2>
-                  <img src={raiting} style={{width: '200px', marginTop: '10px', padding: '0'}}></img>
+                  <img src={raiting} alt='' style={{width: '200px', marginTop: '10px', padding: '0'}}></img>
                   <p>Рейтинг товара: {props.itemProduct.raiting} из 5</p>
                   <p>Голосов: {props.itemProduct.voices}</p>  
                      <button onClick={() => openCartFunc(props.itemProduct)}>Добавить в корзину</button>

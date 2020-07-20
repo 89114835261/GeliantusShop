@@ -1,4 +1,3 @@
-const SET_PRODUCTS = 'SET_PRODUCTS';
 const SET_COUNT_PRODUCTS = 'SET_COUNT_PRODUCTS';
 const SET_TOP_PRODUCTS = 'SET_TOP_PRODUCTS';
 const SET_NAME_TOP_PRODUCTS_BOX = 'SET_NAME_TOP_PRODUCTS_BOX';
@@ -20,7 +19,7 @@ const TopProducts = (state = initialState, action) => {
         let newState = {...state};
         newState.topProducts = action.arr.filter(item => 
             {for(let i = 0; i < item.catId.length; i++) {
-                if(item.catId[i] == action.id) return item;
+                if(item.catId[i] === action.id) return item;
             }});
         return newState;
         case SET_SORT_PARAMETER:

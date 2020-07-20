@@ -7,24 +7,30 @@
     background-color: red;
 }
 
+.names {
+    padding: 20px 0 20px 0;
+}
+
 .currentOffer {
     background-color: $block-color;
     padding: 20px;
     @include box-shadow(0, 3px, 5px, -1px, rgba(0, 0, 0, .1));
     @include border-radius(5px);
-    height: 200px;
-    white-space: nowrap;
-    overflow-y: hidden;
-    overflow-x: scroll;
     .catWrapper {
         @include flex;
         @include flex-direction-row;
         @include flex-nowrap;
+        overflow-y: hidden;
+        overflow-x: hidden; 
     }
-    A {
-        &:link { text-decoration: none; color: #000 }
+    A { margin: 10px;
+        &:link { text-decoration: none; color: #000;}
         &:visited { text-decoration: none; color: #000 } 
         &:hover { text-decoration: none; color: #000 }
         &:active { text-decoration: none; color: #000 }
       }
+}
+
+.menuLink {
+    background-color: red;
 }

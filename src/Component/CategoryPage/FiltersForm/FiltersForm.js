@@ -19,9 +19,6 @@ let FiltersBox = (props) => {
 const LoginReduxForm = reduxForm({form: 'filters'})(FiltersBox);
 
 class FiltersForm extends React.Component {
-    constructor(props) { //Constructor можно не писать, если мы кроме super ничего не передаём
-        super(props); // Это происходит по умолчанию
-    }
         componentDidMount() {
         Axios.get('/Specification.json').then(response => {this.props.setSpecificationForm(response.data)})
     }
@@ -31,7 +28,7 @@ class FiltersForm extends React.Component {
                 let remapForm = this.props.specification.map( f => 
                 <div  key={f.id} className={F.blockFiltersElement}>
                 <Field type={f.type} name={f.id + '-' + f.name} placeholder={f.name} component={'select'}>
-                     {f.value && f.value.map((g, i) => i == 0 ? <option key={ g } hidden label={g} value={g}></option> : <option key={ g } label={g} value={g}></option>)}
+                     {f.value && f.value.map((g, i) => i === 0 ? <option key={ g } hidden label={g} value={g}></option> : <option key={ g } label={g} value={g}></option>)}
                     </Field></div>);
                 const onSubmit = (formData) => { //formData - то, что выбрал юзер. Отправится на сервер
                 console.log(formData); //здесь делаем колбэк, который делает запрос

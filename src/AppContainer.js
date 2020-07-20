@@ -10,7 +10,7 @@ import { isOpenFindAC } from './Component/redux/Mobile-reducer';
  class AppContainer extends React.Component {
 
     componentDidUpdate() {
-        if(this.props.mainUrl != this.props.location.pathname) {
+        if(this.props.mainUrl !== this.props.location.pathname) {
             this.props.setUrlAdress(this.props.location.pathname);
         }
     }

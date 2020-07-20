@@ -12,11 +12,11 @@ class NavBarContainer extends React.Component {
         this.props.setUrlElements(this.props.location.pathname.split('/'));
     }
     componentDidMount() {
-        {Axios.get('/Categories.json').then(response => {this.props.setCategories(response.data)})}
+        Axios.get('/Categories.json').then(response => {this.props.setCategories(response.data)});
     }
   
     componentDidUpdate() {
-        if(this.props.mainUrl != this.props.location.pathname) {
+        if(this.props.mainUrl !== this.props.location.pathname) {
             this.props.setUrlAdress(this.props.location.pathname);
             this.componentWillMount();
         }

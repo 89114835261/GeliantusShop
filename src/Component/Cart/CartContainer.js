@@ -19,7 +19,7 @@ class CartContainer extends React.Component {
                     {(this.props.productsCart.length > 0) ? this.props.productsCart.map((item, i) => 
                     <div className={C.wrapper} >
                     <button className={C.delete} onClick={() => this.props.deleteProduct(item.id)}>X</button>
-                    <img src={item.photo[0].small} />
+                    <img src={item.photo[0].small} alt={item.name}/>
                     <div className={C.infoBox}><p>{item.name}</p>
                     <ul>
                         <li>Цена: {item.price}₽</li>
