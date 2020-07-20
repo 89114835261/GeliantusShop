@@ -5,7 +5,8 @@ let CurrentOffer = (props) => {
     
     return(
         <div className={style.currentOffer}>
-            <button onClick={() => props.scrollOfferBox()}>sdsdsdsdsd</button>
+            <button onClick={() => props.scrollOfferBox('back')}>Назад</button>
+            <button onClick={() => props.scrollOfferBox('next')}>Вперед</button>
             <div className={style.names}>{props.nameMap}</div>
             <div ref={props.catWrapper} className={style.catWrapper}>{props.catMap}</div>
             

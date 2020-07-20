@@ -1,0 +1,8 @@
+@import './../Styles/border-radius';
+@import './../Styles/colors';
+
+.activeBTN {
+    background-color: $gray-bg-button;
+    @include border-radius(6px);
+    padding: 5px;
+}

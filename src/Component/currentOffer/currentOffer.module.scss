@@ -3,10 +3,6 @@
 @import './../Styles/shadows';
 @import './../Styles/flex';
 
-.activeOffer {
-    background-color: red;
-}
-
 .names {
     padding: 20px 0 20px 0;
 }
@@ -24,6 +20,7 @@
         overflow-x: hidden; 
     }
     A { margin: 10px;
+        padding: 5px;
         &:link { text-decoration: none; color: #000;}
         &:visited { text-decoration: none; color: #000 } 
         &:hover { text-decoration: none; color: #000 }

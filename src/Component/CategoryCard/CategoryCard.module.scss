@@ -39,23 +39,20 @@ A.card {
 
 .card._additionalClass {
     @include transition-block(all, .1s, linear);
-    width: 265px;
     min-height: 180px;
     box-shadow: none;
     @include flex-direction-row;
     @include flex-nowrap;
-    margin: 0 55px 0 0;
-    &:last-child {
-        padding-right: 40px;
-    }
+    min-width: 280px;
+    margin: 0 20px 0 0;
     IMG {
         width: 130px;
         height: 130px;
     }
     P {
         text-align: left;
-        width: 200px;
-        padding: 0 20px 0 20px;
+        padding: 0;
+     
     }
 
 }

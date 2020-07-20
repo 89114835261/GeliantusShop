@@ -5,7 +5,7 @@ import { setCurrentOffersAC, setCategoryOffersAC, setCurrentOffersArrAC } from '
 import { NavLink } from 'react-router-dom';
 import CurrentOffer from './currentOffer';
 import CategoryCard from './../CategoryCard/CategoryCard';
-import style from './ddd.module.scss';
+import style from './currentContainer.module.scss';
 
 class CurrentOfferContainer extends React.Component {
     constructor(props) {
@@ -14,7 +14,11 @@ class CurrentOfferContainer extends React.Component {
             clname: 'name0'
         }
         this.catWrapper = React.createRef();
-        this.scrollOfferBox = () => {this.catWrapper.current.scrollTo(this.catWrapper.current.scrollLeft + 320, 0)}
+        this.scrollOfferBox = (param) => {
+            console.log(this.catWrapper);
+            param === 'back' && this.catWrapper.current.scrollTo(this.catWrapper.current.scrollLeft - (this.catWrapper.current.lastElementChild.clientWidth + 20), 0)
+            param === 'next' && this.catWrapper.current.scrollTo(this.catWrapper.current.scrollLeft + this.catWrapper.current.lastElementChild.clientWidth + 20, 0)
+        }
     }
     componentDidMount() {
         Axios.get('/currentOffer.json').then(response => 
