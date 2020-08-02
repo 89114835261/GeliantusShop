@@ -175,6 +175,26 @@ export let translitText = (text, language, sliceCount) => {
       return translitText;
 }
 
+export let animateFunc = (direction, obj, currentParam, scrollWidth, param, value, stopTimer) => 
+  {let myName = setInterval(() => {
+  if(direction === 'next' && (obj[param] === currentParam + stopTimer || scrollWidth <= currentParam + currentParam)) {
+    clearInterval(myName);
+    console.log('STOP')
+    return;
+  } else if(direction === 'next') {
+    console.log('currentParam:' + currentParam + 'stopTimer' + stopTimer + 'NEXT!!!')
+    obj[param] += value
+  } else if(direction === 'back' && (obj[param] === currentParam - stopTimer || currentParam <= 50)) {
+    clearInterval(myName);
+    console.log('STOP бля')
+    return;
+  }
+  else if(direction === 'back') {
+    console.log('currentParam:' + currentParam + 'stopTimer' + stopTimer + 'BACK!!!')
+    obj[param] -= value;
+  }
+}, 1) }
+
 export let changeProducts = (array, param, ourArr = []) => {  //Функция выборки из массива
 // Только тех объектов у которых свойство catId равно передаваемомму параметру param
   for(let i = 0; i < array.length; i++ ) {
