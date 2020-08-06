@@ -7,9 +7,9 @@ let CategoryCard = (props) => {
             <NavLink className={style.card + ` ${props.additionalClass ? style._additionalClass : ''}`} to={props.url}>
             
                 <img src={props.cover} />
-                <p>{props.name}</p>
-                {props.minPrice && <p>{props.minPrice}</p>}
-            
+                <p><span>{props.name}</span>
+                <span>{` от ${props.minPrice} ₽`}</span>
+                </p>
             </NavLink>
     )
 }

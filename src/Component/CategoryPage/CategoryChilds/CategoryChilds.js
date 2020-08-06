@@ -11,7 +11,7 @@ let ChildCategoryBlockContainer = (props) => {
         return URL + catUrl;
     }
     let categoryList = props.childCategory.map( item => 
-            <CategoryCard key={ item.name } url={item.url} cover={item.cover} name={item.name}/>
+            <CategoryCard key={ item.name } minPrice={item.minPrice} url={item.url} cover={item.cover} name={item.name}/>
         );
         return(
             <div className={C.wrapper}>{categoryList}</div>

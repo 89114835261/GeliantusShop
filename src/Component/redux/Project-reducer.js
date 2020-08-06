@@ -195,6 +195,8 @@ export let animateFunc = (direction, obj, currentParam, scrollWidth, param, valu
   }
 }, 1) }
 
+
+
 export let changeProducts = (array, param, ourArr = []) => {  //Функция выборки из массива
 // Только тех объектов у которых свойство catId равно передаваемомму параметру param
   for(let i = 0; i < array.length; i++ ) {

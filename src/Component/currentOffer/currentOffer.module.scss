@@ -2,6 +2,23 @@
 @import './../Styles/border-radius';
 @import './../Styles/shadows';
 @import './../Styles/flex';
+@import './../Styles/transitions';
+
+@mixin arrows {
+    padding: 15px 20px 15px 20px;
+    text-align: center;
+    cursor: pointer;
+    position: absolute;
+    visibility: hidden;
+    top: 50%;
+    @include border-radius(50%);
+    @include transition-block(all, .1s, linear);
+    z-index: 10;
+    background-color: #FFF;
+    &:hover {
+        background-color: #ffc62d;
+    }
+}
 
 .names {
     padding: 20px 0 20px 0;
@@ -15,9 +32,31 @@
 
 .currentOffer {
     background-color: $block-color;
-    padding: 20px;
+    padding: 20px 0 20px 20px;
+    position: relative;
     @include box-shadow(0, 3px, 5px, -1px, rgba(0, 0, 0, .1));
     @include border-radius(5px);
+    .arrow-prev {   
+        @include arrows;
+        left: 0px;
+    }
+    
+    .arrow-next {
+        @include arrows;
+        right: 0px;
+    }
+    &:hover {
+        .arrow-next, .arrow-prev {
+            visibility: visible;
+            @include box-shadow(0, 0px, 17px, 1px, rgba(0, 0, 0, .1));
+        }
+        .arrow-next {
+            right: 20px;
+        }
+        .arrow-prev {
+            left: 20px;
+        }
+    }
     .catWrapper {
         @include flex;
         @include flex-direction-row;

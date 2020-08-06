@@ -40,12 +40,19 @@ A.card {
 
 .card._additionalClass {
     @include transition-block(all, .1s, linear);
-    min-height: 180px;
+    height: 120px;
+    min-height: 120px;
+    width: 300px;
+    min-width: 300px;
     box-shadow: none;
     @include flex-direction-row;
     @include flex-nowrap;
-    min-width: 280px;
-    margin: 0 20px 0 0;
+    margin: 0;
+    &:hover {
+        P {
+            color: $blue-content-link-color;
+        }
+    }
     IMG {
         width: 130px;
         height: 130px;
@@ -54,6 +61,12 @@ A.card {
         text-align: left;
         padding: 0 0 0 10px;
         width: 100%;
+        @include flex-wrap;
+        @include flex-direction-column;
+    }
+    SPAN {
+        display: block;
+        padding: 5px 0 0 0;
     }
 
 }

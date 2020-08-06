@@ -16,10 +16,6 @@ import MobileMenu from './Component/MobileMenu/MobileMenu';
 import FindContainer from './Component/Find/FindContainer';
 import NavBarContainer from './Component/NavBar/NavBarContainer';
 
-
-
-
-
 let App = (props) => {
 
     return (
