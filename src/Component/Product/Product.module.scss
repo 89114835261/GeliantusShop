@@ -2,24 +2,24 @@
 @import './../Styles/flex';
 @import './../Styles/border-radius';
 @import './../Styles/media';
+@import './../Styles/card-box';
 
 .itemProduct {
     display: block;
     width: 250px;
     min-height: 350px;
-    background-color: #FFF;  
-    color: #000;
-    border-radius: 5px;
+    color: #000;    
     transition: box-shadow 0.2s linear;
     margin: 20px;
     position: relative;
     z-index: 1;
+    @include card-box();
     @include _1170 {
         margin: 20px 20px 0 0;
     }   
     &:hover {
         opacity: 1;
-        @include box-shadow(0 ,5px, 5px, 1px, rgba(0, 0, 0, .1));
+        @include box-shadow(0 ,5px, 5px, 0px, rgba(0, 0, 0, .2));
     }
     h5 {
         width: auto;
@@ -36,6 +36,7 @@
     width: 180px;
     min-height: 210px;
     margin: 0;
+    box-shadow: none;
     h5 {
         text-align: center;
     }
@@ -48,16 +49,6 @@ SPAN.price {
     display: block;
     font-size: 14px;
     text-align: center;
-}
-
-.wrapper {
-    @include box-shadow(0 ,5px, 5px, -1px, rgba(0, 0, 0, .1));
-    min-height: 250px;
-}
-
-.wrapper._additionalClass {
-    box-shadow: none;
-    min-height: 210px;
 }
 
 .ProductCover {

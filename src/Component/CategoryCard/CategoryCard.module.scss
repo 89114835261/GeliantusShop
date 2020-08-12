@@ -2,7 +2,7 @@
 @import './../Styles/colors';
 @import './../Styles/shadows';
 @import './../Styles/flex';
-@import './../Styles/border-radius';
+@import './../Styles/card-box';
 
 A.card {
     color: $blue-content-link-color;
@@ -21,8 +21,7 @@ A.card {
     @include flex-wrap;
     @include justify-content-space-between;
     @include align-item-center;
-    @include border-radius(3px);
-    @include box-shadow(0 ,5px, 5px, -1px, rgba(0, 0, 0, .1));
+    @include card-box();
     @include transition-block(all, .1s, linear);
     &:hover {
         @include box-shadow(0 ,5px, 6px, 1px, rgba(0, 0, 0, .1));

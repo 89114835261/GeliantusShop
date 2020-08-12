@@ -1,0 +1,17 @@
+@import './../../Styles/border-radius';
+@import './../../Styles/colors';
+@import './../../Styles/transitions';
+
+.button {
+    A:link, A:visited {
+        @include border-radius(10px);
+        padding: 10px;
+        @include transition-block(all, .1s, linear)
+    }
+    A:hover {
+        color: #FFF;
+        background: linear-gradient(to top, $brown, #b1664a);
+        border: none;
+        border-bottom: solid 3px #642c17;
+    }
+}

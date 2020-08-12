@@ -8,6 +8,7 @@ import style from './Main.module.scss';
 import { mutateStateActionCreator } from './../redux/Project-reducer';
 import Menu from '../Menu/Menu';
 import CurrentOfferContainer from '../currentOffer/currentOfferContainer';
+import SaleContainer from '../Sale/SaleContainer';
 
 let Main = (props) => {
     if(props.longUrlMain === null ) {
@@ -16,6 +17,7 @@ let Main = (props) => {
     return(
         <div className={style.wrapper}>
             <div className={style.contentBox}>
+            <SaleContainer />
             <CurrentOfferContainer />
             <TopProductsContainer itemUrl={props.location.pathname.slice(5, props.longUrlMain)}/>
             </div>

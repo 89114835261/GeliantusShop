@@ -15,7 +15,6 @@ let Product = (props) => {
     return(
         <NavLink to={props.parentCatURL + props.productURL} title={props.name}>
             <div className={P.itemProduct + ` ${props.additionalClass ? P._additionalClass : ''}`}>
-                <div className={P.wrapper + ` ${props.additionalClass ? P._additionalClass : ''}`}>
                     <div className={P.ProductCover + ` ${props.additionalClass ? P._additionalClass : ''}`}>
                         <img src={!props.img[0].small ? defaultIMG : props.img[0].small} /></div>
                         <h5>{props.name}</h5> 
@@ -27,7 +26,6 @@ let Product = (props) => {
                             </div>
                         </div>
                         : <span className={P.price}>цена: {props.price}₽</span>}
-                </div>
             </div>
         </NavLink>
     );

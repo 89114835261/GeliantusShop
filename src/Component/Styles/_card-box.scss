@@ -1,0 +1,9 @@
+@import './shadows';
+@import './border-radius';
+@import './colors';
+
+@mixin card-box() {
+    @include box-shadow(0 ,5px, 5px, -1px, rgba(0, 0, 0, .1));
+    @include border-radius(3px);
+    background-color: $block-color;
+}

@@ -1,0 +1,62 @@
+@import './../Styles/box';
+@import './../Styles/colors';
+
+.sale {
+    width: 210px;
+    min-height: 170px;
+    padding: 20px;
+    @include box();
+    H3 {
+        margin: 0;
+        padding: 0;
+    }
+    UL {
+        list-style: none;
+        padding:0;
+        overflow: hidden;
+    }
+    LI {
+        position: relative;
+        border-left: 3px solid;
+        padding: 3px 0 3px 10px;
+        margin: 10px 0 10px 0;
+        &:first-child {
+            border-color: #ffc2c2;
+        }
+        &:nth-child(2) {
+            border-color: #55dcfd;
+        }
+        &:nth-child(3) {
+            border-color: #c0ee85;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0,128,0,.1) 0%,rgba(0,128,0,.1) 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%);
+            transition: left .3s;
+        }
+        &:hover {
+            &:after {
+                left: 0;
+            }
+        }
+        A { 
+            position: relative;
+            z-index: 5;
+            color: #000;
+            &:hover {
+                color: red;
+            }
+        }
+    }
+    .button {
+        A {
+            color: $brown;
+            border: solid 1px $brown;
+        }
+    }
+}

@@ -1,8 +1,7 @@
-@import "./../Styles/_shadows.scss";
-@import "./../Styles/_border-radius.scss";
 @import "./../Styles/_flex.scss";
 @import './../Styles/colors';
 @import './../Styles/media';
+@import './../Styles/box';
 
 .popular {
     
@@ -25,8 +24,6 @@
     @include flex-wrap;
     @include justify-content-start;
     padding: 10px 10px 10px 25px;
-    @include box-shadow(0, 0, 3px, 1px, rgba(0, 0, 0, 0.1));
-    @include border-radius(0, 0, 4px, 4px);
-    background-color: #FFF;
+    @include box();
 }
 
