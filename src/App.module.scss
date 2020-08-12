@@ -2,6 +2,7 @@
 @import './Component/Styles/fonts';
 @import './Component/Styles/flex';
 @import './Component/Styles/media';
+@import './Component/Styles/shadows';
 
 BODY {
   background-color: $gray-body-bg;
@@ -32,7 +33,7 @@ A {
   "wayLine wayLine"
   "leftSide content"
   "footer footer";
-  grid-template-rows: 600px 50px 13fr 100px;
+  grid-template-rows: 0 50px 13fr 100px;
   grid-template-columns: 0 1fr;
   margin: 50px auto 0 auto;
   @include _979 {
@@ -43,9 +44,11 @@ A {
 
 .wayLine {
   grid-area: wayLine;
+  padding: 10px 0 0 0;
   height: 50px;
   color: #FFF;
-  background-color: #1e1e1e;
+  background-color: #FFF;
+  @include box-shadow(0, 5px, 15px, 5px, rgba(0, 0, 0, .2))
 }
 
 .leftSide {
@@ -59,7 +62,7 @@ A {
   @include flex-direction-column;
   @include flex-wrap;
   @include justify-content-start;
-  padding: 20px;
+  padding: 30px 20px 20px 20px;
   min-height: 1000px;
 }
 

@@ -1,0 +1,18 @@
+@import './../Styles/box';
+@import './../Styles/flex';
+
+.wrapper {
+    @include box();
+    @include flex();
+    @include flex-direction-row();
+    @include flex-nowrap();
+    height: 220px;
+    margin: 0 0 0 20px;
+    width: 680px;
+    float: left;
+    &:after {
+        content: '';
+        float: none;
+        clear: both;
+    }
+}

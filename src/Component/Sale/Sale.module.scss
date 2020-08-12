@@ -2,6 +2,7 @@
 @import './../Styles/colors';
 
 .sale {
+    float: left;
     width: 210px;
     min-height: 170px;
     padding: 20px;
@@ -45,8 +46,8 @@
             }
         }
         A { 
-            position: relative;
             z-index: 5;
+            position: relative;
             color: #000;
             &:hover {
                 color: red;
