@@ -14,7 +14,7 @@
     top: 50%;
     @include border-radius(50%);
     @include transition-block(all, .1s, linear);
-   
+    z-index: 6;
     background-color: #FFF;
     &:hover {
         background-color: #ffc62d;
@@ -56,13 +56,7 @@
             left: 20px;
         }
     }
-    .catWrapper {
-        @include flex;
-        @include flex-direction-row;
-        @include flex-nowrap;
-        overflow-y: hidden;
-        overflow-x: hidden; 
-    }
+
     A { margin: 10px;
         padding: 5px;
         &:link { text-decoration: none; color: #000;}

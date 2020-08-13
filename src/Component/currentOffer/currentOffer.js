@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React from 'react';
 import style from './currentOffer.module.scss';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import CategoryCard from './../CategoryCard/CategoryCard';

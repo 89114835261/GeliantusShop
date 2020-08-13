@@ -1,6 +1,16 @@
 @import './../Styles/box';
 @import './../Styles/colors';
 
+@mixin gradientAnimation {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    transition: left .3s;
+}
+
 .sale {
     float: left;
     width: 210px;
@@ -23,23 +33,26 @@
         margin: 10px 0 10px 0;
         &:first-child {
             border-color: #ffc2c2;
+            &:after {
+                @include gradientAnimation();
+                background: linear-gradient(to right, rgba(255,194,194,.1) 0%,rgba(255,194,194,.1) 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%);
+            }
         }
         &:nth-child(2) {
             border-color: #55dcfd;
+            &:after {
+                @include gradientAnimation();
+                background: linear-gradient(to right, rgba(85,220,253,.1) 0%,rgba(85,220,253,.1) 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%);
+            }
         }
         &:nth-child(3) {
             border-color: #c0ee85;
+            &:after {
+                @include gradientAnimation();
+                background: linear-gradient(to right, rgba(192,238,133,.1) 0%,rgba(192,238,133,.1) 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%);
+            }
         }
-        &:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 200%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(0,128,0,.1) 0%,rgba(0,128,0,.1) 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%);
-            transition: left .3s;
-        }
+       
         &:hover {
             &:after {
                 left: 0;

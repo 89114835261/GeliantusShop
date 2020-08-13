@@ -5,9 +5,6 @@ import { setCurrentOffersAC, setCategoryOffersAC, setCurrentOffersArrAC } from '
 import { NavLink } from 'react-router-dom';
 import CurrentOffer from './currentOffer';
 import style from './currentContainer.module.scss';
-import { animateFunc } from './../redux/Project-reducer';
-
-
 
 class CurrentOfferContainer extends React.Component {
     constructor(props) {
@@ -16,9 +13,12 @@ class CurrentOfferContainer extends React.Component {
             clname: 'name0',
             currentOffersTitle: null
         }
+        
         this.myRef = React.createRef();
         this.catWrapper = React.createRef();
+        
     }
+
     componentDidMount() {
         Axios.get('/currentOffer.json').then(response => 
             {
@@ -35,11 +35,23 @@ class CurrentOfferContainer extends React.Component {
     }
 
     render() {
+        
         let nameMap = this.props.currentOffers ? this.props.currentOffers.map(
             item=> <NavLink key={item.id} className={(this.state.clname === 'name' + (item.id - 1)) ? style.activeBTN : ' '} onClick={(e) => this.onClickBTN(item.id - 1)} to='#'>{item.name}</NavLink>
         ) : ' asdas';
         return(
-            <CurrentOffer currentOffersTitle={this.state.currentOffersTitle} myRef={this.myRef} translate={this.state.translate} cateforyOffers={this.props.cateforyOffers} currentArr={this.props.currentArr} isPressedBack={this.state.isPressedBack} isPressedNext={this.state.isPressedNext} scr={this.props.scrollLeft} scrollOfferBox={this.scrollOfferBox} catWrapper={this.catWrapper} nameMap={nameMap}/>
+            <CurrentOffer 
+            currentOffersTitle={this.state.currentOffersTitle} 
+            myRef={this.myRef} 
+            translate={this.state.translate} 
+            cateforyOffers={this.props.cateforyOffers} 
+            currentArr={this.props.currentArr} 
+            isPressedBack={this.state.isPressedBack} 
+            isPressedNext={this.state.isPressedNext} 
+            scr={this.props.scrollLeft} 
+            scrollOfferBox={this.scrollOfferBox} 
+            catWrapper={this.catWrapper} 
+            nameMap={nameMap}/>
         )
     }
 }
