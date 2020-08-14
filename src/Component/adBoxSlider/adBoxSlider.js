@@ -7,6 +7,10 @@ const AdBoxSlider = (props) => {
         return <div onClick={() => props.clickArrow(text)} className={style[className]}>{text}</div>;
       };
 
+    const changeAdFunc = (param) => {
+        props.changeAdFunc(param)
+    }
+
     const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
     const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
     const dataMenu = props.adBanners(props.adImages, style.bon)

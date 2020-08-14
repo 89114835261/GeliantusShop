@@ -8,10 +8,10 @@ class AdBoxSliderContainer extends React.Component {
         super(props);
         this.startTimer = this.startTimer.bind(this)
         this.clickArrow = this.clickArrow.bind(this)
+        this.changeAdFunc = this.changeAdFunc.bind(this)
         this.state = {
             adImages: null,
             currentTime: 0,
-            className: 'name' + this.currentTime
         }
         this.myRefAd = React.createRef();
     }
@@ -27,12 +27,21 @@ class AdBoxSliderContainer extends React.Component {
         clearTimeout(this.startTimeOut);
         this.setState({currentTime: (text === '<' && this.state.currentTime != 0) ? this.state.currentTime - 1 : this.state.currentTime + 1})
         clearInterval(this.start);
-        this.startTimeOut = setTimeout(this.startTimer, 7000);
+        this.startTimeOut = setTimeout(this.startTimer, 5000);
     }
 
     slider(param) { 
         console.log(param.current)
+        console.log(this.state.className)
         param.current.scrollTo('item' + (this.state.currentTime))
+    }
+
+    changeAdFunc(param, ref) {
+        clearTimeout(this.startTimeOut);
+        this.setState({currentTime: param});
+         clearInterval(this.start);
+        ref.current.scrollTo('item' + param);
+        this.startTimeOut = setTimeout(this.startTimer, 5000);
     }
     
     startTimer() {
@@ -68,11 +77,11 @@ class AdBoxSliderContainer extends React.Component {
         
         const adCurrentChange = (list, style) =>
         list ? list.map(item => {
-            return <div className={(this.state.className === 'name' + item.id) ? style : ' '} key={item.id} />
+            return <div onClick={(e) => this.changeAdFunc(item.id - 1, this.myRefAd)} className={(this.state.currentTime + 1 === item.id) ? style : ' '} key={item.id} />
         }) : '';
 
         return(
-            <AdBoxSlider adCurrentChange={adCurrentChange} clickArrow={this.clickArrow} myRefAd={this.myRefAd} adImages={this.state.adImages} adBanners={adBanners}/>
+            <AdBoxSlider changeAdFunc={this.changeAdFunc} adCurrentChange={adCurrentChange} clickArrow={this.clickArrow} myRefAd={this.myRefAd} adImages={this.state.adImages} adBanners={adBanners}/>
         )
     }
 }
