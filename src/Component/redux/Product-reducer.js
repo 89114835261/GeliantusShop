@@ -52,7 +52,7 @@ let productReduser = (state = initialState, action) => {
                 answers: action.answers
             }
         case SET_QUESTIONS:
-            let questionsArr = action.questions.filter(item => item.productId == state.product[0].id)
+            let questionsArr = action.questions.filter(item => item.productId === state.product[0].id)
             return {
                 ...state,
                 questions: questionsArr

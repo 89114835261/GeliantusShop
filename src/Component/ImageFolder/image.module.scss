@@ -1,0 +1,6 @@
+@import './../Styles/box';
+
+.image {
+    @include box();
+    margin: 20px 0 0 0;
+}

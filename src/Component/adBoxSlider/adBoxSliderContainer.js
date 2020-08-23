@@ -31,8 +31,6 @@ class AdBoxSliderContainer extends React.Component {
     }
 
     slider(param) { 
-        console.log(param.current)
-        console.log(this.state.className)
         param.current.scrollTo('item' + (this.state.currentTime))
     }
 
@@ -46,7 +44,6 @@ class AdBoxSliderContainer extends React.Component {
     
     startTimer() {
         this.start = setInterval(()=>{
-            console.log(this.state.currentTime)
             let currentTime = this.state.currentTime + 1
             this.setState({currentTime: currentTime})
             if(this.state.currentTime > 2) {
@@ -60,6 +57,7 @@ class AdBoxSliderContainer extends React.Component {
 
     componentWillUnmount() {
         clearInterval(this.start);
+        clearTimeout(this.startTimeOut);
     }
 
     render() {

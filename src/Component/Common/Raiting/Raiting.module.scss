@@ -1,0 +1,76 @@
+@import './../../Styles/flex';
+
+/*sprite with stars*/
+#reviewStars-input input:checked ~ label, #reviewStars-input label, #reviewStars-input label:hover, #reviewStars-input label:hover ~ label {
+    background: url('./../../../img/raiting/raiting.png') no-repeat;
+  }
+  
+  #reviewStars-input {
+    
+    /*fix floating problems*/
+    overflow: hidden;
+    *zoom: 1;
+    /*end of fix floating problems*/
+    
+    position: relative;
+    float: left;
+  }
+  
+  #reviewStars-input input {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    
+    width: 43px;
+    height: 40px;
+    
+    position: absolute;
+    top: 0;
+    z-index: 0;
+  }
+  
+  #reviewStars-input input:checked ~ label {
+    background-position: 0 -40px;
+    height: 40px;
+    width: 43px;
+  }
+  
+  #reviewStars-input label {
+    background-position: 0 0;
+    height: 40px;
+    width: 43px;
+    float: right;
+    cursor: pointer;
+    margin-right: 10px;
+    
+    position: relative;
+    z-index: 1;
+  }
+  
+  #reviewStars-input label:hover, #reviewStars-input label:hover ~ label {
+    background-position: 0 -40px;
+    height: 40px;
+    width: 43px;
+  }
+
+  .raiting {
+    @include flex();
+    @include flex-direction-row();
+    @include flex-nowrap();
+    width: 250px  ;
+    direction: rtl;
+    SPAN {
+      background-image: url('./../../../img/raiting/raiting.png');
+      background-repeat: no-repeat;
+      display: block;
+      width: 50px;
+      height: 40px;
+    }
+    SPAN.active {
+      background-position: 0 -40px;
+    }
+  }
+
+  .raiting SPAN:hover, .raiting SPAN:hover ~ SPAN {
+    cursor: pointer;
+    background-position: 0 -40px;
+  }

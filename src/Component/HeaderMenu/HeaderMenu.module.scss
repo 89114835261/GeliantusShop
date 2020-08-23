@@ -1,7 +1,8 @@
-@import "./../Styles/fonts";
-@import "./../Styles/flex";
-@import "./../Styles/border-radius";
-@import "./../Styles/media";
+@import './../Styles/fonts';
+@import './../Styles/flex';
+@import './../Styles/border-radius';
+@import './../Styles/media';
+@import './../Styles/colors';
 
 .headerMenu {
     background-color: #200e07;  
@@ -60,7 +61,7 @@
           font-family: $logo-font;
           font-size: $logo-font-size;
           &:hover {
-            color: #06cd01;
+            color: #ff6f6f;
           }
           @include _979 {
             font-size: $logo-font-size_979
@@ -130,7 +131,7 @@ A.menuLink {
       display: none;
     }
     &:hover {
-      color: #06cd01;
+      color: #9aea32;
     }
     SPAN {
       border-bottom: #FFF 1px dashed;

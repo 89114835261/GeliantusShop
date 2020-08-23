@@ -2,11 +2,9 @@ import React from 'react';
 import style from './currentOffer.module.scss';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import CategoryCard from './../CategoryCard/CategoryCard';
+import { Arrow } from './../Common/jsxExport';
 
 let CurrentOffer = (props) => {
-    const Arrow = ({ text, className }) => {
-        return <div className={style[className]}>{text}</div>;
-      };
     
     const Menu = (list) =>
     list.map((item, i) => {
@@ -22,8 +20,8 @@ let CurrentOffer = (props) => {
     });
     
    
-    const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' });
-    const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
+    const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' }, null, style);
+    const ArrowRight = Arrow({ text: '>', className: 'arrow-next' }, null, style);
     let menu = props.cateforyOffers ?  Menu(props.cateforyOffers[props.currentArr]) : ''
     return(
         <div className={style.wrapper}>

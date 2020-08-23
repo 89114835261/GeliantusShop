@@ -1,14 +1,9 @@
 import React from 'react';
 import style from './itemProduct.module.scss';
+import raiting from './../../img/raiting.png';
 import { NavLink } from 'react-router-dom';
-import ScrollMenu from 'react-horizontal-scrolling-menu';
-import { Arrow } from './../Common/jsxExport';
-import Raiting from '../Common/Raiting/Raiting';   
 
 let ItemProduct = (props) => {
-   const ArrowLeft = Arrow({ text: '<', className: 'arrow-prev' }, props.clickArrow, style);
-    const ArrowRight = Arrow({ text: '>', className: 'arrow-next' }, props.clickArrow, style);
-   
    let getAnswers = (id) => {
       props.getAnswers(id);
       console.log(id)
@@ -21,12 +16,10 @@ let ItemProduct = (props) => {
    <div key={ v.name } className={style.specificationString}>{v.name} : {v.value}</div>
       );
 
-   let mapPhoto =props.productCover && props.productCover.map( (item, i) => 
-      <img key={'item' + i} alt={item.name} src={item.small} onClick={() => props.setIsOpenFullImage(item.small)}/>
+   let mapPhoto =props.productCover && props.productCover.map( item => 
+      <img key={item.id} alt={item.name} src={item.small} onClick={() => props.setIsOpenFullImage(item.small)}/>
    )
 
-
-   console.log(props.productCover);
    let mapReviews = props.reviews.filter(item => item.productId === props.itemProduct.id);
    let visualReviews = mapReviews.length > 0 ? mapReviews.map(item =>
    <div key={item.id} className={style.reviewWrapper}>
@@ -63,29 +56,17 @@ let ItemProduct = (props) => {
             {console.log(props.myRefIMG)}
                
                   <div className={style.leftBoxWrapper}>
+                  <button onClick={ () => props.scrollToImgBoxLeft()}>&#60;   </button>
                   <span>{props.scrollPosition + '/' + props.itemProduct.photo.length}</span>
                      <div ref={props.myRefIMG} className={style.leftBox}>
-                     <ScrollMenu 
-                        ref={props.myRefImage}
-                        translate={0}
-                        transition={0.3}
-                        selected={'item1'}
-                        inertiaScrolling={true}
-                        inertiaScrollingSlowdown={0.9}
-                        alignCenter={false} 
-                        wheel={false} 
-                        dragging={false}
-                        scrollBy={1} 
-                        data={mapPhoto} 
-                        arrowLeft={ArrowLeft} 
-                        arrowRight={ArrowRight}
-        />
+                        {mapPhoto}
                      </div>
+                  <button onClick={ () => props.scrollToImgBoxRight()}>&#62;</button>
                   </div>
               
                <div className={style.infoWrapper}>
                   <h2>{props.itemProduct.name} ID: {props.itemProduct.id} </h2>
-                  <Raiting raitingSubmit={props.raitingSubmit}/>
+                  <img src={raiting} alt='' style={{width: '200px', marginTop: '10px', padding: '0'}}></img>
                   <p>Рейтинг товара: {props.itemProduct.raiting} из 5</p>
                   <p>Голосов: {props.itemProduct.voices}</p>  
                      <button onClick={() => openCartFunc(props.itemProduct)}>Добавить в корзину</button>

@@ -4,7 +4,6 @@
 @import './../Styles/border-radius';
 @import './../Styles/flex';
 @import './../Styles/media';
-@import './../Styles/arrow.module';
 
 .wrapper {
     width: 1200px;
@@ -15,24 +14,6 @@
     @include _979 {
         width: auto;
     }
-}
-
-.arrow-prev {  
-    z-index: 1; 
-    left: 0px;
-    bottom: 0;
-    @include flex();
-    @include align-item-center();
-    @include arrows(1, 0, auto, auto, visible, 0, 0 10px);
-}
-
-.arrow-next {
-    z-index: 1; 
-    @include arrows(1, 0, auto, auto, visible, 0, 0 10px);
-    @include flex();
-    @include align-item-center();
-    bottom: 0;
-    right: 0px;
 }
 
 .wrapperTopBox {
@@ -89,7 +70,7 @@
 }
 
 .leftBoxWrapper {
-    width: 354px;
+    width: 340px;
     height: 300px;
     margin: 0;
     padding: 0;
@@ -126,13 +107,7 @@
     overflow-x: hidden;
     white-space: nowrap;
     scroll-behavior: smooth;
-    margin: 0 0 0 28px;
     float: left;
-    &:hover {
-        .arrow-next, .arrow-prev {
-           
-        }
-    }
     IMG {
         display: inline;
         width: 300px;

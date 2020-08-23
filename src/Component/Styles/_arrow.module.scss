@@ -1,0 +1,21 @@
+@import './border-radius';
+@import './transitions';
+
+@mixin arrows($zIndex, $borderRadius: 50%, $width: auto, $height: auto, $visibility: hidden, $top: 50%, $padding: 15px 20px, $position: absolute, $lineHeight: auto) {
+    padding: $padding;
+    text-align: center;
+    cursor: pointer;
+    width: $width;
+    height: $height;
+    position: $position;
+    visibility: $visibility;
+    line-height: $lineHeight;
+    top: $top;
+    @include border-radius($borderRadius);
+    @include transition-block(all, .1s, linear);
+    z-index: $zIndex;
+    background-color: #fff;
+    &:hover {
+        background-color: #ffc62d;
+    }
+}

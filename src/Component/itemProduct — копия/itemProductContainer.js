@@ -12,10 +12,9 @@ class itemProductContainer extends React.Component {
         super(props)
         this.myRef = React.createRef();
         this.myRefIMG = React.createRef();
-        this.state = {
-            currentImage: 0,
-        }
-        this.myRefImage = React.createRef();
+        // this.scrollToMyRef = () => {this.myRef.current && window.scrollTo(0, this.myRef.current.scrollHeight - 25)}
+        this.scrollToImgBoxRight = () => {this.myRefIMG.current.scrollTo(this.myRefIMG.current.scrollLeft + 300, 0); this.props.isScrollImage(true)}
+        this.scrollToImgBoxLeft = () => {this.myRefIMG.current.scrollTo(this.myRefIMG.current.scrollLeft - 300, 0); this.props.isScrollImage(false)}
     }
     componentDidMount() {
         Axios.get('/Products.json').then(response => {this.props.setProduct(response.data.items, this.props.match.params.productId)});
@@ -24,7 +23,8 @@ class itemProductContainer extends React.Component {
         //И получаем характеристики с id 2, 5, 8
         Axios.get('/Reviews.json').then(response => {this.props.setReviews(response.data)});
         Axios.get('/Questions.json').then(response => {
-            this.state.product && this.props.setQuestions(response.data)
+            this.props.setQuestions(response.data)
+            setTimeout(this.scrollToMyRef, 0.5);
         });
         
     }
@@ -42,9 +42,6 @@ class itemProductContainer extends React.Component {
         this.props.setQuestions([]);
         this.props.isScrollImage(false, 1)
     }
-    raitingSubmit() {
-        console.log('AXIOS_SET_RAITING')
-    }
     render() {     
         // Ниже условие формирующее длину URL к которой мы будем прибавлять 
         // Description или Specification  и т.д. т.е. наши вкладки "описание", "Характеристики"
@@ -59,7 +56,6 @@ class itemProductContainer extends React.Component {
             
             {(this.props.product && this.props.reviews && this.props.answers) ? <ItemProduct 
                 itemProduct={this.props.product[0]}
-                myRefImage={this.myRefImage}
                 addToCart={this.props.addToCart}
                 isOpenCartModal={this.props.isOpenCartModal}
                 isOpenRegistrationModal={this.props.isOpenRegistrationModal}
@@ -86,7 +82,6 @@ class itemProductContainer extends React.Component {
                 scrollToImgBoxRight={this.scrollToImgBoxRight}
                 scrollToImgBoxLeft={this.scrollToImgBoxLeft}
                 scrollPosition={this.props.scrollPosition}
-                raitingSubmit={this.raitingSubmit}
             /> : 's'}
            
             </div>

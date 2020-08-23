@@ -2,6 +2,8 @@
 @import './../Styles/colors';
 @import './../Styles/media';
 @import './../Styles/box';
+@import './../Styles/shadows';
+@import './../Styles/transitions';
 
 .popular {
     
@@ -22,8 +24,18 @@
     @include flex;
     @include flex-direction-row;
     @include flex-wrap;
-    @include justify-content-start;
-    padding: 10px 10px 10px 25px;
-    @include box();
+    padding: 10px 0 10px 0;
+    A {
+        @include transition-block(all, 0.1s, linear)
+        margin: 0 0 0 18px;
+        @include box-shadow(0, 3px, 5px, -1px, rgba(0, 0, 0, .1));
+        &:hover {
+            @include box-shadow(0, 3px, 5px, 1px, rgba(0, 0, 0, .2));
+        }
+        &:first-child {
+            margin: 0;
+        }
+    }
+
 }
 

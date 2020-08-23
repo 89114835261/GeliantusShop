@@ -10,6 +10,7 @@ import Menu from '../Menu/Menu';
 import CurrentOfferContainer from '../currentOffer/currentOfferContainer';
 import SaleContainer from '../Sale/SaleContainer';
 import AdBoxSliderContainer from '../adBoxSlider/adBoxSliderContainer';
+import AdBannerContainer from '../ImageFolder/adBannerContainer';
 
 let Main = (props) => {
     if(props.longUrlMain === null ) {
@@ -22,7 +23,9 @@ let Main = (props) => {
                 <SaleContainer />
                 <AdBoxSliderContainer />
             </div>
+            
             <CurrentOfferContainer />
+            <AdBannerContainer />
             <TopProductsContainer itemUrl={props.location.pathname.slice(5, props.longUrlMain)}/>
             </div>
            
