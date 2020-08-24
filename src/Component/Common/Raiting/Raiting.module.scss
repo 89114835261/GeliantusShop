@@ -56,21 +56,23 @@
     @include flex();
     @include flex-direction-row();
     @include flex-nowrap();
-    width: 250px  ;
+    width: 160px;
+    padding: 10px 0 0 0;
     direction: rtl;
     SPAN {
       background-image: url('./../../../img/raiting/raiting.png');
+      background-size: 20px 40px;
       background-repeat: no-repeat;
       display: block;
-      width: 50px;
-      height: 40px;
+      width: 30px;
+      height: 20px;
     }
     SPAN.active {
-      background-position: 0 -40px;
+      background-position: 0 -20px;
     }
   }
 
   .raiting SPAN:hover, .raiting SPAN:hover ~ SPAN {
     cursor: pointer;
-    background-position: 0 -40px;
+    background-position: 0 -20px;
   }

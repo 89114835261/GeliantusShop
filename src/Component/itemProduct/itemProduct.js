@@ -84,7 +84,7 @@ let ItemProduct = (props) => {
                   </div>
               
                <div className={style.infoWrapper}>
-                  <h2>{props.itemProduct.name} ID: {props.itemProduct.id} </h2>
+                  <h1>{props.itemProduct.name} </h1>
                   <Raiting raitingSubmit={props.raitingSubmit}/>
                   <p>Рейтинг товара: {props.itemProduct.raiting} из 5</p>
                   <p>Голосов: {props.itemProduct.voices}</p>  

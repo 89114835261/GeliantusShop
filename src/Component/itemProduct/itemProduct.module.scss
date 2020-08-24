@@ -5,6 +5,7 @@
 @import './../Styles/flex';
 @import './../Styles/media';
 @import './../Styles/arrow.module';
+@import './../../Fonts/fonts.css';
 
 .wrapper {
     width: 1200px;
@@ -248,8 +249,9 @@
     flex-grow: 1;
     padding: 10px 10px 10px 20px;
     flex-flow: wrap row;
-    H2 {
+    H1 {
         margin: 0;
+        font-family: 'exo';
     }
 }
 
